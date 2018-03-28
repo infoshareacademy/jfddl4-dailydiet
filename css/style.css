@@ -1,12 +1,27 @@
 /* CONTAINER */
 
 #container {
+    margin: auto;
     width: 1200px;
 }
 
-#container div {
+#container .container {
     padding: 15px;
 }
 
 /* HERO */
 
+
+/* FEATURES */
+
+div.features--list {
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+
+/* HEADERS */
+
+h1, h2 {
+   text-align: center;
+}
