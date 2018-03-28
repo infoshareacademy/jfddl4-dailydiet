@@ -1,2 +1,12 @@
+/* CONTAINER */
+
+#container {
+    width: 1200px;
+}
+
+#container div {
+    padding: 15px;
+}
+
 /* HERO */
 
