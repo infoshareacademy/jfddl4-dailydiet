@@ -9,4 +9,7 @@
 }
 
 /* HERO */
-
+#hero{
+    background-image: url("top-picture.jpg");
+    width: 1200px;
+}
