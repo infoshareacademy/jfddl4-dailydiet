@@ -17,6 +17,10 @@ body {
     max-width: 1200px;
 }
 
+.features__container {
+    padding: 0 20px;
+}
+
 .features__list {
     display: flex;
     flex-wrap: wrap;
@@ -28,12 +32,13 @@ body {
 .features__list--elements {
     box-sizing: border-box;
     max-width: 30%;
-    padding: 20px;
+    padding-bottom: 20px;
     display: flex;
-    flex: 1 1 200px;
+    flex: 1 0 200px;
     flex-direction: column;
-    margin: 0 15px 25px 15px;
+    margin: 0 15px;
     align-items: center;
+    text-align: center;
 
 }
 
@@ -62,8 +67,16 @@ body {
 }
 
 .features__list--description {
-    text-align: center;
     justify-content: center;
     flex-grow: 1;
     align-self: center;
 }
+
+@media (max-width: 600px) {
+    .features__list--elements {
+        max-width: 100%;
+    }
+}
+    .feature__list--logo {
+        width: 150px;
+    }
