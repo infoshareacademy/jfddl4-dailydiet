@@ -2,12 +2,17 @@
 /* HERO */
 #top-picture{
     background-image: url("background-picture.png");
-    height: 550px;
+    height: 650px;
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     margin: -8px;
+}
+@media (max-width: 600px) {
+    #top-picture{
+        height: 400px;
+    }
 }
 
 .hero {
@@ -15,15 +20,23 @@
     justify-content: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -35%);
+    transform: translate(-50%, -50%);
     background-color: rgba(255,255,255,0.8);
     border-radius: 10px;
-    padding: 20px;
+    padding: 0px 0px;
     text-align: center;
-    max-width: 45%;
+    width: 40%;
 }
-
+@media (max-width: 600px) {
+    .hero{
+        width: 80%;
+    }
+}
 .hero-h1{
+    line-height: 5px;
+    padding: 0px;
+}
+    /*{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 46px;
     font-weight: 900;
@@ -35,6 +48,9 @@
     .hero-h1 {
         font-size: 26px;
     }
+}*/
+.daily-diet-logo{
+    max-width: 30%;
 }
 .hero-header-h2{
     font-family: Arial, Helvetica, sans-serif;
@@ -49,9 +65,9 @@
 }
 .hero-header-h3{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 300;
-    color: #8D0100;
+    color:#005A1F;
 }
 @media (max-width: 600px) {
     .hero-header-h3 {
@@ -59,7 +75,7 @@
     }
 }
 .btn {
-    background-color: #4CAF50;
+    background-color: darkgreen;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -69,6 +85,6 @@
     border-radius: 3px;
 }
 .btn:hover{
-    background-color: darkgreen;
+    background-color: #005A1F;
     transition: background-color 0.2s;
 }
