@@ -96,12 +96,38 @@ a {
     max-width: 200px;
     border-radius: 50%;
 }
-.team-list{
-    display: flex;
-    flex-direction: row;
 
+.class-team-container {
+    margin: auto;
+    max-width: 1200px;
 }
 
+.team-list{
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: darkslategray;
+}
+h2.team-list{
+    color: #005A1F;
+}
+@media (max-width: 670px) {
+    .team-list {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+.fa {
+    font-size: 26px;
+}
 
 
 
