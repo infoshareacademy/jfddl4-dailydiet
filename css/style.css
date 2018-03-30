@@ -85,3 +85,45 @@
     background-color: #005A1F;
     transition: background-color 0.2s;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*TEAM*/
+
+.team-members-pictures{
+    max-width: 200px;
+    border-radius: 50%;
+}
+.team-list{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
