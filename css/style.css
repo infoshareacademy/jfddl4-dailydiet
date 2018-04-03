@@ -1,5 +1,5 @@
 /* HERO */
-#hero-picture{
+#hero{
     background-image: url("img/background-picture.png");
     height: 650px;
     background-position: top center;
@@ -8,7 +8,7 @@
     margin: -8px;
 }
 
-.hero-wrapper{
+.hero__wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,14 +16,14 @@
     height: 650px;
 }
 @media screen and (max-width: 600px) {
-    .hero-wrapper{
+    .hero__wrapper{
         height: 270px;
     }
-    #hero-picture{
+    #hero{
         height: 270px;
     }
 }
-.hero-container{
+.hero__container{
     justify-content: center;
     align-self: auto;
     padding: 0;
@@ -34,18 +34,18 @@
     font-size: 1.4vw;
 }
 @media screen and (max-width:768px) {
-    .hero-container{
+    .hero__container{
         font-size: 1em;
         width: 90%;
     }
 }
 @media screen and (max-width:600px) {
-    .hero-container{
+    .hero__container{
         font-size: 0.8em;
         width: 100%;
     }
 }
-.hero_header-h1{
+.hero__header-h1{
     line-height: 0.1em;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3.4em;
@@ -53,14 +53,14 @@
     color: #005A1F;
 }
 
-.hero_header-h2{
+.hero__header-h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2em;
     font-weight: 700;
     color: darkslategray;
 }
 
-.hero_header-h3{
+.hero__header-h3{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.4em;
     font-weight: 300;
@@ -85,21 +85,33 @@ a {
     text-decoration: none;
     color: inherit;
 }
+/* FORM*/
 
+
+.form__container{
+    padding: 3%;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: darkslategray;
+    font-size: 1.2em;
+}
 /*TEAM*/
 
-.team_member-picture{
+.team__member-picture{
     max-width: 8em;
     border-radius: 50%;
     padding-top: 1.5em;
 }
 
-.class-team-container {
+.team__container {
     margin: auto;
     max-width: 1200px;
 }
-
-.team-list{
+.team__list{
     padding: 1%;
     display: flex;
     flex-direction: row;
@@ -109,11 +121,11 @@ a {
     font-family: "Arial", sans-serif;
     color: darkslategray;
 }
-h2.team-list_member{
+h2.team__list_member{
     color: #005A1F;
 }
 @media (max-width: 670px) {
-    .team-list {
+    .team__list {
         margin: auto;
         display: flex;
         flex-direction: column;
