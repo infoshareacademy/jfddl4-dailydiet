@@ -107,7 +107,6 @@ a {
     color: darkslategray;
     font-size: 1.2em;
     background-color: #F59D08;
-    margin: 6px -7px 6px -7px;
 }
 
 .form__placeholder{
@@ -179,6 +178,12 @@ a {
     -moz-border-radius: 100%;
     border-radius: 100%;
     max-width: 180px;
+}
+
+@media screen and (max-width: 974px) {
+    .features__list-element {
+        min-width: 40%;
+    }
 }
 
 /*TEAM*/
