@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 /* HERO */
 #hero{
     background-image: url("img/background-picture.png");
@@ -84,7 +87,6 @@ a {
 }
 /* FORM*/
 
-
 .form__container{
     padding: 3%;
     display: flex;
@@ -94,6 +96,14 @@ a {
     text-align: center;
     font-family: "Arial", sans-serif;
     color: darkslategray;
+    font-size: 1.2em;
+    background-color: #F59D08;
+    opacity:0.5;
+    margin: 6px -7px 6px -7px;
+}
+.form__placeholder{
+    height: 1.5em;
+    align-content: flex-start;
     font-size: 1.2em;
 }
 /*TEAM*/
@@ -134,28 +144,3 @@ h2.team__list_member{
 .fa {
     font-size: 26px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
