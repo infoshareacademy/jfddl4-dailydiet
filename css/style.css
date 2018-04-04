@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+}
+/* HERO */
+#hero{
+    background-image: url("img/background-picture.png");
+    height: 650px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: -8px;
+}
+
+.hero__wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+}
+@media screen and (max-width: 600px) {
+    .hero__wrapper{
+        height: 270px;
+    }
+    #hero{
+        height: 270px;
+    }
+}
+.hero__container{
+    justify-content: center;
+    align-self: auto;
+    padding: 0;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 3px;
+    text-align: center;
+    width: 40%;
+    font-size: 1.4vw;
+}
+@media screen and (max-width:768px) {
+    .hero__container{
+        font-size: 1em;
+        width: 90%;
+    }
+}
+@media screen and (max-width:600px) {
+    .hero__container{
+        font-size: 0.8em;
+        width: 100%;
+        border-radius: 0%;
+    }
+}
+.daily-diet-logo{
+    width:80%;
+    margin: -1em;
+}
+
+.hero__header-h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: darkslategray;
+}
+
+.hero__header-h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    font-weight: 300;
+    color:darkslategray;
+}
+
+.btn {
+    background-color: darkgreen;
+    border: none;
+    color: white;
+    padding: 2% 5%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4em;
+    border-radius: 3px;
+}
+.btn:hover{
+    background-color: #005A1F;
+    transition: background-color 0.2s;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.form__button{
+    margin: 3px;
+}
+/* FORM*/
+
+.form__container{
+    padding: 3%;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: darkslategray;
+    font-size: 1.2em;
+    background-color: #F59D08;
+    margin: 6px -7px 6px -7px;
+}
+.form__placeholder{
+    height: 1.5em;
+    align-content: flex-start;
+    font-size: 1.2em;
+}
+.form__paragraph{
+    font-size: 2em;
+}
+@media screen and (max-width: 600px) {
+    .form__paragraph{
+        font-size: 1.2em;
+    }
+}
+/*TEAM*/
+.team__header-h2{
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: darkslategray;
+    font-size: 2em;
+}
+.team__member-picture{
+    max-width: 8em;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.team__container {
+    margin: auto;
+    max-width: 1200px;
+    padding-top: 1.5em;
+}
+.team__list{
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: darkslategray;
+}
+.team__list-member{
+    color: #005A1F;
+    font-size: 1.5em;
+    padding: 3%;
+}
+@media screen and (max-width: 670px) {
+    .team__list {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 0.8em;
+    }
+}
+.fa {
+    font-size: 26px;
+}
