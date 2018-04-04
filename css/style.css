@@ -148,7 +148,7 @@ a {
 .team__list-member{
     color: #005A1F;
     font-size: 1.5em;
-    padding: 3%;
+    padding: 2%;
 }
 @media screen and (max-width: 670px) {
     .team__list {
@@ -163,4 +163,5 @@ a {
 }
 .fa {
     font-size: 26px;
+
 }
