@@ -84,10 +84,10 @@ body {
     background-color: darkgreen;
     border: none;
     color: white;
-    padding: 2% 5%;
+    padding: 7px 7px;
     text-align: center;
     text-decoration: none;
-    font-size: 1.4em;
+    font-size: 1.2em;
     border-radius: 3px;
 }
 
@@ -129,12 +129,26 @@ a {
 
 .form__paragraph {
     font-size: 2em;
+    font-weight: bold;
+}
+
+.form__info {
+    max-width: 50%;
+    text-align: center;
+    margin: auto;
+    color: #f1edef;
+    font-size: 1.2em;
 }
 
 @media screen and (max-width: 600px) {
     .form__paragraph {
         font-size: 1.2em;
     }
+}
+
+.form__checkbox-style{
+    width: 30px;
+    padding-top: 2em;
 }
 
 /* FEATURES */
@@ -211,7 +225,13 @@ a {
     max-width: 8em;
     border-radius: 50%;
     margin: 2px;
+    transform: scale(1); /*zapobiega przesuwaniu się tekstu przed transition*/
+    transition: transform 0.2s ease-in-out;
+}
 
+.team__member-picture:hover {
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 .team__container {
@@ -234,13 +254,6 @@ a {
 .team__list-member {
     color: #005A1F;
     font-size: 1.5em;
-    padding: 3%;
-    transition: transform 0.2s ease-in-out;
-}
-
-.team__list-member:hover {
-    cursor: pointer;
-    transform: scale(1.1);
 }
 
 @media screen and (max-width: 670px) {
@@ -257,7 +270,6 @@ a {
 
 .fa {
     font-size: 26px;
-
 }
 
 /* HEADERS */
@@ -277,7 +289,6 @@ a {
     .features__list-element {
         max-width: 100%;
     }
-
     .feature__list-logo {
         width: 150px;
     }
