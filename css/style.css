@@ -1,9 +1,14 @@
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0 auto;
+}
+
 *{
     box-sizing: border-box;
 }
 /* HERO */
 #hero{
-    background-image: url("img/background-picture.png");
+    background-image: url("../img/background-picture.png");
     height: 650px;
     background-position: top center;
     background-repeat: no-repeat;
@@ -102,28 +107,94 @@ a {
     color: darkslategray;
     font-size: 1.2em;
     background-color: #F59D08;
-    margin: 6px -7px 6px -7px;
 }
+
 .form__placeholder{
     height: 1.5em;
     align-content: flex-start;
     font-size: 1.2em;
 }
+
 .form__paragraph{
     font-size: 2em;
 }
+
 @media screen and (max-width: 600px) {
     .form__paragraph{
         font-size: 1.2em;
     }
 }
+
+/* FEATURES */
+
+.features__section {
+    background: #f1edef;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.features__container {
+    padding: 0 20px;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.features__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    padding: 0;
+}
+
+.features__list-element {
+    box-sizing: border-box;
+    max-width: 30%;
+    padding-bottom: 20px;
+    display: flex;
+    flex: 1 0 200px;
+    flex-direction: column;
+    margin: 0 15px;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.features__list-element:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.features__list-header {
+    color: #F59D08;
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+.feature__list-logo {
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    max-width: 180px;
+}
+
+@media screen and (max-width: 974px) {
+    .features__list-element {
+        min-width: 40%;
+    }
+}
+
 /*TEAM*/
+
 .team__header-h2{
     text-align: center;
     font-family: "Arial", sans-serif;
     color: darkslategray;
     font-size: 2em;
 }
+
 .team__member-picture{
     max-width: 8em;
     border-radius: 50%;
@@ -135,6 +206,7 @@ a {
     max-width: 1200px;
     padding-top: 1.5em;
 }
+
 .team__list{
     padding: 1%;
     display: flex;
@@ -145,11 +217,13 @@ a {
     font-family: "Arial", sans-serif;
     color: darkslategray;
 }
+
 .team__list-member{
     color: #005A1F;
     font-size: 1.5em;
     padding: 3%;
 }
+
 @media screen and (max-width: 670px) {
     .team__list {
         margin: auto;
@@ -161,6 +235,30 @@ a {
         font-size: 0.8em;
     }
 }
+
 .fa {
     font-size: 26px;
+}
+
+/* HEADERS */
+
+.features__header {
+    color: #EF0405;
+    text-align: center;
+}
+
+.features__list-description {
+    justify-content: center;
+    flex-grow: 1;
+    align-self: center;
+}
+
+@media (max-width: 600px) {
+    .features__list-element {
+        max-width: 100%;
+    }
+
+    .feature__list-logo {
+        width: 150px;
+    }
 }
