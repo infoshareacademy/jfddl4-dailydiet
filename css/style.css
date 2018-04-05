@@ -272,6 +272,23 @@ a {
 
 .image {
     max-width: 600px;
+    object-fit: cover;
+}
+
+.image div:nth-of-type(odd) {
+    order: 1;
+}
+
+.descriptions-text div:nth-of-type(even) {
+    order: 1;
+}
+
+.image div:nth-of-type(even) {
+    order: 2;
+}
+
+.descriptions-text div:nth-of-type(odd) {
+    order: 2;
 }
 
 /* FORM*/
