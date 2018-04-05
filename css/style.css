@@ -1,5 +1,8 @@
 *{
     box-sizing: border-box;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 /* HERO */
 #hero{
@@ -8,7 +11,8 @@
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: -8px;
+    /*margin: -8px;*/
+
 }
 
 .hero__wrapper{
@@ -24,6 +28,7 @@
     }
     #hero{
         height: 270px;
+
     }
 }
 .hero__container{
@@ -51,7 +56,7 @@
 }
 .daily-diet-logo{
     width:80%;
-    margin: -1em;
+    /*margin: -1em;*/
 }
 
 .hero__header-h2{
@@ -102,7 +107,7 @@ a {
     color: darkslategray;
     font-size: 1.2em;
     background-color: #F59D08;
-    margin: 6px -7px 6px -7px;
+    /*margin: 6px -7px 6px -7px;*/
 }
 .form__placeholder{
     height: 1.5em;
@@ -168,20 +173,27 @@ a {
 /* Navigation */
 
 nav{
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
-    background: #333;
-    margin-bottom: 50px;
+    background: rgb(255, 141, 42);
+    opacity: 0.95;
     margin-left: 0;
     margin-right: 0;
+
+
 }
 
 .nav{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
     width: 100%;
+    height: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    align-items: center;
+    min-height: 100%;
     
 
 }
@@ -197,60 +209,99 @@ nav{
     flex-grow: 3;
     list-style-type: none; 
     padding: 0;
+    height: 100%;
 }
 
 
 .nav-list__item a{
+    height: 100%;
     text-decoration: none;
     text-align: center;
-    color: #fff;
+    color: #0f752e;
     display: block;
     padding: 10px;
     
  
 }
-.nav-list__item a:hover{
-    background-color: #555;
 
-}
+
 .nav-list__item{
     flex: 1 1 0;
+    height: 100%;
+
+
+}
+.nav-list__item:hover{
+
+    background-color: #ff6f1e;
 }
 
 .cont{
     margin: 10px auto;
 }
 
-/* mediaquerisy do sprawdzenia*/
+.nav-logo__pic{
+
+    width: 40%;
+    height: 40%;
+
+}
+
+.nav-list__item:nth-of-type(6), .nav-list__item:nth-of-type(7){
+    font-weight: bold;
+}
+
+/*  do sprawdzenia*/
 
 @media all and (max-width: 1000px){
 
+
+
     .nav{
         flex-wrap: wrap-reverse;
+
 
     }
     .nav-list{
         flex-wrap: wrap;
     }
     .nav-list__item{
+        font-size: 30px;
         flex: 1 1 50%;
     }
     .nav-logo{
         align-self: center;
     }
 
+
+    /*nav{*/
+        /*margin-bottom: 300px;*/
+    /*}*/
 }
 
 @media all and (max-width: 500px){
 
+    /*body{*/
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*justify-content: space-between;*/
+    /*}*/
+
+
+
+    /*nav{*/
+        /*margin-bottom: 400px;*/
+    /*}*/
     .nav{
         flex-wrap: wrap-reverse;
+
     }
     .nav-list{
         
         flex-wrap: wrap;
     }
     .nav-list__item{
+        font-size: 30px;
         flex: 1 1 100%;
     }
 
