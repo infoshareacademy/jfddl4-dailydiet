@@ -41,16 +41,25 @@
 <!-- /HERO -->
 <!-- FORM -->
 <section id="form" class="form__container">
-    <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
-        <p class="form__paragraph">Provide your e-mail address to&nbspreceive&nbspnewsletter</p>
-        <input type="text" name="emails[]" placeholder="Enter your e-mail" class="form__placeholder">
-        <input type="hidden" name="subject" value="Daily Diet subscription">
-        <input type="hidden" name="message" value="You have subscribed to Daily Diet">
-        <input type="hidden" name="from" value="mateusz.choma@infoshareacademy.com">
-        <input type="hidden" name="fromName" value="Daily Diet">
-        <input type="hidden" name="redirect" value="https://google.com"> <!-- change address!!!! -->
-        <input class="button btn form__button" type="submit" value="Send!">
-    </form>
+    <div class="row">
+        <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
+            <p class="form__paragraph">Get info about Daily Diet app release</p>
+            <input type="text" name="emails[]" placeholder="Enter your e-mail" class="form__placeholder">
+            <input type="hidden" name="subject" value="Daily Diet subscription">
+            <input type="hidden" name="message" value="You have subscribed to Daily Diet">
+            <input type="hidden" name="from" value="mateusz.choma@infoshareacademy.com">
+            <input type="hidden" name="fromName" value="Daily Diet">
+            <input type="hidden" name="redirect" value="https://google.com"> <!-- change address!!!! -->
+            <input class="button btn form__button" type="submit" value="Send!">
+            <div class="row">
+            <input class="form__checkbox-style" type="checkbox">I agree to receive a message about Daily Diet app release.
+            </div>
+            <div class="row form__info">
+                <p>You will receive one message when our app is ready. <br>We make sure that Daily Diet services are protected by one of the world’s most advanced security infrastructures.</p>
+            </div>
+        </form>
+    </div>
+
 </section>
 <!-- /FORM -->
 
@@ -166,8 +175,8 @@
 <!-- FOOTER -->
 <footer id="footer" class="container--footer">
 
-</footer>
-<!-- /FOOTER -->
+        </footer>
+        <!-- /FOOTER -->
 
 <!-- JS -->
 <script src="js/script.js"></script>
