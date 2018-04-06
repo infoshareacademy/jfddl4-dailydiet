@@ -1,13 +1,16 @@
-* {
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0 auto;
+}
+
+*{
     box-sizing: border-box;
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
 }
 
 /* HERO */
-#hero {
-    background-image: url("img/background-picture.png");
+
+#hero{
+    background-image: url("../img/background-picture.png");
     height: 650px;
     background-position: top center;
     background-repeat: no-repeat;
@@ -31,7 +34,6 @@
 
     #hero {
         height: 270px;
-
     }
 }
 
@@ -121,13 +123,13 @@ a {
     /*margin: 6px -7px 6px -7px;*/
 }
 
-.form__placeholder {
+.form__placeholder{
     height: 1.5em;
     align-content: flex-start;
     font-size: 1.2em;
 }
 
-.form__paragraph {
+.form__paragraph{
     font-size: 2em;
 }
 
@@ -136,6 +138,68 @@ a {
         font-size: 1.2em;
     }
 }
+
+/* FEATURES */
+
+.features__section {
+    background: #f1edef;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.features__container {
+    padding: 0 20px;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.features__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    padding: 0;
+}
+
+.features__list-element {
+    box-sizing: border-box;
+    max-width: 30%;
+    padding-bottom: 20px;
+    display: flex;
+    flex: 1 0 200px;
+    flex-direction: column;
+    margin: 0 15px;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.features__list-element:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.features__list-header {
+    color: #F59D08;
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+.feature__list-logo {
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    max-width: 180px;
+}
+
+@media screen and (max-width: 974px) {
+    .features__list-element {
+        min-width: 40%;
+    }
+}
+
 
 /*TEAM*/
 .team__header-h2 {
@@ -190,6 +254,29 @@ a {
     font-size: 26px;
 }
 
+/* HEADERS */
+
+.features__header {
+    color: #EF0405;
+    text-align: center;
+}
+
+.features__list-description {
+    justify-content: center;
+    flex-grow: 1;
+    align-self: center;
+}
+
+@media (max-width: 600px) {
+    .features__list-element {
+        max-width: 100%;
+    }
+
+    .feature__list-logo {
+        width: 150px;
+    }
+}
+
 /* Navigation */
 
 nav {
@@ -201,7 +288,7 @@ nav {
     opacity: 0.95;
     margin-left: 0;
     margin-right: 0;
-
+    margin-top: 0;
 
 
 }
