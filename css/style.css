@@ -103,7 +103,7 @@ a {
     flex-flow: row wrap;
     left: 0;
     right: 0;
-    bottom: 32px;
+    bottom: 20px;
     justify-content: space-around;
     max-width: 1200px;
     margin: 0 auto;
@@ -118,11 +118,21 @@ a {
 }
 
 @media screen and (max-width: 974px) {
-    .social-media__item {
-        min-width: 40%;
-    }
     .social-media__container {
+        width: 50%;
+        min-width: 678px;
+        justify-content: space-between;
         bottom: 16px;
+    }
+    .social-media__title {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .social-media__container {
+        min-width: 0;
+        width: 90%;
     }
 }
 
@@ -141,19 +151,6 @@ a {
 
 .social-media__item a {
     text-decoration: none;
-}
-@media screen and (max-width: 768px) {
-    .social-media__title {
-        display: none;
-    }
-
-    .social-media__item {
-        min-width: 0;
-    }
-
-    .social-media__icon {
-        width: 17vw;
-    }
 }
 
 /* FORM*/
@@ -209,7 +206,6 @@ a {
 /* FEATURES */
 
 .features__section {
-    background: #f1edef;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -269,7 +265,7 @@ a {
 
 .features__list-description {
     font-size: 1.3em;
-    color: #005a1f;
+    color: darkslategray;
 }
 
 .features__list-description {
@@ -321,6 +317,17 @@ a {
     height: auto;
 }
 
+@media screen and (max-width: 600px) {
+    .quotation {
+        padding: 2em 0;
+    }
+    .quotation__container {
+        min-width: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
 .horizontal-logo {
     padding-left: 0.5em;
     width: 30vw;
@@ -333,14 +340,13 @@ a {
     padding-left: 0.25em;
     font-size: 1.5rem;
     margin: 0;
-    color: #005A1F;
+    color: darkslategray;
 }
 
 /* DESCRIPTIONS */
 
 .descriptions {
-    background: #f1edef;
-    margin: 0;
+    padding: 4rem 0;
 }
 
 .descriptions__container {
@@ -365,21 +371,21 @@ a {
 .descriptions-text, .descriptions-text-reversed {
     justify-self: center;
     align-self: center;
+    color: darkslategray;
     font-size: 1.5em;
     padding: 0 2em;
     text-align: left;
 }
 
 .descriptions__header {
-    color: #005a1f;
 }
 
 .description {
-    color: #005a1f;
+    text-align: justify;
 }
 
 .descriptions-text-reversed {
-    text-align: right;
+    text-align-last: right;
 }
 
 .image-order-left {
@@ -397,6 +403,9 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+    .descriptions {
+        padding: 0;
+    }
     .image-order-right {
         order: -1;
     }
@@ -518,4 +527,4 @@ a {
 
 .fa {
     font-size: 26px;
-}}
+}
