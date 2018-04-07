@@ -17,124 +17,233 @@
 <body>
 
 <!-- NAV -->
-<nav class="nav">
+<nav>
+
 </nav>
 <!-- /NAV -->
 
 <!-- HERO -->
 <section id="hero">
-    <div class="hero__wrapper">
-        <div class="hero__container">
-            <h1 class="hero__header-h1"><img src="img/DD-logo-noimage.png" alt="Daily Diet" title="Daily Diet"
-                                             class="daily-diet-logo"></h1>
-
-            <h2 class="hero__header-h2">Stay healthy with our help</h2>
-
-            <button type="button" class="btn"><a href="#">Submit!</a></button>
-
-            <h3 class="hero__header-h3">submit to keep fit</h3>
-
-        </div>
+    <div class="hero__container">
+        <img src="img/DD-logo-horizontal.png" alt="Daily Diet" title="Daily Diet"
+             class="daily-diet-logo">
+        <h2 class="hero__header-h2">Stay healthy with our help</h2>
+        <button type="button" class="btn"><a href="#">Submit!</a></button>
+        <h3 class="hero__header-h3">submit to keep fit</h3>
     </div>
 </section>
-
 <!-- /HERO -->
-<!-- FORM -->
-<section id="form" class="form__container">
-    <div class="row">
-        <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
-            <p class="form__paragraph">Get info about Daily Diet app release</p>
-            <input type="text" name="emails[]" placeholder="Enter your e-mail" class="form__placeholder">
-            <input type="hidden" name="subject" value="Daily Diet subscription">
-            <input type="hidden" name="message" value="You have subscribed to Daily Diet">
-            <input type="hidden" name="from" value="mateusz.choma@infoshareacademy.com">
-            <input type="hidden" name="fromName" value="Daily Diet">
-            <input type="hidden" name="redirect" value="https://google.com"> <!-- change address!!!! -->
-            <input class="button btn form__button" type="submit" value="Send!">
-            <div class="row">
-            <input class="form__checkbox-style" type="checkbox">I agree to receive a message about Daily Diet app release.
-            </div>
-            <div class="row form__info">
-                <p>You will receive one message when our app is ready. <br>We make sure that Daily Diet services are protected by one of the world’s most advanced security infrastructures.</p>
-            </div>
-        </form>
-    </div>
-
-</section>
-<!-- /FORM -->
 
 <!-- MAIN -->
-
 <main>
 
+    <!-- FEATURES -->
     <section id="features" class="features__section">
-        <!-- FEATURES -->
-
         <section class="features__container">
-
             <div class="features__header-div">
-
                 <h2 class="features__header">FEATURES</h2>
-
             </div>
-
             <ul class="features__list">
-
                 <li class="features__list-element">
-
-                    <img src="img/feature-1.jpg" class="feature__list-logo" alt="logo feature one"/>
-
+                    <img src="img/feature-1.jpg" class="feature__list-logo" alt="logo add feature"
+                         title="Food vector created by Macrovector - Freepik.com"/>
                     <h3 class="features__list-header">ADD</h3>
-
                     <p class="features__list-description">Add your own products or meals</p>
-
                 </li>
-
                 <li class="features__list-element">
-
-                    <img src="img/feature-2.jpg" class="feature__list-logo" alt="logo feature one"/>
-
+                    <img src="img/feature-2.jpg" class="feature__list-logo" alt="logo library feature"
+                         title="Tło wektory designed by Makyzz - Freepik.com"/>
                     <h3 class="features__list-header">USE LIBRARY</h3>
-
                     <p class="features__list-description">Chosse products from our library</p>
-
                 </li>
-
                 <li class="features__list-element">
-
-                    <img src="img/feature-3.png" class="feature__list-logo" alt="logo feature one"/>
-
+                    <img src="img/feature-3.png" class="feature__list-logo" alt="logo calendar feature"
+                         title="Banner vector created by Makyzz - Freepik.com"/>
                     <h3 class="features__list-header">CALENDAR</h3>
-
                     <p class="features__list-description">Simply add your meals to calendar</p>
-
                 </li>
-
                 <li class="features__list-element">
-
-                    <img src="img/feature-4.jpg" class="feature__list-logo" alt="logo feature two"/>
-
+                    <img src="img/feature-4.jpg" class="feature__list-logo" alt="logo feature two"
+                         title="Background vector created by Dooder - Freepik.com"/>
                     <h3 class="features__list-header">STATISTICS</h3>
-
                     <p class="features__list-description">Track statistics of calories and macronutrients</p>
-
                 </li>
-
             </ul>
-
         </section>
-
     </section>
     <!-- /FEATURES -->
+
+    <!-- QUOTATION -->
+    <section class="quotation">
+        <div class="quotation__container">
+            <img class="horizontal-logo" src="img/DD-logo-horizontal.png" alt="Daily Diet horizontal logo"
+                 title="Stay healthy with our help"/>
+
+            <p class="quotation__paragraph">Being healthy is easy. All you need to do is to control what you eat. And&nbsp;it's
+                easier with our app.
+            </p>
+        </div>
+    </section>
+    <!-- QUOTATION -->
+
+    <!-- DESCRIPTIONS -->
+    <section class="descriptions">
+
+        <!-- Desription feature one -->
+        <section class="descriptions__container">
+            <div class="descriptions__content">
+                <div class="descriptions__image image-order--left">
+                    <img src="img/image-add-meal.jpg" class="image"
+                         title="Food fotografie designed by Jcstudio - Freepik.com"
+                         alt="add feature image"/>
+                </div>
+                <div class="descriptions__text">
+                    <h2 class="descriptions__header">Add your own meals and products...</h2>
+                    <p class="description">You can easily add everything you eat, choosing between simple product or
+                        prepared meals. Regular listings would help you improve your healthy diet habbits! </p>
+                </div>
+            </div>
+
+            <!-- Desription feature two -->
+            <div class="descriptions__content">
+                <div class="descriptions__image image-order-right">
+                    <img src="img/image-library.jpg" class="image" title="Use our library to add products"
+                         alt="library feature image"/>
+                </div>
+                <div class="descriptions__text">
+                    <h2 class="descriptions__header descriptions__header--reversed">...or choose from our library!</h2>
+                    <p class="description description--reversed">Adding meals is even easier with our library. You can
+                        choose from products
+                        stored in our library
+                        and add yours products and meals to our database. It's people like you and us who create
+                        <strong>Daily&nbsp;Diet!</strong></p>
+                </div>
+            </div>
+
+            <!-- Desription feature three -->
+            <div class="descriptions__content">
+                <div class="descriptions__image image-order--left">
+                    <img src="img/image-calendar-add.jpg" class="image" title="Use our library"
+                         alt="calendar feature image"/>
+                </div>
+                <div class="descriptions__text">
+                    <h2 class="descriptions__header">Store your meals in&nbsp;calendar!</h2>
+                    <p class="description"><strong>Daily Diet</strong> is mentioned to let you easily assign your meals
+                        to the calendar.
+                        You can add your
+                        meals backwards or plan your diet for next upcoming days! Stay healthy every day, every week and
+                        every month!</p>
+                </div>
+            </div>
+
+            <!-- Desription feature four -->
+            <div class="descriptions__content">
+                <div class="descriptions__image image-order-right">
+                    <img src="img/image-stats.jpg" class="image" title="Follow your statistic"
+                         alt="statistics feature image"/>
+                </div>
+                <div class="descriptions__text">
+                    <h2 class="descriptions__header descriptions__header--reversed">Track statistics
+                        every&nbsp;day!</h2>
+                    <p class="description description--reversed">With eye-friendly diagrams check your statistics of
+                        calories and
+                        macronutrients you consume every day! Feedback like this would help you to precisely and
+                        carefully draft your healthy diet.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- /DESCRIPTIONS -->
+
+    <!-- FORM -->
+    <section id="form" class="form__container">
+        <div class="row">
+            <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
+                <p class="form__paragraph">Get info about Daily Diet app release</p>
+                <input type="text" name="emails[]" placeholder="Enter your e-mail" class="form__placeholder">
+                <input type="hidden" name="subject" value="Daily Diet subscription">
+                <input type="hidden" name="message" value="You have subscribed to Daily Diet">
+                <input type="hidden" name="from" value="mateusz.choma@infoshareacademy.com">
+                <input type="hidden" name="fromName" value="Daily Diet">
+                <input type="hidden" name="redirect" value="https://google.com"> <!-- change address!!!! -->
+                <input class="button btn form__button" type="submit" value="Send!">
+                <div class="row">
+                    <input class="form__checkbox-style" type="checkbox">I agree to receive a message about Daily Diet app release.
+                </div>
+                <div class="row form__info">
+                    <p>You will receive one message when our app is ready. <br>We make sure that Daily Diet services are protected by one of the world’s most advanced security infrastructures.</p>
+                </div>
+            </form>
+        </div>
+
+    </section>
+    <!-- /FORM -->
+
+    <!-- SOCIAL MEDIA -->
+    <section class="social-media">
+        <div class="social-media__container">
+            <div class="social-media__item">
+                <a href=" " target="_blank" title="Check out Daily Diet App profile on Facebook">
+                    <img src="img/facebook.svg" class="social-media__icon" alt="facebook icon"
+                         title="Check out Daily Diet App profile on Facebook"/>
+                </a>
+                <a href=" " target="_blank" title="Check out Daily Diet App profile on Facebook">
+                    <p class="social-media__title">
+                        Daily Diet App
+                    </p>
+                </a>
+            </div>
+            <div class="social-media__item">
+                <a href="https://twitter.com/hashtag/dailydiet?src=hash" target="_blank"
+                   title="Check out #DailyDiet on Twitter">
+                    <img src="img/twitter.svg" class="social-media__icon" alt="twitter icon"
+                         title="Check out #DailyDiet on Twitter"/>
+                </a>
+                <a href="https://twitter.com/hashtag/dailydiet?src=hash" target="_blank"
+                   title="Check out #DailyDiet on Twitter">
+                    <p class="social-media__title">
+                        #DailyDiet
+                    </p>
+                </a>
+            </div>
+            <div class="social-media__item">
+                <a href=" " target="_blank" title="Check out Daily Diet App on Google Plus">
+                    <img src="img/google-plus.svg" class="social-media__icon" alt="google plus icon"
+                         title="Check us on Google Plus"/>
+                </a>
+                <a href=" " target="_blank" title="Check out Daily Diet App on Google Plus">
+                    <p class="social-media__title">
+                        Daily Diet App
+                    </p>
+                </a>
+            </div>
+            <div class="social-media__item">
+                <a href="https://www.instagram.com/explore/tags/dailydiet/" target="_blank"
+                   title="Check for #DailyDiet photos on Instagram">
+                    <img src="img/instagram.svg" class="social-media__icon" alt="instagram icon"
+                         title="Check for #DailyDiet photos on Instagram"/>
+                </a>
+
+                <a href="https://www.instagram.com/explore/tags/dailydiet/" target="_blank"
+                   title="Check for #DailyDiet photos on Instagram">
+                    <p class="social-media__title">
+                        #DailyDiet
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- SOCIAL MEDIA -->
 
     <!-- TEAM -->
     <section id="team" class="team__container">
         <div class="team__wrapper">
-            <h2 class="team__header-h2">meet Daily Diet team</h2>
+            <h2 class="team__header-h2">meet <strong>Daily Diet</strong> team</h2>
             <ul class="team__list">
 
-                <li class="team__list-member"><img src="img/Man2-Designed_by_javi_indy-freepik.com.jpg"
-                                                   alt="Szymon's picture" title="Designed_by_javi_indi at freepik.com"
+                <li class="team__list-member"><img src="img/Man2.jpg"
+                                                   alt="Szymon's picture"
+                                                   title="Designed_by_javi_indi at freepik.com"
                                                    class="team__member-picture"><br>
                     <h3>Szymon Oleszek</h3>
                     <a href="#"><i class="fa fa-facebook-official"></i></a>
@@ -142,7 +251,7 @@
                     <a href="#"><i class="fa fa-github"></i></a><br><br>
                     <a href="#">click to learn more</a></li>
 
-                <li class="team__list-member"><img src="img/Woman-Designed_by_nensuria-freepik.com.jpg"
+                <li class="team__list-member"><img src="img/Woman.jpg"
                                                    alt="Magda's picture" title="Designed_by_nensuria at freepik.com"
                                                    class="team__member-picture">
                     <h3>Magda Wójcicka</h3>
@@ -151,7 +260,7 @@
                     <a href="#"><i class="fa fa-github"></i></a><br><br>
                     <a href="#">click to learn more</a></li>
 
-                <li class="team__list-member"><img src="img/Man1-Designed_by_creativeart-freepik.com.png"
+                <li class="team__list-member"><img src="img/Man1.png"
                                                    alt="Bartosz's picture"
                                                    title="Designed_by_jvreativeart at freepik.com"
                                                    class="team__member-picture">
@@ -165,18 +274,14 @@
     </section>
     <!-- /TEAM -->
 
-    <!-- DESCRIPTIONS -->
-
-    <!-- DESCRIPTIONS -->
-
 </main>
 <!-- /MAIN -->
 
 <!-- FOOTER -->
-<footer id="footer" class="container--footer">
+<footer id="footer">
 
-        </footer>
-        <!-- /FOOTER -->
+</footer>
+<!-- /FOOTER -->
 
 <!-- JS -->
 <script src="js/script.js"></script>
