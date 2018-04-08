@@ -23,17 +23,21 @@
         <div class="nav">
             <div class="nav-logo">
                 <img class="nav-logo__pic" src="img/DD-logo-noimage.png" alt="LOGO">
-            </div>
+                
+                <span class="toggle menu">&#9776;</span>
 
+            </div>
+         
             <ul class="nav-list">
-                <li class="nav-list__item"><a href="#hero">Home</a></li>
-                <li class="nav-list__item"><a href="#features">Features</a></li>
-                <li class="nav-list__item"><a href="#">More</a></li>
-                <li class="nav-list__item"><a href="#team">Team</a></li>
+                <li class="nav-list__item flag"><a href="#hero">Home</a></li>
+                <li class="nav-list__item flag"><a href="#features">Features</a></li>
+                <li class="nav-list__item flag"><a href="#">More</a></li>
+                <li class="nav-list__item flag"><a href="#team">Team</a></li>
                 <!--<li class="nav-list__item"><a href="#">Contact</a></li>-->
                 <!--<li class="nav-list__item"><a href="#">App</a></li>-->
-                <li class="nav-list__item"><a href="#form">Sign</a></li>
+                <li class="nav-list__item flag"><a href="#form">Sign</a></li>
             </ul>
+
 
         </div>
 
@@ -198,7 +202,15 @@
         <!-- /FOOTER -->
 
 <!-- JS -->
-<script src="js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+<script type="text/javascript">
 
+    $(document).ready(function(){
+        $('.menu').click(function(){
+            $('.nav-list').toggleClass('active');
+        })
+    })
+
+</script>
 </body>
 </html>
