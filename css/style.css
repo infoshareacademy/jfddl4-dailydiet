@@ -318,7 +318,7 @@ a {
     text-align: center;
     color: darkslategray;
     font-size: 1.2em;
-    background-color: #F59D08;
+    background-color: rgb(255, 141, 42);
 }
 
 .form__placeholder {
