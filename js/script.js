@@ -10,3 +10,6 @@ $('a.smooth-scroll').on('click', function(event){
         scrollTop: $($.attr(this, 'href')).offset().top - 30
     }, 800);
 });
+
+//--- TEMPORARY LOCAL STORAGE COOKIE ---
+
