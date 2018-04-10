@@ -1,8 +1,12 @@
+// --- NAVBAR TOGGLER ---
+
 $(document).ready(function () {
     $('.menu').click(function () {
         $('.nav-list').toggleClass('active');
     })
 })
+
+// --- SMOOTH SCROLL ---
 
 $('a.smooth-scroll').on('click', function(event){
     event.preventDefault();
