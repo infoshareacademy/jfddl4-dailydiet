@@ -132,55 +132,109 @@ nav {
         display: block;
     }
 }
-
+/* Hidden until carousel is ready and I can delete it*/
 /* HERO */
 
-#hero {
-    display: flex;
-    background: url("../img/background-picture.jpg") no-repeat top center;
-    background-size: cover;
+/*#hero {*/
+    /*display: flex;*/
+    /*background: url("../img/background-picture.jpg") no-repeat top center;*/
+    /*background-size: cover;*/
+    /*height: calc(100vh - 60px);*/
+    /*position: relative;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /**/
+/*}*/
+
+/*@media only screen and (max-width: 700px) {*/
+    /*#hero {*/
+        /*height: calc(100vh);*/
+    /*}*/
+/*}*/
+
+/*.hero__container {*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*padding: 0.5rem;*/
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+    /*border-radius: 1rem;*/
+    /*text-align: center;*/
+    /*width: 50%;*/
+    /*min-width: 678px;*/
+    /*font-size: 1.4vw;*/
+/*}*/
+
+/*@media screen and (max-width: 768px) {*/
+    /*.hero__container {*/
+        /*font-size: 1em;*/
+        /*min-width: 0;*/
+        /*width: 90%;*/
+    /*}*/
+/*}*/
+
+/*@media screen and (max-width: 600px) {*/
+    /*.hero__container {*/
+        /*font-size: 0.8em;*/
+        /*min-width: 0;*/
+        /*width: 100%;*/
+        /*border-radius: 0;*/
+        /*transform: translateY(-5%);*/
+    /*}*/
+/*}*/
+.hero__carousel-box {
+    font-family: helvetica,sans-serif;
+    font-size: 14px;
     height: calc(100vh - 60px);
+    width: 100%;
     position: relative;
-    justify-content: center;
-    align-items: center;
+    margin: 1em;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px #ccc;
+    overflow: hidden;
 }
-
-@media only screen and (max-width: 700px) {
-    #hero {
-        height: calc(100vh);
-    }
+.hero__carousel-pictures {
+    margin: 0;
+    padding: 0;
 }
-
-.hero__container {
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 1rem;
+.hero__carousel-pictures .hero__carousel-items {
+    font-size: 100px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
     text-align: center;
-    width: 50%;
-    min-width: 678px;
-    font-size: 1.4vw;
 }
 
-@media screen and (max-width: 768px) {
-    .hero__container {
-        font-size: 1em;
-        min-width: 0;
-        width: 90%;
-    }
+.hero__pictures__active {
+    height: 130px;
+}
+.hero__pictures__active .hero__carousel-items {
+    position: absolute;
+    top: 200px;
+}
+.hero__pictures__active .hero__carousel-items.current {
+    top: 30px;
 }
 
-@media screen and (max-width: 600px) {
-    .hero__container {
-        font-size: 0.8em;
-        min-width: 0;
-        width: 100%;
-        border-radius: 0;
-        transform: translateY(-5%);
-    }
+.hero__pictures__active .hero__carousel__buttons {
+    padding: 5px 0;
+    background: #eee;
+    text-align: center;
+    z-index: 10;
+    position: relative;
 }
-
+.carouselbox .hero__carousel__Onebutton {
+    border: none;
+    display: none;
+}
+.hero__pictures__active .hero__carousel__Onebutton {
+    display: block;
+}
+.offscreen {
+    position: absolute;
+    left: -2000px;
+}
+/*------------------------------*/
 .daily-diet-logo {
     width: 80%;
     margin-top: 1rem;
