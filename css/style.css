@@ -624,3 +624,10 @@ a {
 .fa {
     font-size: 26px;
 }
+
+/* COOKIES */
+
+.cookies__container {
+    width: 100%;
+    background-color: #F59D08;
+}

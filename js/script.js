@@ -13,3 +13,13 @@ $('a.smooth-scroll').on('click', function(event){
 
 //--- TEMPORARY LOCAL STORAGE COOKIE ---
 
+if (localStorage.getItem('cookie',)) {
+    document.getElementById('cookies').style.display = 'none'
+}
+
+$('#cookies--close').on(
+    'click',
+    function() {
+        localStorage.setItem('cookie', true)
+        document.getElementById('cookies').style.display = 'none'
+    })
