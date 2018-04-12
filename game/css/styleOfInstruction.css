@@ -1,0 +1,27 @@
+body{
+
+    background: rgb(255, 141, 42);
+
+}
+
+.instruction-container{
+
+
+    background: rgba(255,255,255,0.7);
+    border: #005A1F solid 5px;
+    height: 80vh;
+    width: 70vw;
+    border-radius: 100px;
+
+}
+.instruction-title{
+
+    font-size: 30;
+
+
+}
+
+
+
+
+
