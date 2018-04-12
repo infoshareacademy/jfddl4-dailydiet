@@ -137,125 +137,64 @@ nav {
         display: block;
     }
 }
-/* Hidden until carousel is ready and I can delete it*/
-/* HERO */
 
-/*#hero {*/
-    /*display: flex;*/
-    /*background: url("../img/background-picture.jpg") no-repeat top center;*/
-    /*background-size: cover;*/
-    /*height: calc(100vh - 60px);*/
-    /*position: relative;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /**/
-/*}*/
-
-/*@media only screen and (max-width: 700px) {*/
-    /*#hero {*/
-        /*height: calc(100vh);*/
-    /*}*/
-/*}*/
-
-/*.hero__container {*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*padding: 0.5rem;*/
-    /*background-color: rgba(255, 255, 255, 0.8);*/
-    /*border-radius: 1rem;*/
-    /*text-align: center;*/
-    /*width: 50%;*/
-    /*min-width: 678px;*/
-    /*font-size: 1.4vw;*/
-/*}*/
-
-/*@media screen and (max-width: 768px) {*/
-    /*.hero__container {*/
-        /*font-size: 1em;*/
-        /*min-width: 0;*/
-        /*width: 90%;*/
-    /*}*/
-/*}*/
-
-/*@media screen and (max-width: 600px) {*/
-    /*.hero__container {*/
-        /*font-size: 0.8em;*/
-        /*min-width: 0;*/
-        /*width: 100%;*/
-        /*border-radius: 0;*/
-        /*transform: translateY(-5%);*/
-    /*}*/
-/*}*/
 .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,128,0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+
+/* HERO */
+
 .hero__carousel__container{
     padding:0 0 3% 0;
+    margin:0;
 }
 .hero__carousel-style-class {
     object-fit: cover;
     overflow: hidden;
     display: flex;
-    height: 80vh;
+    height: 85vh;
     padding:0;
 }
 
-.hero__carousel-item__header-text {
-    position: absolute;
-    top: 20%;
-    left: 1.8%;
-    right: auto;
-    width: 50%;
-    color: #fff;
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*padding: 0.5rem;*/
-    /*background-color: rgba(255, 255, 255, 0.8);*/
-    /*border-radius: 1rem;*/
-    /*text-align: center;*/
-    /*width: 50%;*/
-    /*min-width: 678px;*/
-    /*font-size: 1.4vw;*/
+.hero__carousel-content__logo{
+    width: 50vh;
 }
-/*------------------------------*/
-/*.daily-diet-logo {*/
-    /*width: 80%;*/
-    /*margin-top: 1rem;*/
-/*}*/
 
-/*.hero__header-h2 {*/
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    /*font-size: 1.5em;*/
-    /*font-weight: 700;*/
-    /*padding: 0.5rem 0;*/
-    /*margin: 0;*/
-    /*color: darkslategray;*/
-/*}*/
 
-/*.hero__header-h3 {*/
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    /*font-size: 1.3em;*/
-    /*font-weight: 300;*/
-    /*padding: 0.5rem 0;*/
-    /*margin: 0;*/
-    /*color: darkslategray;*/
-/*}*/
+.hero__header-h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 0.5rem 0;
+    margin: 0;
+    color: darkslategray;
+    text-align: center;
+}
 
-/*.btn {*/
-    /*background-color: darkgreen;*/
-    /*border: none;*/
-    /*color: white;*/
-    /*padding: 2% 5%;*/
-    /*text-align: center;*/
-    /*text-decoration: none;*/
-    /*font-size: 1.5rem;*/
-    /*border-radius: 3px;*/
-/*}*/
+.hero__header-h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    font-weight: 300;
+    padding: 0.5rem 0;
+    margin: 0;
+    color: darkslategray;
+    text-align: center;
+}
+.btn {
+    background-color: darkgreen;
+    border: none;
+    color: white;
+    padding: 2% 5%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 3px;
+}
 
-/*.btn:hover {*/
-    /*background-color: #005A1F;*/
-    /*transition: background-color 0.2s;*/
-/*}*/
+.btn:hover {
+    background-color: #005A1F;
+    transition: background-color 0.2s;
+}
 
 a {
     text-decoration: none;
@@ -264,13 +203,35 @@ a {
 
 .hero__carousel-content {
     position: absolute;
-    top: 30%;
-    left: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 20;
     color: white;
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    background-color: rgba(255, 255, 255, 0.6);
+    padding-top: 1em;
+    border-radius: 5px;
 }
 
+
+@media screen and (max-width: 768px) {
+    .hero__carousel__container{
+font-size: 1em;
+min-width: 0;
+width: 100%;
+}
+}
+
+@media screen and (max-width: 600px) {
+    .hero__carousel__container{
+font-size: 0.8em;
+min-width: 0;
+width: 100%;
+border-radius: 0;
+transform: translateY(-5%);
+}
+}
 
 /* SOCIAL MEDIA */
 
@@ -367,9 +328,6 @@ a {
     font-size: 1.2em;
 }
 
-.form__button {
-    margin: 0.5rem;
-}
 
 @media screen and (max-width: 600px) {
     .form__paragraph {
