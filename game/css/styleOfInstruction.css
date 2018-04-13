@@ -4,24 +4,120 @@ body{
 
 }
 
-.instruction-container{
+/*.instruction-container{*/
 
 
-    background: rgba(255,255,255,0.7);
-    border: #005A1F solid 5px;
-    height: 80vh;
-    width: 70vw;
-    border-radius: 100px;
+    /*background: rgba(255,255,255,0.7);*/
+    /*border: #005A1F solid 5px;*/
+    /*height: 80vh;*/
+    /*width: 70vw;*/
+    /*border-radius: 100px;*/
+
+/*}*/
+/*.instruction-title{*/
+
+    /*font-size: 30;*/
+
+
+/*}*/
+
+
+
+html, body {
+    height: 100%;
+}
+
+.falling-box {
+
+    position: absolute;
+    top: 0;
+
+    height: 5%;
+    padding: 15px 0;
+    text-align: center;
+    border: 3px solid #FDD700;
+
 
 }
-.instruction-title{
 
-    font-size: 30;
 
+.box1{
+    left: 40%;
+    margin-left: -75px;
+    width: 150px;
+    animation: szerokosc1 10s infinite;
+
+}
+.box2{
+
+    left: 50%;
+    margin-left: -75px;
+    width: 150px;
+    animation: szerokosc2 10s infinite;
+
+}
+
+.box3{
+
+    left: 60%;
+    margin-left: -75px;
+    width: 150px;
+    animation: szerokosc3 10s infinite;
 
 }
 
 
+.score-box{
+
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    padding: 5%;
+    background-color: #005A1F;
+
+
+
+}
+
+/*div:hover {*/
+/*animation-play-state: paused;*/
+
+/*}*/
+
+/* ---------------------------REGUŁY-ANIMACJI--------------------------- */
+@keyframes szerokosc1 {
+    0% {
+        top: 0px;
+        left: 33% ;
+    }
+    100% {
+        top: 90%;
+        left: 20% ;
+    }
+}
+
+
+@keyframes szerokosc2 {
+    0% {
+        top: 0px;
+        left:  50%;
+    }
+    100% {
+        top: 90%;
+        left: 50%;
+    }
+}
+
+@keyframes szerokosc3 {
+    0% {
+        top: 0px;
+        left: 70%;
+    }
+    100% {
+        top: 90%;
+        left: 83%;
+    }
+}
 
 
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+<script>
+    (function () {
+        _step = 2
+        _playerPosition = {
+            x: 0,
+            y: 0
+        }
+
+        _gameContainer = document.body
+        _gameBoard = null
+        _player = null
+        _obstacle = null
+        
+
+        function makeGameBoard() {
+            var board = document.createElement('div')
+            board.style.position = 'relative'
+            board.style.backgroundColor = 'red'
+            board.style.width = '98vh'
+            board.style.height = '98vh'
+            board.style.margin = '0 auto'
+
+            _gameContainer.appendChild(board)
+
+            _gameBoard = board
+        }
+
+        
+        
+        function makePlayer() {
+            var player = document.createElement('div')
+            player.style.position = 'absolute'
+            player.style.backgroundColor = 'black'
+            player.style.width = '2%'
+            player.style.height = '2%'
+            _gameBoard.appendChild(player)
+
+            _player = player
+
+
+        }
+
+
+
+/////////////////////////////////////
+        
+        function randomWay() {
+
+            return Math.round(Math.random()*2 + 1)
+        }
+        
+        
+        function makeObstacle() {
+            var obstacle = document.createElement('div')
+            obstacle.style.position = 'absolute'
+            obstacle.style.width = '5%'
+            obstacle.style.height = '5%'
+            _gameBoard.appendChild(obstacle)
+
+                _obstacle = obstacle
+
+
+
+        }
+
+        function placeObstacle(randomWay) {
+
+            _obstacle.style.top = '0'
+
+            if(randomWay === 1){
+
+                _obstacle.style.left =
+
+            }else if(randomWay === 2){
+
+
+
+            }else{
+
+
+
+            }
+
+        }
+
+/////////////////////////////////////
+        
+        function move(){
+            placePlayer(_playerPosition.x + _step, _playerPosition.y + _step)
+        }
+
+        function placePlayer(x, y){
+            _player.style.top = y + '%'
+            _player.style.left = x + '%'
+        }
+
+        function init() {
+            makeGameBoard()
+            makePlayer()
+            // move()
+        }
+
+        init()
+    })()
+</script>
+</body>
+
+</html>
