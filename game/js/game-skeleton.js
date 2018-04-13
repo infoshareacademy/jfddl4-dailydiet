@@ -3,13 +3,10 @@
 
     // VARIABLES
 
-    var _gameAreaX = 100 %
-    var _gameAreaY = 100 %
-
     var _gameContainer = null
     var _scoreContainer = null
     var _lifesContainer = null
-    //var _timeContainer = null
+    var _timeContainer = null
 
     var _initialPlayerPositon = {
         x: 1
@@ -21,21 +18,30 @@
 
     var _customerPosition
 
-    var _
+    var _timeStep
 
     // FUNCTIONS
 
     // game initial
 
     function gameInit(container) {
+        makeGameBoard(container)
         gameInstruction(container)
-        preprareLayout(container)
+        placePlayer()
+        placeNewFood()
+        render()
+        attachEventListeners()
+    }
+
+    function makeGameBoard(container) {
+        _gameContainer = document.createElement('div')
+        _scoreContainer = document.createElement('div')
+        _timeContainer = document.createElement('div')
+
         drawTime()
         drawScore()
         drawLifes()
-        placeNewFood()
-
-
+        //drawBackground()
     }
 
 /*    plansza - wymiary
