@@ -12,6 +12,12 @@ body {
     box-sizing: border-box;
 }
 
+a, a:hover {
+    text-decoration: none;
+    color: inherit;
+    text-underline: none;
+}
+
 /* NAVIGATION */
 
 nav {
@@ -196,11 +202,6 @@ nav {
     transition: background-color 0.2s;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .hero__carousel-content {
     position: absolute;
     top: 50%;
@@ -209,7 +210,7 @@ a {
     z-index: 20;
     color: white;
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.7);
     padding-top: 1em;
     border-radius: 5px;
 }
