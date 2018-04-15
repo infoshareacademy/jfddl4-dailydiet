@@ -338,6 +338,11 @@ transform: translateY(-5%);
         font-size: 1.2em;
     }
 }
+.form__btn {
+    padding: 0.2em;
+    font-size: 1em;
+}
+
 
 .form__checkbox-style {
     width: 30px;
