@@ -65,7 +65,9 @@
         var newPlayerPosition = {
             x: _playerPosition.x + deltaX,
         }
-        _playerPosition = newPlayerPosition
+        if ((newPlayerPosition > -1) && (newPlayerPosition < 3)){
+         return _playerPosition = newPlayerPosition
+        }
         render()  // do I understand it right that this function refresh the position of the player based on his last move?
     }
 
