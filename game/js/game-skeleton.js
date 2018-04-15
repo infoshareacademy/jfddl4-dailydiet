@@ -68,6 +68,10 @@
 
         render()  // do I understand it right that this function refresh the position of the player based on his last move?
     }
+
+
+
+
 /*    plansza - wymiary
     stałe elementy planszy:
         tory
