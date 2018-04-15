@@ -301,7 +301,7 @@ transform: translateY(-5%);
 /* FORM */
 
 .form__container {
-    padding: 0.3vw;
+    padding: 0.5vw;
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -310,6 +310,9 @@ transform: translateY(-5%);
     color: darkslategray;
     font-size: 1.2em;
     background-color: rgb(255, 141, 42);
+}
+.form__conainer__row{
+    margin: 15px;
 }
 
 .form__placeholder {
@@ -322,6 +325,7 @@ transform: translateY(-5%);
     font-size: 2em;
     font-weight: bold;
     margin: 0.5rem;
+    padding: 0.2em;
 }
 
 .form__info {
@@ -343,11 +347,18 @@ transform: translateY(-5%);
     font-size: 1em;
 }
 
-
 .form__checkbox-style {
     width: 30px;
     padding-top: 2em;
 }
+.form__link-for-more{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.form__link-for-more:hover {
+    cursor: pointer;
+}
+
 
 /* FEATURES */
 

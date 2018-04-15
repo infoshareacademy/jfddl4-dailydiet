@@ -47,12 +47,13 @@
                 <h2 class="hero__header-h2">Stay healthy with our help</h2>
                 <h2 class="hero__header-h2">
                     <label><a class="smooth-scroll" href="#form">
-                        <button type="button" class="btn">Submit!</button></label>
-                    </a></h2>
+                        <button type="button" class="btn">Submit!</button>
+                    </a></label></h2>
                 <h3 class="hero__header-h3">Submit to keep fit!</h3>
             </div>
         </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000" onpause="hover">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000"
+             onpause="hover">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -216,24 +217,53 @@
     <!-- /DESCRIPTIONS -->
 
     <!-- FORM -->
-    <section id="form" class="form__container">
-        <div class="row">
-            <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
-                <p class="form__paragraph">Get info about Daily Diet app release</p>
-                <input type="text" name="emails[]" placeholder="Enter your e-mail" required class="form__placeholder">
-                <input type="hidden" name="subject" value="Daily Diet subscription">
-                <input type="hidden" name="message" value="You have subscribed to Daily Diet">
-                <input type="hidden" name="from" value="daily@diet.com">
-                <input type="hidden" name="fromName" value="Daily Diet">
-                <input type="hidden" name="redirect" value="http://www.dailydiet.jfddl4.is-academy.pl">
-                <input class="btn form__btn" type="submit" value="Send!">
-                <div class="row">
-                    <label><input class="form__checkbox-style" type="checkbox" required>I agree to receive a message about
-                    Daily Diet
-                    app release <p>You will receive one message when our app is ready. <br>We make sure that Daily Diet
-                    services are protected by one of the world’s most advanced security infrastructures.</p> </label>
-                </div>
-            </form>
+    <section id="form" class="form__container col-12">
+        <div class="row justify-content-center form__conainer__row">
+            <div>
+                <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
+                    <p class="form__paragraph">Get notified when Daily Diet is ready for use</p>
+                    <input type="text" name="emails[]" placeholder="Enter your e-mail" required
+                           class="form__placeholder">
+                    <input type="hidden" name="subject" value="Daily Diet subscription">
+                    <input type="hidden" name="message" value="You have subscribed to Daily Diet">
+                    <input type="hidden" name="from" value="daily@diet.com">
+                    <input type="hidden" name="fromName" value="Daily Diet">
+                    <input type="hidden" name="redirect" value="http://www.dailydiet.jfddl4.is-academy.pl">
+                    <input class="btn form__btn" type="submit" value="Send!">
+                    <div class="row justify-content-center">
+                        <label><input class="form__checkbox-style" type="checkbox" required>I agree to receive a message
+                            about Daily Diet app release.</label>&nbsp &nbsp
+
+                        <a class="form__link-for-more" data-toggle="modal" data-target="#form__Modal">Click for more.</a>
+
+                        <!--Modal with info for user-->
+                        <div class="modal fade" id="form__Modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="form__modal__header">Security</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        You will be notified when our app is ready for use.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p>We make sure that Daily Diet services are protected by one of the world’s most advanced security
+                                            infrastructures.</p>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+
+                    </div>
+                </form>
+            </div>
+
         </div>
     </section>
     <!-- /FORM -->
@@ -346,10 +376,11 @@
             <div class="cookies__button">
                 <label>
                     <button id="cookies--close" class="cookie--close btn" value=""
-                           type="button">
+                            type="button">
                         <p class="cookies__paragraph">Understood. Give&nbsp;me my diet cookie!</p>
                     </button>
-                    <img src="img/cookie.png" class="cookie__img" alt="cookie image" title="Owww... Gimmie that cookie!" />
+                    <img src="img/cookie.png" class="cookie__img" alt="cookie image"
+                         title="Owww... Gimmie that cookie!"/>
                 </label>
             </div>
         </div>
