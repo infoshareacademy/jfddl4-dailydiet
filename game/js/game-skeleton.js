@@ -43,7 +43,31 @@
         drawLifes()
         //drawBackground()
     }
+//////////////////////PLAYER POSITION////////////////////////
+    function attachEventListeners() {
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case 'ArrowLeft':
+                    move(-1)
+                    break
+                case 'ArrowRight':
+                    move(1)
+                    break
+                // exit this handler for other keys
+                default: return
+            }
+            // prevent the default action (scroll / move caret)
+            event.preventDefault()   // what does it actually prevent from? from moving the other direction? hitting a wall?
+        })
+    }
 
+    function move(deltaX) {
+        var newPlayerPosition = {
+            x: _playerPosition.x + deltaX,
+        }
+
+        render()  // do I understand it right that this function refresh the position of the player based on his last move?
+    }
 /*    plansza - wymiary
     stałe elementy planszy:
         tory
