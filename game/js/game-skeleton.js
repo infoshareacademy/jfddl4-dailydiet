@@ -3,32 +3,31 @@
 
     // VARIABLES
 
-    var _gameContainer = null
+    var _gameBoard = null
     var _scoreContainer = null
     var _lifesContainer = null
     var _timeContainer = null
 
-    var _initialPlayerPositon = {
-        x: 1
+    // Set interval
+    var _timeStep = 100
+
+    // Set default player position
+    var _initialPlayerPositon = 1
+
+    // Create player with default position X
+    var _player = {
+        positionX: _initialPlayerPositon
     }
-
-    var _playerPosition = _initialPlayerPosition
-
-    var _foodPosition
-
-    var _customerPosition
-
-    var _timeStep
 
     // FUNCTIONS
 
     // game initial
 
     function gameInit(container) {
-        makeGameBoard(container)
-        gameInstruction(container)
+        makeGameBoard()
+        gameInstruction()
         placePlayer()
-        placeNewFood()
+        placeObstacle()
         render()
         attachEventListeners()
     }
@@ -44,6 +43,11 @@
         //drawBackground()
     }
 
+
+    function placeObstacle() {
+        makeObstacle(_obstacle)
+        radnomWay(_obstaclePosition)
+    }
 /*    plansza - wymiary
     stałe elementy planszy:
         tory
