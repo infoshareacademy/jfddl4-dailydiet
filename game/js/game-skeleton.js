@@ -8,9 +8,6 @@
     var _lifesContainer = null
     var _timeContainer = null
 
-    // Set interval
-    var _timeStep = 100
-
     // Set default player position
     var _initialPlayerPositon = 1
 
@@ -19,23 +16,38 @@
         positionX: _initialPlayerPositon
     }
 
+    var gameIntervals = [[checkCollision(), 500], [placeObstacle(), 3000]]
+
     // FUNCTIONS
 
     // game initial
 
     function gameInit(container) {
-        makeGameBoard()
         gameInstruction()
         placePlayer()
         placeObstacle()
+        gameBoard()
         render()
         attachEventListeners()
+
+        _timeInterval = function(element, index, array) {
+            for (var i =0; i < array.length; i++) {
+                setInterval(element[index][0], element[index][1])
+            }
+        }
     }
 
-    function makeGameBoard(container) {
-        _gameContainer = document.createElement('div')
+    function gameBoard(container) {
+        _gameBoard = document.createElement('div')
         _scoreContainer = document.createElement('div')
+        _lifesContainer = document.createElement('div')
         _timeContainer = document.createElement('div')
+        container.appendChild(_scoreContainer)
+        container.appendChild(_timeContainer)
+        container.appendChild(_lifesContainer)
+        container.appendChild(_gameBoard)
+
+        render()
 
         drawTime()
         drawScore()
@@ -43,6 +55,9 @@
         //drawBackground()
     }
 
+    function placePlayer() {
+        if (_player.positionX === 0)
+    }
 
     function placeObstacle() {
         makeObstacle(_obstacle)
@@ -65,8 +80,9 @@
     punkty - dodatnie, ujemne, limit ujemnych (ew. limit dodatnich i wywołanie przyśpieszenia)
     czas
     wydarzenia - np zebranie przedmiotu
-    animacje
+    animacje*/
 
+})()
 
 
 
