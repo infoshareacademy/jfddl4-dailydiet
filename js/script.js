@@ -44,13 +44,8 @@ $(document).ready(function(){
     });
 });
 
-// $('.team__member-picture').hover(function () {
-//     $(this).addClass('team__member-picture__animation2 team__member-picture__animation');
-// });
+// Team members animation on in-view //
 
 inView('#team').on('enter', (function () {
-        $('.team__member-picture').addClass('team__member-picture__animation2 team__member-picture__animation');
+        $('.team__member-picture').addClass('team__member-picture__animation2 team__member-picture__animation')
     }))
-    .on('exit', el => {
-        el.style.opacity = 0.5;
-    });
