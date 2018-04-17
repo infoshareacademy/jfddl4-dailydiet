@@ -13,8 +13,8 @@ $('a.smooth-scroll').on('click', function(event){
 
 //--- TEMPORARY LOCAL STORAGE COOKIE ---
 
-if (localStorage.getItem('cookie',)) {
-    document.getElementById('cookies').style.display = 'none'
+if (!localStorage.getItem('cookie',)) {
+    document.getElementById('cookies').style.display = 'flex'
 }
 
 $('#cookies--close').on(
