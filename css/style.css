@@ -741,14 +741,33 @@ transform: translateY(-5%);
 .scrollToTop {
     display: none;
     position: fixed;
-    bottom: 50px;
-    right: 50px;
-    width: 70px;
-    height: 70px;
+    bottom: 35px;
+    right: 35px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+    z-index: 1020;
 }
+
+.to-top__image {
+    box-sizing: border-box;
+    width: 70px;
+    height: 70px;
+    border: 4px solid darkslategray;
+    border-radius: 100%;
+}
+
+@media screen and (max-width: 440px) {
+    .scrollToTop {
+        bottom: 20px;
+        right: 25px;
+    }
+    .to-top__image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 .scrollToTop:hover {
     text-decoration: none;
 }
