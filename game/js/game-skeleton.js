@@ -22,31 +22,43 @@
     }
 
     var _gameIntervals = [
-        { name: checkCollision, time: 500 },
-        { name: placeObstacle, time: 3000 },
-        { name: placeObstacle2, time: 6000 },
-        { name: clearObstacle, time: 3500 },
-        { name: clearObstacle2, time: 6500 },
-        { name: clearCheckCollision, time: 7500 }
-        ]
+        {name: checkCollision, time: 500},
+        {name: placeObstacle, time: 3000},
+        {name: placeObstacle2, time: 6000},
+        {name: clearObstacle, time: 3500},
+        {name: clearObstacle2, time: 6500},
+        {name: clearCheckCollision, time: 7500}
+    ]
+
+    console.log(_gameIntervals.length)
 
     // TEMPORARY CLEAR PLACE OBSTACLE AFTER ONE OBSTACLE PUTTED TO BOARD
-    function clearCheckCollision () {
+    function clearCheckCollision() {
         clearInterval(1)
         console.log("You don't have to worry, I'll put no more console logs here")
         clearInterval(6)
     }
-    function clearObstacle () {
+
+    function clearObstacle() {
 
         clearInterval(2)
         console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
         clearInterval(4)
     }
-    function clearObstacle2 () {
+
+    function clearObstacle2() {
 
         clearInterval(3)
         console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
         clearInterval(5)
+    }
+
+    // -- END OF TEMPORARY CLEAR INTERVALS FUNCTIONS
+
+    // Clear intervals function at the end of the game
+    function clearAllIntervals() {
+        for (var i = 0; i < _gameIntervals.length; i++)
+            clearInterval(i)
     }
 
     // console.log(_gameIntervals)
@@ -82,7 +94,7 @@
         _gameBoard = board
     }
 
-    function placePlayer(){
+    function placePlayer() {
         __player = document.createElement('div')
         __player.setAttribute('id', 'player')
         __player.style.position = 'absolute'
@@ -168,17 +180,22 @@
                 player.offsetLeft < el.offsetLeft + el.offsetWidth
                 &&
                 player.offsetLeft + player.offsetWidth < el.offsetLeft + el.offsetWidth
-                ) {
-                    console.log("There's a collision at element nr:", i)
-                } else
-                    console.log("Yikes! There's no collisions at element nr:", i)
-                    // endGame()
+            ) {
+                console.log("There's a collision at element nr:", i)
+                endGame()
+            } else {
+                console.log("Yikes! There's no collisions at element nr:", i)
+            }
         })
 
     }
 
     function endGame() {
-        
+        clearAllIntervals()
+
+        if (confirm("YOU LOSE! Do you want to play again?")) {
+            window.location = ''
+        }
     }
 
     /*
@@ -212,24 +229,24 @@
     }
     */
 
-/*    plansza - wymiary
-    stałe elementy planszy:
-        tory
-        regały
+    /*    plansza - wymiary
+        stałe elementy planszy:
+            tory
+            regały
 
-    ruchome elementy planszy
-        ruch gracza
-        ruch jedzenia
-        staruszka
-        dzieciak
-    gracz - co ma gracz?
-        pozycja startowa
-        pozycja zmienna
-        funkcje ruchu - lewo, prawo
-    punkty - dodatnie, ujemne, limit ujemnych (ew. limit dodatnich i wywołanie przyśpieszenia)
-    czas
-    wydarzenia - np zebranie przedmiotu
-    animacje*/
+        ruchome elementy planszy
+            ruch gracza
+            ruch jedzenia
+            staruszka
+            dzieciak
+        gracz - co ma gracz?
+            pozycja startowa
+            pozycja zmienna
+            funkcje ruchu - lewo, prawo
+        punkty - dodatnie, ujemne, limit ujemnych (ew. limit dodatnich i wywołanie przyśpieszenia)
+        czas
+        wydarzenia - np zebranie przedmiotu
+        animacje*/
 
     gameInit(document.body)
 
