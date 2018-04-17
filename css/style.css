@@ -1,6 +1,5 @@
 html, body{
     width: 100%;
-    overflow-x: hidden;
 }
 
 body {
@@ -610,9 +609,50 @@ transform: translateY(-5%);
     transition: transform 0.2s ease-in-out;
 }
 
-.team__member-picture:hover {
-    cursor: pointer;
-    transform: scale(1.2);
+.team__member-picture__animation{
+    animation-name: foolishIn;
+}
+@keyframes foolishIn {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(0, 0) rotate(360deg);
+    }
+
+    20% {
+        opacity: 1;
+        transform-origin: 0% 100%;
+        transform: scale(0.5, 0.5) rotate(0deg);
+    }
+
+    40% {
+        opacity: 1;
+        transform-origin: 100% 100%;
+        transform: scale(0.5, 0.5) rotate(0deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform-origin: 0%;
+        transform: scale(0.5, 0.5) rotate(0deg);
+    }
+
+    80% {
+        opacity: 1;
+        transform-origin: 0% 0%;
+        transform: scale(0.5, 0.5) rotate(0deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1, 1) rotate(0deg);
+    }
+}
+
+.team__member-picture__animation2{
+    animation-duration: 4s;
+    animation-fill-mode: both;
 }
 
 .team__container {
@@ -754,3 +794,58 @@ transform: translateY(-5%);
         top: 80%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/*.foolishIn {*/
+    /*animation-name: foolishIn;*/
+/*}*/
+/*@keyframes foolishIn {*/
+    /*0% {*/
+        /*opacity: 0;*/
+        /*transform-origin: 50% 50%;*/
+        /*transform: scale(0, 0) rotate(360deg);*/
+    /*}*/
+
+    /*20% {*/
+        /*opacity: 1;*/
+        /*transform-origin: 0% 100%;*/
+        /*transform: scale(0.5, 0.5) rotate(0deg);*/
+    /*}*/
+
+    /*40% {*/
+        /*opacity: 1;*/
+        /*transform-origin: 100% 100%;*/
+        /*transform: scale(0.5, 0.5) rotate(0deg);*/
+    /*}*/
+
+    /*60% {*/
+        /*opacity: 1;*/
+        /*transform-origin: 0%;*/
+        /*transform: scale(0.5, 0.5) rotate(0deg);*/
+    /*}*/
+
+    /*80% {*/
+        /*opacity: 1;*/
+        /*transform-origin: 0% 0%;*/
+        /*transform: scale(0.5, 0.5) rotate(0deg);*/
+    /*}*/
+
+    /*100% {*/
+        /*opacity: 1;*/
+        /*transform-origin: 50% 50%;*/
+        /*transform: scale(1, 1) rotate(0deg);*/
+    /*}*/
+/*}*/
+
+/*.magictime {*/
+    /*animation-duration: 3s;*/
+    /*animation-fill-mode: both;*/
+/*}*/
