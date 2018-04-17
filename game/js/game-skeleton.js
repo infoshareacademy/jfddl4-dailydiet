@@ -16,27 +16,50 @@
         positionX: _initialPlayerPositon
     }
 
-    var gameIntervals = [[checkCollision(), 500], [placeObstacle(), 3000]]
+    var _gameIntervals = [
+        { name: checkCollision, time: 500 },
+        { name: placeObstacle, time: 3000 }
+        ]
+
+    // console.log(_gameIntervals)
 
     // FUNCTIONS
 
     // game initial
 
     function gameInit(container) {
-        gameInstruction()
-        placePlayer()
-        placeObstacle()
-        gameBoard()
-        render()
-        attachEventListeners()
 
-        _timeInterval = function(element, index, array) {
-            for (var i =0; i < array.length; i++) {
-                setInterval(element[index][0], element[index][1])
-            }
+        /*gameInstruction()
+        placePlayer()
+        gameBoard()*/
+
+        gameTicker()
+
+        /*render()
+        attachEventListeners()*/
+
+    }
+
+    // gameTicker start functions from _gameIntervals after time declared to each interval
+    function gameTicker() {
+
+        // TO STOP INTERVALS TYPE IN CONSOLE: 'clearInterval(1)' for checkCollision and: 'clearInterval(2)' for
+        // placeObstacle
+        for (var i = 0; i < _gameIntervals.length; i++) {
+            setInterval(_gameIntervals[i].name, _gameIntervals[i].time)
         }
     }
 
+    function checkCollision() {
+        // słowo klucz - offsetTop
+        console.log("Checkin' collision... ti ti ti ti...")
+    }
+
+    function placeObstacle() {
+        console.log("I'm putting obstacle! Watch out!!")
+    }
+
+    /*
     function gameBoard(container) {
         _gameBoard = document.createElement('div')
         _scoreContainer = document.createElement('div')
@@ -54,15 +77,19 @@
         drawLifes()
         //drawBackground()
     }
+    */
 
+    /*
     function placePlayer() {
-        if (_player.positionX === 0)
     }
-
+*/
+    /*
     function placeObstacle() {
         makeObstacle(_obstacle)
         radnomWay(_obstaclePosition)
     }
+    */
+
 /*    plansza - wymiary
     stałe elementy planszy:
         tory
@@ -82,30 +109,6 @@
     wydarzenia - np zebranie przedmiotu
     animacje*/
 
+    gameInit(document.body)
+
 })()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
