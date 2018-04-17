@@ -42,14 +42,14 @@
     function clearObstacle() {
 
         clearInterval(2)
-        console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
+        // console.log('No more obstacles will be putted here, you can check your collision now, yikes! :D')
         clearInterval(4)
     }
 
     function clearObstacle2() {
 
         clearInterval(3)
-        console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
+        // console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
         clearInterval(5)
     }
 
@@ -85,8 +85,8 @@
         var board = document.createElement('div')
         board.style.position = 'relative'
         board.style.backgroundColor = 'red'
-        board.style.width = '98vw'
-        board.style.height = '98vw'
+        board.style.width = '50vw'
+        board.style.height = '50vw'
         board.style.margin = '0 auto'
 
         _gameContainer.appendChild(board)
@@ -182,6 +182,7 @@
                 player.offsetLeft + player.offsetWidth < el.offsetLeft + el.offsetWidth
             ) {
                 console.log("There's a collision at element nr:", i)
+                console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
                 endGame()
             } else {
                 console.log("Yikes! There's no collisions at element nr:", i)
