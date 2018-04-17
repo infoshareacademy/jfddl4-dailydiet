@@ -24,13 +24,29 @@
     var _gameIntervals = [
         { name: checkCollision, time: 500 },
         { name: placeObstacle, time: 3000 },
-        { name: clearObstacle, time: 3500 }
+        { name: placeObstacle2, time: 6000 },
+        { name: clearObstacle, time: 3500 },
+        { name: clearObstacle2, time: 6500 },
+        { name: clearCheckCollision, time: 7500 }
         ]
 
     // TEMPORARY CLEAR PLACE OBSTACLE AFTER ONE OBSTACLE PUTTED TO BOARD
+    function clearCheckCollision () {
+        clearInterval(1)
+        console.log("You don't have to worry, I'll put no more console logs here")
+        clearInterval(6)
+    }
     function clearObstacle () {
+
         clearInterval(2)
         console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
+        clearInterval(4)
+    }
+    function clearObstacle2 () {
+
+        clearInterval(3)
+        console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
+        clearInterval(5)
     }
 
     // console.log(_gameIntervals)
@@ -85,7 +101,22 @@
         _obstacle = document.createElement('div')
         _obstacle.setAttribute('class', 'obstacle')
         _obstacle.style.position = 'absolute'
-        _obstacle.style.left = '38%'
+        _obstacle.style.left = '28%'
+        _obstacle.style.top = '80%'
+
+        _obstacle.style.backgroundColor = 'green'
+        _obstacle.style.width = '10%'
+        _obstacle.style.height = '10%'
+        _gameBoard.appendChild(_obstacle)
+    }
+
+    function placeObstacle2() {
+        // console.log("I'm putting obstacle! Watch out!!")
+
+        _obstacle = document.createElement('div')
+        _obstacle.setAttribute('class', 'obstacle')
+        _obstacle.style.position = 'absolute'
+        _obstacle.style.left = '48%'
         _obstacle.style.top = '80%'
 
         _obstacle.style.backgroundColor = 'green'
@@ -105,7 +136,6 @@
     }
 
     function checkCollision() {
-        console.log("Checkin' collision... ti ti ti ti...")
 
         // selects all obstacles by class - return HTML Collection
         var obstacles = document.getElementsByClassName('obstacle')
@@ -131,11 +161,24 @@
         // console.log(player.offsetLeft) // 243
 
         // Compares player's Top and Left position including it's Height to any obstacle in game
-        /*if (
-            player.offsetTop
-        ) {
+        arrayOfObstacles.forEach(function (el, i) {
+            if (
+                player.offsetTop < el.offsetTop + el.offsetHeight
+                &&
+                player.offsetLeft < el.offsetLeft + el.offsetWidth
+                &&
+                player.offsetLeft + player.offsetWidth < el.offsetLeft + el.offsetWidth
+                ) {
+                    console.log("There's a collision at element nr:", i)
+                } else
+                    console.log("Yikes! There's no collisions at element nr:", i)
+                    // endGame()
+        })
 
-        }*/
+    }
+
+    function endGame() {
+        
     }
 
     /*
