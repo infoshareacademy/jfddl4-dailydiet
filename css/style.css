@@ -735,3 +735,37 @@ transform: translateY(-5%);
         top: 80%;
     }
 }
+
+/* BACK TO TOP BUTTON */
+
+.scrollToTop {
+    display: none;
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1020;
+}
+
+.to-top__image {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+@media screen and (max-width: 440px) {
+    .scrollToTop {
+        bottom: 20px;
+        right: 25px;
+    }
+    .to-top__image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.scrollToTop:hover {
+    text-decoration: none;
+}
