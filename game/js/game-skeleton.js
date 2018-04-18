@@ -37,6 +37,7 @@
 
     function createPlayer(){
         __player = document.createElement('div')
+        __player.setAttribute('id', 'player')
         __player.style.position = 'absolute'
         __player.style.left = _initialPlayerPositon + '%'
         __player.style.top = (100 - _initialPlayerHeight) + '%'
@@ -67,8 +68,6 @@
     }
 
     function move(deltaX) {
-      // __player.style.left = parseInt(__player.style.left.slice(0, -1)) + deltaX * _playerMoveStep + '%'
-
          var newPlayerPosition = parseInt(__player.style.left.slice(0, -1)) + deltaX * _playerMoveStep
         if((newPlayerPosition >= 0) && (newPlayerPosition <= 100 -_initialPlayerHeight)){
             __player.style.left = newPlayerPosition + '%'
