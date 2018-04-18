@@ -46,6 +46,17 @@ $(document).ready(function(){
 
 // Team members animation on in-view //
 
-inView('#team').on('enter', (function () {
-        $('.team__member-picture').addClass('team__member-picture__animation2 team__member-picture__animation')
+inView.offset(80)
+
+inView('.team__list-member').on('enter', (function () {
+        $('.team__magda').addClass('team__member-picture__animation2 team__member-picture__animation')
     }))
+
+inView('.team__list-member').on('enter', (function () {
+    $('.team__szymon').addClass('team__member-picture__animation2 team__member-picture__animation')
+}))
+
+inView('.team__list-member').on('enter', (function () {
+    $('.team__bartek').addClass('team__member-picture__animation2 team__member-picture__animation')
+}))
+
