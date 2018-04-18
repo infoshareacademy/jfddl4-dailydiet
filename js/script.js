@@ -48,15 +48,15 @@ $(document).ready(function(){
 
 inView.offset(80)
 
-inView('.team__list-member').on('enter', (function () {
+inView('.team_magda').on('enter', (function () {
         $('.team__magda').addClass('team__member-picture__animation2 team__member-picture__animation')
     }))
 
-inView('.team__list-member').on('enter', (function () {
+inView('.team_szymon').on('enter', (function () {
     $('.team__szymon').addClass('team__member-picture__animation2 team__member-picture__animation')
 }))
 
-inView('.team__list-member').on('enter', (function () {
+inView('.team_bartek').on('enter', (function () {
     $('.team__bartek').addClass('team__member-picture__animation2 team__member-picture__animation')
 }))
 

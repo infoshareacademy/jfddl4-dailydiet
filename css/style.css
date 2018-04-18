@@ -637,7 +637,6 @@ nav {
 
 .team__member-picture__animation {
     animation-name: swap;
-    animation-delay: 1s;
     display: inline-block;
 }
 
@@ -658,7 +657,6 @@ nav {
 .team__member-picture__animation2 {
     animation-duration: 1.5s;
     animation-fill-mode: both;
-
 }
 
 .team__container {
