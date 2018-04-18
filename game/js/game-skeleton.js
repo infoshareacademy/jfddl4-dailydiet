@@ -8,70 +8,41 @@
     var _lifesContainer = null
     var _timeContainer = null
 
-    // Set default player position
-    // var _initialPlayerPositon = 1
-    //
-    // // Create player with default position X
-    // var __player = null //= {
-    //     positionX: _initialPlayerPositon
-    // }
-    //
-    // var gameIntervals = [[checkCollision(), 500], [placeObstacle(), 3000]]
 
-    // FUNCTIONS
+    var _initialPlayerHeight = 12
+    var _initialPlayerPositon = 50 - _initialPlayerHeight/2
+    var _playerMoveStep = 2
+    var __player = null
 
-    // game initial
 
     function gameInit(container) {
         gameBoard(container)
-        // gameInstruction()
-        // placeObstacle()
-        placePlayer()
-        // render()
-        // attachEventListeners()
+        createPlayer()
+        attachEventListeners()
 
-        // _timeInterval = function(element, index, array) {
-        //     for (var i =0; i < array.length; i++) {
-        //         setInterval(element[index][0], element[index][1])
-        //     }
-        // }
     }
 
 
     //
     function gameBoard(container) {
         _gameBoard = document.createElement('div')
-    //     _scoreContainer = document.createElement('div')
-    //     _lifesContainer = document.createElement('div')
-    //     _timeContainer = document.createElement('div')
-    //     container.appendChild(_scoreContainer)
-    //     container.appendChild(_timeContainer)
-    //     container.appendChild(_lifesContainer)
         _gameBoard.style.position = 'relative'
         _gameBoard.style.backgroundColor = 'red'
-        _gameBoard.style.width = '98vh'
-        _gameBoard.style.height = '98vh'
+        _gameBoard.style.width = '50vw'
+        _gameBoard.style.height = '50vw'
         _gameBoard.style.margin = '0 auto'
 
         container.appendChild(_gameBoard)
-    //
-    //     render()
-    //
-    //     drawTime()
-    //     drawScore()
-    //     drawLifes()
-    //     //drawBackground()
     }
 
-    function placePlayer(){
+    function createPlayer(){
         __player = document.createElement('div')
         __player.style.position = 'absolute'
-        __player.style.left = '45%'
-        __player.style.top = '85%'
-
+        __player.style.left = _initialPlayerPositon + '%'
+        __player.style.top = (100 - _initialPlayerHeight) + '%'
         __player.style.backgroundColor = 'blue'
-        __player.style.width = '10%'
-        __player.style.height = '10%'
+        __player.style.width = _initialPlayerHeight + '%'
+        __player.style.height = _initialPlayerHeight + '%'
        _gameBoard.appendChild(__player)
     }
 
@@ -96,37 +67,14 @@
     }
 
     function move(deltaX) {
-        var newPlayerPosition = {
-            x: _playerPosition.x + deltaX,
+      // __player.style.left = parseInt(__player.style.left.slice(0, -1)) + deltaX * _playerMoveStep + '%'
+
+         var newPlayerPosition = parseInt(__player.style.left.slice(0, -1)) + deltaX * _playerMoveStep
+        if((newPlayerPosition >= 0) && (newPlayerPosition <= 100 -_initialPlayerHeight)){
+            __player.style.left = newPlayerPosition + '%'
         }
-        if ((newPlayerPosition > -1) && (newPlayerPosition < 3)){
-         return _playerPosition = newPlayerPosition
-        }
-        render()
     }
     //
-
-
-
-/*    plansza - wymiary
-    stałe elementy planszy:
-        tory
-        regały
-
-    ruchome elementy planszy
-        ruch gracza
-        ruch jedzenia
-        staruszka
-        dzieciak
-    gracz - co ma gracz?
-        pozycja startowa
-        pozycja zmienna
-        funkcje ruchu - lewo, prawo
-    punkty - dodatnie, ujemne, limit ujemnych (ew. limit dodatnich i wywołanie przyśpieszenia)
-    czas
-    wydarzenia - np zebranie przedmiotu
-    animacje*/
-
 
     gameInit(document.body)
 })()
