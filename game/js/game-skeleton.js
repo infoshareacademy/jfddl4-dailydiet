@@ -132,6 +132,14 @@
                 }
             }
         })
+        function removeObstacle (arrayOfObstacles)
+    }
+
+    function removeObstacle() {
+        arrayOfObstacles.forEach(function (el, i) {
+        if (el[i].style.top >= '105%') {
+            _gameBoard.removeChild(el[i])
+        }
     }
 
     function endGame() {
