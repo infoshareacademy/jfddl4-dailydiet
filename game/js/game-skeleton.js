@@ -107,35 +107,39 @@
         _gameBoard.appendChild(__player)
     }
 
-    function placeObstacle() {
-        // console.log("I'm putting obstacle! Watch out!!")
 
-        _obstacle = document.createElement('div')
-        _obstacle.setAttribute('class', 'obstacle')
-        _obstacle.style.position = 'absolute'
-        _obstacle.style.left = '28%'
-        _obstacle.style.top = '80%'
 
-        _obstacle.style.backgroundColor = 'green'
-        _obstacle.style.width = '10%'
-        _obstacle.style.height = '10%'
-        _gameBoard.appendChild(_obstacle)
-    }
 
-    function placeObstacle2() {
-        // console.log("I'm putting obstacle! Watch out!!")
+    
+    // function placeObstacle() {
+    //     // console.log("I'm putting obstacle! Watch out!!")
 
-        _obstacle = document.createElement('div')
-        _obstacle.setAttribute('class', 'obstacle')
-        _obstacle.style.position = 'absolute'
-        _obstacle.style.left = '48%'
-        _obstacle.style.top = '80%'
+    //     _obstacle = document.createElement('div')
+    //     _obstacle.setAttribute('class', 'obstacle')
+    //     _obstacle.style.position = 'absolute'
+    //     _obstacle.style.left = '28%'
+    //     _obstacle.style.top = '80%'
 
-        _obstacle.style.backgroundColor = 'green'
-        _obstacle.style.width = '10%'
-        _obstacle.style.height = '10%'
-        _gameBoard.appendChild(_obstacle)
-    }
+    //     _obstacle.style.backgroundColor = 'green'
+    //     _obstacle.style.width = '10%'
+    //     _obstacle.style.height = '10%'
+    //     _gameBoard.appendChild(_obstacle)
+    // }
+
+    // function placeObstacle2() {
+    //     // console.log("I'm putting obstacle! Watch out!!")
+
+    //     _obstacle = document.createElement('div')
+    //     _obstacle.setAttribute('class', 'obstacle')
+    //     _obstacle.style.position = 'absolute'
+    //     _obstacle.style.left = '48%'
+    //     _obstacle.style.top = '80%'
+
+    //     _obstacle.style.backgroundColor = 'green'
+    //     _obstacle.style.width = '10%'
+    //     _obstacle.style.height = '10%'
+    //     _gameBoard.appendChild(_obstacle)
+    // }
 
     // gameTicker start functions from _gameIntervals after time declared to each interval
     function gameTicker() {
