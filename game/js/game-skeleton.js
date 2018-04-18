@@ -24,9 +24,7 @@
     var _gameIntervals = [
         {name: checkCollision, time: 500},
         {name: placeObstacle, time: 3000},
-        {name: placeObstacle2, time: 6000},
         {name: clearObstacle, time: 3500},
-        {name: clearObstacle2, time: 6500},
         {name: clearCheckCollision, time: 7500}
     ]
 
@@ -46,12 +44,12 @@
         clearInterval(4)
     }
 
-    function clearObstacle2() {
+    // function clearObstacle2() {
 
-        clearInterval(3)
-        // console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
-        clearInterval(5)
-    }
+    //     clearInterval(3)
+    //     // console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
+    //     clearInterval(5)
+    // }
 
     // -- END OF TEMPORARY CLEAR INTERVALS FUNCTIONS
 
@@ -75,6 +73,9 @@
         placePlayer()
 
         gameTicker()
+
+        placeObstacle()
+
 
         /*render()
         attachEventListeners()*/
@@ -106,11 +107,78 @@
         __player.style.height = '10%'
         _gameBoard.appendChild(__player)
     }
+///////////Feature/25-game-obstacle
+    function makeObstacle() {
+        var obstacle = document.createElement('div')
+        obstacle.style.position = 'absolute'
+        obstacle.style.width = '5%'
+        obstacle.style.height = '5%'
+        obstacle.style.backgroundColor = 'blue'
+        obstacle.style.transition = "all 3s"
+        obstacle.style.top = '0'
+        
+        _gameBoard.appendChild(obstacle)
 
+        _obstacle = obstacle
 
-
-
+    }
     
+    function choseRandomWay() {
+
+        return Math.round(Math.random() * 3 - 0.5)
+    }
+
+    function moveObstacle(top,left){
+        _obstacle.style.top = top+'%'
+        _obstacle.style.left = left+'%'
+        // _obstacle.style.width = '15vh'
+        // _obstacle.style.height = '15vh'
+    }
+
+
+    function placeObstacle() {
+
+        var randomWay = choseRandomWay()
+
+        makeObstacle()
+
+        if (randomWay === 0) {
+            _obstacle.style.top = '0'
+            _obstacle.style.left = '37.5%'
+            // _obstacle.style.width = '5vh'
+            // _obstacle.style.height = '5vh'
+            setTimeout(function(){
+                    moveObstacle(95,10)},100)
+                                    
+        }
+        else if (randomWay === 1) {
+
+            _obstacle.style.top = '0'
+            _obstacle.style.left = '47.5%'
+            // _obstacle.style.width = '5vh'
+            // _obstacle.style.height = '5vh'
+            setTimeout(function(){
+                    moveObstacle(95,47.5)},100)
+            
+        }
+        else {
+
+            _obstacle.style.top = '0'
+            _obstacle.style.left = '57.5%'
+            // _obstacle.style.width = '5vh'
+            // _obstacle.style.height = '5vh'
+            setTimeout(function(){
+                moveObstacle(95,85)},100)
+           
+        }
+    }
+    function rmObstacle(){
+
+        if(_obstacle.style.top == '93vh' /*tutaj mi pasuje jeszcze warunek i o ile nie ma kolizji */){
+        _gameBoard.removeChild(_obstacle)
+      
+
+        }}
     // function placeObstacle() {
     //     // console.log("I'm putting obstacle! Watch out!!")
 
