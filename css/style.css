@@ -657,6 +657,7 @@ nav {
 .team__member-picture__animation2 {
     animation-duration: 1.5s;
     animation-fill-mode: both;
+    animation-delay: 0.5s;
 }
 
 .team__container {
