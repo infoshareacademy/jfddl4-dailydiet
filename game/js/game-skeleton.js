@@ -113,7 +113,8 @@
         obstacle.style.position = 'absolute'
         obstacle.style.width = '5%'
         obstacle.style.height = '5%'
-        obstacle.style.backgroundColor = 'blue'
+        obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random()*5) + ".png')"
+                
         obstacle.style.transition = "all 3s"
         obstacle.style.top = '0'
         
