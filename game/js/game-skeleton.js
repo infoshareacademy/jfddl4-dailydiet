@@ -23,59 +23,20 @@
 
     var _gameIntervals = [
         {name: checkCollision, time: 500},
-        {name: placeObstacle, time: 3000},
-        // {name: placeObstacle2, time: 6000},
-        {name: clearObstacle, time: 3500},
-        {name: clearObstacle2, time: 6500},
-        // {name: clearCheckCollision, time: 7500}
+        {name: placeObstacle, time: 3000}
     ]
-
-    // TEMPORARY CLEAR PLACE OBSTACLE AFTER ONE OBSTACLE PUTTED TO BOARD
-    function clearCheckCollision() {
-        clearInterval(1)
-        console.log("You don't have to worry, I'll put no more console logs here")
-        clearInterval(6)
-    }
-
-    function clearObstacle() {
-
-        clearInterval(2)
-        // console.log('No more obstacles will be putted here, you can check your collision now, yikes! :D')
-        clearInterval(4)
-    }
-
-    function clearObstacle2() {
-
-        clearInterval(3)
-        // console.log('No more obstacles will be putted, you can check your collision now, yikes! :D')
-        clearInterval(5)
-    }
-
-    // -- END OF TEMPORARY CLEAR INTERVALS FUNCTIONS
-
-    // Clear intervals function at the end of the game
-    function clearAllIntervals() {
-        for (var i = 0; i < _gameIntervals.length; i++)
-            clearInterval(i)
-    }
-
-    // console.log(_gameIntervals)
 
     // FUNCTIONS
 
-    // game initial
+    // -- END OF TEMPORARY CLEAR INTERVALS FUNCTIONS
 
+    // game initial
     function gameInit(container) {
 
         // gameInstruction()
         gameBoard()
-
         placePlayer()
-
         gameTicker()
-
-        /*render()
-        attachEventListeners()*/
 
     }
 
@@ -94,7 +55,7 @@
 
     function placePlayer() {
         __player = document.createElement('div')
-        __player.setAttribute('id', 'player')
+        __player.id = 'player'
         __player.style.position = 'absolute'
         __player.style.left = '45%'
         __player.style.top = '85%'
@@ -111,7 +72,7 @@
         _obstacle = document.createElement('div')
         _obstacle.classList.add('obstacle')
         _obstacle.style.position = 'absolute'
-        _obstacle.style.left = '28%'
+        _obstacle.style.left = '68%'
         _obstacle.style.top = '80%'
 
         _obstacle.style.backgroundColor = 'green'
@@ -120,26 +81,8 @@
         _gameBoard.appendChild(_obstacle)
     }
 
-    /*function placeObstacle2() {
-        // console.log("I'm putting obstacle! Watch out!!")
-
-        _obstacle = document.createElement('div')
-        _obstacle.setAttribute('class', 'obstacle')
-        _obstacle.style.position = 'absolute'
-        _obstacle.style.left = '48%'
-        _obstacle.style.top = '80%'
-
-        _obstacle.style.backgroundColor = 'green'
-        _obstacle.style.width = '10%'
-        _obstacle.style.height = '10%'
-        _gameBoard.appendChild(_obstacle)
-    }*/
-
     // gameTicker start functions from _gameIntervals after time declared to each interval
     function gameTicker() {
-
-        // TO STOP INTERVALS TYPE IN CONSOLE: 'clearInterval(1)' for checkCollision and: 'clearInterval(2)' for
-        // placeObstacle
         for (var i = 0; i < _gameIntervals.length; i++) {
             setInterval(_gameIntervals[i].name, _gameIntervals[i].time)
         }
@@ -179,7 +122,7 @@
                     &&
                     player.offsetLeft < el.offsetLeft + el.offsetWidth
                     &&
-                    player.offsetLeft + player.offsetWidth < el.offsetLeft + el.offsetWidth
+                    el.offsetLeft < player.offsetLeft + player.offsetWidth
                 ) {
                     console.log("There's a collision at element nr:", i)
                     console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
@@ -193,10 +136,15 @@
 
     function endGame() {
         clearAllIntervals()
-
         if (confirm("YOU LOSE! Do you want to play again?")) {
             window.location = ''
         }
+    }
+
+    // Clear intervals function at the end of the game
+    function clearAllIntervals() {
+        for (var i = 0; i < _gameIntervals.length; i++)
+            clearInterval(i)
     }
 
     gameInit(document.body)
