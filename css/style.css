@@ -24,7 +24,6 @@ nav {
     z-index: 100000;
     width: 100%;
     max-height: 100%;
-    position: sticky;
     top: 0;
     background: rgb(255, 141, 42);
     margin-left: 0;
@@ -78,6 +77,10 @@ nav {
     color: #fff1fd;
     text-shadow: 2px 2px 2px #087528;
     padding: 0 20px;
+}
+
+.nav-list__item a.active {
+    background-color: red;
 }
 
 .nav-list__item:hover {
@@ -151,15 +154,15 @@ nav {
 /* HERO */
 
 .hero__carousel__container{
-    padding:0 0 3% 0;
-    margin:0;
+    padding: 0 0 3% 0;
+    margin: 60px 0 0 0;
 }
 .hero__carousel-style-class {
     object-fit: cover;
     overflow: hidden;
     display: flex;
     height: 85vh;
-    padding:0;
+    padding: 0;
 }
 
 .hero__carousel-content__logo{

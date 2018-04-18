@@ -1,15 +1,31 @@
+//--- SMOOTH SCROLL ---
+
 $(document).ready(function () {
     $('.menu').click(function () {
-        $('.nav-list').toggleClass('active');
+        $('.nav-list').toggleClass('active')
     })
 })
 
 $('a.smooth-scroll').on('click', function(event){
-    event.preventDefault();
+    event.preventDefault()
     $('html, body').animate({
         scrollTop: $($.attr(this, 'href')).offset().top - 30
     }, 800);
-});
+})
+
+//--- HIGHLIGHT IN-VIEW SECTION IN MENU ---
+
+$(window).scroll(function() {
+    var scrollDistance = $(window).scrollTop()
+
+    // Assign active class to nav links while scolling
+    $('.main-section').each(function(i) {
+        if ($(this).position().top <= scrollDistance + 50) {
+            $('.nav a.active').removeClass('active')
+            $('.nav a').eq(i).addClass('active')
+        }
+    })
+}).scroll()
 
 //--- TEMPORARY LOCAL STORAGE COOKIE ---
 
