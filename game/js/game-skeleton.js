@@ -14,11 +14,12 @@
     var _initialPlayerHeight = 12
     var _initialPlayerPositon = 50 - _initialPlayerHeight/2
     var _playerMoveStep = 2
-    var __player = null
+    var _player = null
+    var _arrayOfObstacles = []
 
     var _gameIntervals = [
-        {name: checkCollision, time: 500},
-        {name: placeObstacle, time: 3000}
+        {name: checkCollision, time: 100},
+        {name: placeObstacle, time: 1000}
     ]
 
     // FUNCTIONS
@@ -29,7 +30,6 @@
         createPlayer()
         attachEventListeners()
         gameTicker()
-        placeObstacle()
 
     }
 
@@ -78,7 +78,7 @@
             _obstacle.style.top = '40%'
             _obstacle.style.left = '46.5%'
             setTimeout(function(){
-                moveObstacle(105,5)
+                moveObstacle(105,-10)
                 _obstacle.style.width = '30%'
                 _obstacle.style.height = '30%'
             },100)
@@ -88,7 +88,7 @@
             _obstacle.style.left = '46.5%'
 
             setTimeout(function(){
-                moveObstacle(105,47.5)
+                moveObstacle(105,35)
                 _obstacle.style.width = '30%'
                 _obstacle.style.height = '30%'
             },100)
@@ -98,7 +98,7 @@
             _obstacle.style.left = '46.5%'
 
             setTimeout(function(){
-                moveObstacle(105,95)
+                moveObstacle(105,80)
                 _obstacle.style.width = '30%'
                 _obstacle.style.height = '30%'
             },100)
@@ -112,15 +112,15 @@
     }
 
     function createPlayer(){
-        __player = document.createElement('div')
-        __player.setAttribute('id', 'player')
-        __player.style.position = 'absolute'
-        __player.style.left = _initialPlayerPositon + '%'
-        __player.style.top = (100 - _initialPlayerHeight) + '%'
-        __player.style.backgroundColor = 'blue'
-        __player.style.width = _initialPlayerHeight + '%'
-        __player.style.height = _initialPlayerHeight + '%'
-       _gameBoard.appendChild(__player)
+        _player = document.createElement('div')
+        _player.setAttribute('id', 'player')
+        _player.style.position = 'absolute'
+        _player.style.left = _initialPlayerPositon + '%'
+        _player.style.top = (100 - _initialPlayerHeight) + '%'
+        _player.style.backgroundColor = 'blue'
+        _player.style.width = _initialPlayerHeight + '%'
+        _player.style.height = _initialPlayerHeight + '%'
+       _gameBoard.appendChild(_player)
     }
 
     function attachEventListeners() {
@@ -139,20 +139,20 @@
     }
 
     function move(deltaX) {
-        var newPlayerPosition = parseInt(__player.style.left.slice(0, -1)) + deltaX * _playerMoveStep
+        var newPlayerPosition = parseInt(_player.style.left.slice(0, -1)) + deltaX * _playerMoveStep
         if((newPlayerPosition >= 0) && (newPlayerPosition <= 100 -_initialPlayerHeight)){
-            __player.style.left = newPlayerPosition + '%'
+            _player.style.left = newPlayerPosition + '%'
         }
     }
 
     function checkCollision() {
         var obstacles = document.getElementsByClassName('obstacle')
 
-        var arrayOfObstacles = [].slice.call(obstacles)
+        _arrayOfObstacles = [].slice.call(obstacles)
 
-        var player = document.getElementById('player')
+        var player = _player
 
-        arrayOfObstacles.forEach(function (el, i) {
+        _arrayOfObstacles.forEach(function (el, i) {
             if (el.offsetTop + el.offsetWidth >= player.offsetTop ) {
                 if (
                     player.offsetTop < el.offsetTop + el.offsetHeight
@@ -160,6 +160,8 @@
                     player.offsetLeft < el.offsetLeft + el.offsetWidth
                     &&
                     el.offsetLeft < player.offsetLeft + player.offsetWidth
+                    &&
+                    el.offsetTop <= player.offsetTop + player.offsetWidth
                 ) {
                     console.log("There's a collision at element nr:", i)
                     console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
@@ -169,12 +171,14 @@
                 }
             }
         })
+        removeObstacle()
     }
 
         function removeObstacle() {
-            _arrayOfObstacles.forEach(function (el, i) {
-                if (el[i].style.top >= '105%') {
-                    _gameBoard.removeChild(el[i])
+        console.log('Remove obstacle')
+            _arrayOfObstacles.forEach(function (el) {
+                if (el.offsetTop > _player.offsetTop + _player.offsetWidth ) {
+                    el.parentNode.removeChild(el)
                 }
             })
         }
