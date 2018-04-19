@@ -45,7 +45,8 @@ html, body {
     left: 40%;
     margin-left: -75px;
     width: 150px;
-    animation: szerokosc1 10s infinite;
+    transition: 5s;
+    /* animation: szerokosc1 10s cubic-bezier(0.4, 0, 1, 1) infinite; */
 
 }
 .box2{
@@ -53,7 +54,7 @@ html, body {
     left: 50%;
     margin-left: -75px;
     width: 150px;
-    animation: szerokosc2 10s infinite;
+    /* animation: szerokosc2 10s cubic-bezier(0.4, 0, 1, 1) infinite; */
 
 }
 
@@ -62,7 +63,7 @@ html, body {
     left: 60%;
     margin-left: -75px;
     width: 150px;
-    animation: szerokosc3 10s infinite;
+    /* animation: szerokosc3 10s cubic-bezier(0.4, 0, 1, 1) infinite; */
 
 }
 
@@ -85,10 +86,10 @@ html, body {
 /*}*/
 
 /* ---------------------------REGUŁY-ANIMACJI--------------------------- */
-@keyframes szerokosc1 {
+/* @keyframes szerokosc1 {
     0% {
         top: 0px;
-        left: 33% ;
+        left: 30% ;
     }
     100% {
         top: 90%;
@@ -115,9 +116,9 @@ html, body {
     }
     100% {
         top: 90%;
-        left: 83%;
+        left: 80%;
     }
-}
+} */
 
 
 

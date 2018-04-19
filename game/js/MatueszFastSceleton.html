@@ -10,111 +10,94 @@
 
 <body>
 
-<script>
-    (function () {
-        _step = 2
-        _playerPosition = {
-            x: 0,
-            y: 0
-        }
-
-        _gameContainer = document.body
-        _gameBoard = null
-        _player = null
-        _obstacle = null
-        
-
-        function makeGameBoard() {
-            var board = document.createElement('div')
-            board.style.position = 'relative'
-            board.style.backgroundColor = 'red'
-            board.style.width = '98vh'
-            board.style.height = '98vh'
-            board.style.margin = '0 auto'
-
-            _gameContainer.appendChild(board)
-
-            _gameBoard = board
-        }
-
-        
-        
-        function makePlayer() {
-            var player = document.createElement('div')
-            player.style.position = 'absolute'
-            player.style.backgroundColor = 'black'
-            player.style.width = '2%'
-            player.style.height = '2%'
-            _gameBoard.appendChild(player)
-
-            _player = player
-
-
-        }
 
 
 
-/////////////////////////////////////
-        
-        function randomWay() {
 
-            return Math.round(Math.random()*2 + 1)
-        }
-        
-        
-        function makeObstacle() {
-            var obstacle = document.createElement('div')
-            obstacle.style.position = 'absolute'
-            obstacle.style.width = '5%'
-            obstacle.style.height = '5%'
-            _gameBoard.appendChild(obstacle)
+    <script>
+        (function () {
+
+            _gameBoard = null
+            _obstacle = null
+
+
+            function makeGameBoard() {
+                var board = document.createElement('div')
+                board.style.position = 'relative'
+                board.style.backgroundColor = 'orange'
+                board.style.width = '98vh'
+                board.style.height = '98vh'
+                board.style.margin = '0 auto'
+                document.querySelector('body').appendChild(board)
+                _gameBoard = board
+            }
+
+
+
+            function makeObstacle() {
+                var obstacle = document.createElement('div')
+                obstacle.style.position = 'absolute'
+                obstacle.style.width = '5%'
+                obstacle.style.height = '5%'
+                obstacle.style.backgroundColor = 'blue'
+                _gameBoard.appendChild(obstacle)
 
                 _obstacle = obstacle
 
+               
 
+            }
 
-        }
+            function randomWay() {
 
-        function placeObstacle(randomWay) {
-
-            _obstacle.style.top = '0'
-
-            if(randomWay === 1){
-
-                _obstacle.style.left =
-
-            }else if(randomWay === 2){
+                return Math.round(Math.random() * 3 - 0.5)
+            }
 
 
 
-            }else{
 
+            function placeObstacle(randomWay) {
+
+                if (randomWay === 0) {
+                    _obstacle.style.top = '50%'
+                    _obstacle.style.left = 27.5 + '%'
+                    // _obstacle.style.transition = 'top 7s, left 7s'
+                }
+                else if (randomWay === 1) {
+
+                    _obstacle.style.top = '50%'
+                    _obstacle.style.left = 47.5 + '%'
+                    // _obstacle.style.transition = 'top 7s, left 7s'
+                }
+                else {
+
+                    _obstacle.style.top = '50%'
+                    _obstacle.style.left = 67.5 + '%'
+                    // _obstacle.style.transition = 'top 7s, left 7s'
+                }
+            }
+
+            function moveObstacle(/*speed*/) {
+                //    _obstacle.style.transitionProperty = "initial"
+                //         _obstacle.style.left = 10 + '%'
+                //         _obstacle.style.top = 100 + '%'
+                //         console.log('wykonuje sie')
+
+            }
+
+
+            function init() {
+                makeGameBoard()
+                makeObstacle()
+                placeObstacle(0)
+                // moveObstacle()
 
 
             }
 
-        }
-
-/////////////////////////////////////
-        
-        function move(){
-            placePlayer(_playerPosition.x + _step, _playerPosition.y + _step)
-        }
-
-        function placePlayer(x, y){
-            _player.style.top = y + '%'
-            _player.style.left = x + '%'
-        }
-
-        function init() {
-            makeGameBoard()
-            makePlayer()
-            // move()
-        }
-
-        init()
-    })()
-</script>
+            init()
+        })()
+    </script>
 </body>
 
 </html>
