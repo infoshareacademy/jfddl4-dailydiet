@@ -1,142 +1,167 @@
 // Game is a self-invoking function
 (function () {
 
-        // VARIABLES
+    // VARIABLES
 
-        var _gameContainer = document.querySelector('body')
+    var _gameContainer = document.querySelector('body')
 
-        var _gameBoard = null
-        var _scoreContainer = null
-        var _lifesContainer = null
-        var _timeContainer = null
+    var _gameBoard = null
+    var _scoreContainer = null
+    var _lifesContainer = null
+    var _timeContainer = null
 
-        // Set default player position
-        var _initialPlayerPositon = 1
+    // Set default player position
+    var _initialPlayerPositon = 1
 
-        // Create obstacle
-        var _obstacle = null
-        // Create
-        var _obstaclesCollection = null
-        var _arrayOfObstacles = []
+    // Create obstacle
+    var _obstacle = null
 
-        // Create player with default position X
-        var __player = {
-            positionX: _initialPlayerPositon
+    // Create player with default position X
+    var __player = {
+        positionX: _initialPlayerPositon
+    }
+
+    var _gameIntervals = [
+        {name: checkCollision, time: 500},
+        {name: placeObstacle, time: 3000}
+    ]
+
+    // FUNCTIONS
+
+    // game initial
+    function gameInit(container) {
+
+        gameBoard()
+        placePlayer()
+        gameTicker()
+        placeObstacle()
+    }
+
+    function gameBoard() {
+        var board = document.createElement('div')
+        board.style.position = 'relative'
+        board.style.backgroundImage = "url('js/food/background.jpg')"
+        board.style.backgroundSize = 'cover'
+        board.style.width = '50vw'
+        board.style.height = '50vw'
+        board.style.margin = '0 auto'
+
+        _gameContainer.appendChild(board)
+
+        _gameBoard = board
+    }
+
+    function placePlayer() {
+        __player = document.createElement('div')
+        __player.id = 'player'
+        __player.style.position = 'absolute'
+        __player.style.left = '45%'
+        __player.style.top = '85%'
+
+        __player.style.backgroundColor = 'blue'
+        __player.style.width = '10%'
+        __player.style.height = '10%'
+        _gameBoard.appendChild(__player)
+    }
+
+    function makeObstacle() {
+
+        var obstacle = document.createElement('div')
+        obstacle.classList.add('obstacle')
+        obstacle.style.position = 'absolute'
+        obstacle.style.width = '7%'
+        obstacle.style.height = '7%'
+        obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random()*5) + ".png')"
+        obstacle.style.backgroundSize = 'cover'
+        obstacle.style.transition = "all 3s ease-in"
+        obstacle.style.top = '0'
+
+        _gameBoard.appendChild(obstacle)
+        _obstacle = obstacle
+    }
+
+    function choseRandomWay() {
+        return Math.round(Math.random() * 3 - 0.5)
+    }
+
+    function moveObstacle(top,left){
+        _obstacle.style.top = top+'%'
+        _obstacle.style.left = left+'%'
+
+    }
+
+
+    function placeObstacle() {
+
+        var randomWay = choseRandomWay()
+
+        makeObstacle()
+
+        if (randomWay === 0) {
+            _obstacle.style.top = '40%'
+            _obstacle.style.left = '46.5%'
+
+            setTimeout(function(){
+                    moveObstacle(105,5)
+                    _obstacle.style.width = '30%'
+                    _obstacle.style.height = '30%'
+                },100)
         }
+        else if (randomWay === 1) {
 
-        var _gameIntervals = [
-            {name: checkCollision, time: 500},
-            {name: placeObstacle, time: 3000}
-        ]
+            _obstacle.style.top = '40%'
+            _obstacle.style.left = '46.5%'
 
-        // FUNCTIONS
-
-        // -- END OF TEMPORARY CLEAR INTERVALS FUNCTIONS
-
-        // game initial
-        function gameInit(container) {
-
-            // gameInstruction()
-            gameBoard()
-            placePlayer()
-            gameTicker()
-
+            setTimeout(function(){
+                    moveObstacle(105,47.5)
+                    _obstacle.style.width = '30%'
+                    _obstacle.style.height = '30%'
+                },100)
         }
+        else {
 
-        function gameBoard() {
-            var board = document.createElement('div')
-            board.style.position = 'relative'
-            board.style.backgroundColor = 'red'
-            board.style.width = '50vw'
-            board.style.height = '50vw'
-            board.style.margin = '0 auto'
+            _obstacle.style.top = '40%'
+            _obstacle.style.left = '46.5%'
 
-            _gameContainer.appendChild(board)
-
-            _gameBoard = board
+            setTimeout(function(){
+                moveObstacle(105,95)
+                _obstacle.style.width = '30%'
+                _obstacle.style.height = '30%'
+            },100)
         }
+    }
 
-        function placePlayer() {
-            __player = document.createElement('div')
-            __player.id = 'player'
-            __player.style.position = 'absolute'
-            __player.style.left = '45%'
-            __player.style.top = '85%'
-
-            __player.style.backgroundColor = 'blue'
-            __player.style.width = '10%'
-            __player.style.height = '10%'
-            _gameBoard.appendChild(__player)
+    function gameTicker() {
+        for (var i = 0; i < _gameIntervals.length; i++) {
+            setInterval(_gameIntervals[i].name, _gameIntervals[i].time)
         }
+    }
 
-        function placeObstacle() {
-            // console.log("I'm putting obstacle! Watch out!!")
+    function checkCollision() {
+        var obstacles = document.getElementsByClassName('obstacle')
 
-            _obstacle = document.createElement('div')
-            _obstacle.classList.add('obstacle')
-            _obstacle.style.position = 'absolute'
-            _obstacle.style.left = '68%'
-            _obstacle.style.top = '80%'
+        var arrayOfObstacles = [].slice.call(obstacles)
 
-            _obstacle.style.backgroundColor = 'green'
-            _obstacle.style.width = '10%'
-            _obstacle.style.height = '10%'
-            _gameBoard.appendChild(_obstacle)
-        }
+        var player = document.getElementById('player')
 
-        // gameTicker start functions from _gameIntervals after time declared to each interval
-        function gameTicker() {
-            for (var i = 0; i < _gameIntervals.length; i++) {
-                setInterval(_gameIntervals[i].name, _gameIntervals[i].time)
-            }
-        }
-
-        function checkCollision() {
-
-            // selects all obstacles by class - return HTML Collection
-            _obstaclesCollection = document.getElementsByClassName('obstacle')
-
-            // ADDITIONAL OVERVIEW WHAT HAPPENED THERE
-            // console.log(obstacles) // HTMLCollection [div.obstacle]
-            // console.log(obstacles[0]) // <div class="obstacle" style...></div>
-
-            // Convert obstacles HTML Collection to array
-            _arrayOfObstacles = [].slice.call(_obstaclesCollection)
-
-
-            // ADDITIONAL OVERVIEW WHAT HAPPENED THERE
-            // console.log(arrayOfObstacles) // [div.obstacle]
-            // Now we have a div.obstacle element in an array
-            // console.log(arrayOfObstacles[0]) // <div class="obstacle" style...></div>
-            // console.log(typeof arrayOfObstacles[0]) // object
-            // console.log(arrayOfObstacles[0].offsetTop) // 423
-
-            // get player by id
-            var player = document.getElementById('player')
-
-            // console.log(player.offsetTop) // 485
-            // console.log(player.offsetLeft) // 243
-
-            // Compares player's Top and Left position including it's Height to any obstacle in game
-            _arrayOfObstacles.forEach(function (el, i) {
-                if (el.offsetTop + el.offsetWidth >= player.offsetTop) {
-                    if (
-                        player.offsetTop < el.offsetTop + el.offsetHeight
-                        &&
-                        player.offsetLeft < el.offsetLeft + el.offsetWidth
-                        &&
-                        el.offsetLeft < player.offsetLeft + player.offsetWidth
-                    ) {
-                        console.log("There's a collision at element nr:", i)
-                        console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
-                        endGame()
-                    } else {
-                        console.log("Yikes! There's no collisions at element nr:", i)
-                    }
+        arrayOfObstacles.forEach(function (el, i) {
+            if (el.offsetTop + el.offsetWidth >= player.offsetTop ) {
+                if (
+                    player.offsetTop < el.offsetTop + el.offsetHeight
+                    &&
+                    player.offsetLeft < el.offsetLeft + el.offsetWidth
+                    &&
+                    el.offsetLeft < player.offsetLeft + player.offsetWidth
+                ) {
+                    console.log("There's a collision at element nr:", i)
+                    console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
+                    endGame()
+                } else {
+                    console.log("Yikes! There's no collisions at element nr:", i)
                 }
-            })
-            removeObstacle(_arrayOfObstacles)
-        }
+            }
+        })
+    }
 
         function removeObstacle() {
             _arrayOfObstacles.forEach(function (el, i) {
