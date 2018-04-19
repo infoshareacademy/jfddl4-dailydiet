@@ -6,20 +6,15 @@
     var _gameContainer = document.querySelector('body')
 
     var _gameBoard = null
-    var _scoreContainer = null
-    var _lifesContainer = null
-    var _timeContainer = null
-
-    // Set default player position
-    var _initialPlayerPositon = 1
 
     // Create obstacle
     var _obstacle = null
 
-    // Create player with default position X
-    var __player = {
-        positionX: _initialPlayerPositon
-    }
+    // Create player
+    var _initialPlayerHeight = 12
+    var _initialPlayerPositon = 50 - _initialPlayerHeight/2
+    var _playerMoveStep = 2
+    var __player = null
 
     var _gameIntervals = [
         {name: checkCollision, time: 500},
@@ -30,11 +25,12 @@
 
     // game initial
     function gameInit(container) {
-
-        gameBoard()
-        placePlayer()
+        gameBoard(container)
+        createPlayer()
+        attachEventListeners()
         gameTicker()
         placeObstacle()
+
     }
 
     function gameBoard() {
@@ -45,23 +41,9 @@
         board.style.width = '50vw'
         board.style.height = '50vw'
         board.style.margin = '0 auto'
-
         _gameContainer.appendChild(board)
 
         _gameBoard = board
-    }
-
-    function placePlayer() {
-        __player = document.createElement('div')
-        __player.id = 'player'
-        __player.style.position = 'absolute'
-        __player.style.left = '45%'
-        __player.style.top = '85%'
-
-        __player.style.backgroundColor = 'blue'
-        __player.style.width = '10%'
-        __player.style.height = '10%'
-        _gameBoard.appendChild(__player)
     }
 
     function makeObstacle() {
@@ -87,39 +69,31 @@
     function moveObstacle(top,left){
         _obstacle.style.top = top+'%'
         _obstacle.style.left = left+'%'
-
     }
 
-
     function placeObstacle() {
-
         var randomWay = choseRandomWay()
-
         makeObstacle()
-
         if (randomWay === 0) {
             _obstacle.style.top = '40%'
             _obstacle.style.left = '46.5%'
-
             setTimeout(function(){
-                    moveObstacle(105,5)
-                    _obstacle.style.width = '30%'
-                    _obstacle.style.height = '30%'
-                },100)
+                moveObstacle(105,5)
+                _obstacle.style.width = '30%'
+                _obstacle.style.height = '30%'
+            },100)
         }
         else if (randomWay === 1) {
-
             _obstacle.style.top = '40%'
             _obstacle.style.left = '46.5%'
 
             setTimeout(function(){
-                    moveObstacle(105,47.5)
-                    _obstacle.style.width = '30%'
-                    _obstacle.style.height = '30%'
-                },100)
+                moveObstacle(105,47.5)
+                _obstacle.style.width = '30%'
+                _obstacle.style.height = '30%'
+            },100)
         }
         else {
-
             _obstacle.style.top = '40%'
             _obstacle.style.left = '46.5%'
 
@@ -134,6 +108,40 @@
     function gameTicker() {
         for (var i = 0; i < _gameIntervals.length; i++) {
             setInterval(_gameIntervals[i].name, _gameIntervals[i].time)
+        }
+    }
+
+    function createPlayer(){
+        __player = document.createElement('div')
+        __player.setAttribute('id', 'player')
+        __player.style.position = 'absolute'
+        __player.style.left = _initialPlayerPositon + '%'
+        __player.style.top = (100 - _initialPlayerHeight) + '%'
+        __player.style.backgroundColor = 'blue'
+        __player.style.width = _initialPlayerHeight + '%'
+        __player.style.height = _initialPlayerHeight + '%'
+       _gameBoard.appendChild(__player)
+    }
+
+    function attachEventListeners() {
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case 'ArrowLeft':
+                    move(-1)
+                    break
+                case 'ArrowRight':
+                    move(1)
+                    break
+                default: return
+            }
+            event.preventDefault()
+        })
+    }
+
+    function move(deltaX) {
+        var newPlayerPosition = parseInt(__player.style.left.slice(0, -1)) + deltaX * _playerMoveStep
+        if((newPlayerPosition >= 0) && (newPlayerPosition <= 100 -_initialPlayerHeight)){
+            __player.style.left = newPlayerPosition + '%'
         }
     }
 
