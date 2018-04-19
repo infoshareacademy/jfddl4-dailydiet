@@ -6,12 +6,6 @@
     var _gameContainer = document.querySelector('body')
 
     var _gameBoard = null
-    var _scoreContainer = null
-    var _lifesContainer = null
-    var _timeContainer = null
-
-    // Set default player position
-    var _initialPlayerPositon = 1
 
     // Create obstacle
     var _obstacle = null
@@ -192,5 +186,4 @@
 
     gameInit(document.body)
 
-    gameInit(document.body)
 })()
