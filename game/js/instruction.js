@@ -37,10 +37,21 @@
         var rules = document.createElement('div')
         rules.style.display = 'inline-block'
         rules.style.float = 'right'
+        rules.style.width = '40%'
         rules.style.marginRight = '10%'
-        rules.style.maxWidth = '40%'
         container.appendChild(rules)
 
+
+        var arrowContainer = document.createElement('div')
+        arrowContainer.style.display = 'inline-block'
+        arrowContainer.style.marginLeft = '10%'
+        arrowContainer.style.width = '38%'
+        container.appendChild(arrowContainer)
+
+        var arrowsPic = document.createElement('img')
+        arrowsPic.setAttribute('src', 'img/twoArrows.png')
+        arrowsPic.style.position = 'relative'
+        arrowContainer.appendChild(arrowsPic)
         var arrayWithInstructions = [
             'use arrow keys to move left and right',
             'catch healthy products to stay fit',
@@ -57,18 +68,6 @@
         })
         instructionList.style.fontSize = '22px'
 
-
-        var arrowContainer = document.createElement('div')
-        arrowContainer.style.float = 'left'
-        arrowContainer.style.display = 'inline-block'
-        arrowContainer.style.maxWidth = '40%'
-        arrowContainer.style.marginLeft = '10%'
-        container.appendChild(arrowContainer)
-
-        var arrowsPic = document.createElement('img')
-        arrowsPic.setAttribute('src', 'img/twoArrows.png')
-        arrowsPic.style.position = 'cover'
-        arrowContainer.appendChild(arrowsPic)
     }
 
     init(_container)
