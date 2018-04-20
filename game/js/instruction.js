@@ -9,6 +9,8 @@
 
     function instructions(container) {
         _instructions = document.createElement('div')
+        _instructions.style.width = '80%'
+        _instructions.style.margin = 'auto'
         _instructions.style.background = 'rgba(255,255,255,0.7)'
         container.appendChild(_instructions)
 
@@ -27,13 +29,16 @@
         titleParagraph.style.textAlign = 'center'
         titleParagraph.style.fontSize = '22px'
         titleDiv.appendChild(titleParagraph)
+
+
         var hr = document.createElement('hr')
         titleParagraph.appendChild(hr)
 
         var rules = document.createElement('div')
         rules.style.display = 'inline-block'
         rules.style.float = 'right'
-        rules.style.width = '50%'
+        rules.style.marginRight = '10%'
+        rules.style.maxWidth = '40%'
         container.appendChild(rules)
 
         var arrayWithInstructions = [
@@ -56,11 +61,13 @@
         var arrowContainer = document.createElement('div')
         arrowContainer.style.float = 'left'
         arrowContainer.style.display = 'inline-block'
-        arrowContainer.style.marginLeft = "10%"
+        arrowContainer.style.maxWidth = '40%'
+        arrowContainer.style.marginLeft = '10%'
         container.appendChild(arrowContainer)
 
         var arrowsPic = document.createElement('img')
         arrowsPic.setAttribute('src', 'img/twoArrows.png')
+        arrowsPic.style.position = 'cover'
         arrowContainer.appendChild(arrowsPic)
     }
 
