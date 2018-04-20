@@ -25,11 +25,11 @@
         var _gameIntervals = [
             {name: checkPosition, time: 100},
             {name: placeObstacle, time: 3000},
-            {name: leveUp, time: 10000}
+            {name: levelUp, time: 10000}
         ]
 
-        function leveUp() {
-            _gameIntervals[1].time = Math.ceil(_gameIntervals[1].time * 0.8)
+        function levelUp() {
+            _gameIntervals[1].time = Math.ceil(_gameIntervals[1].time * 0.85)
             _playerMoveStep += 1
             clearAllIntervals()
             gameTicker()
@@ -117,10 +117,12 @@
             obstacle.style.transition = "all 3s ease-in"
             obstacle.style.top = '0'
             obstacle.style.zIndex = '100'
-            obstacle.type = Math.round(Math.random())  //1 - zdrowe  0 - niezdrowe
-            obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random() * 4 - 0.5) + ".png')"
-            /*if (obstacle.type === 1)
-            else  obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random() * 4 + 9.5) + ".png')"*/
+            obstacle.type = Math.round(Math.random())
+
+            if (obstacle.type === 0)
+                obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random() * 4 - 0.5) + ".png')"
+            else
+                obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random() * 4 + 9.5) + ".png')"
 
             _gameBoard.appendChild(obstacle)
             _obstacle = obstacle
@@ -139,26 +141,28 @@
             var randomWay = choseRandomWay()
             makeObstacle()
             _obstacle.style.top = '40%'
-            _obstacle.style.left = '46.5%'
             if (randomWay === 0) {
+                _obstacle.style.left = '44.5%'
                 setTimeout(function () {
-                    moveObstacle(105, -25)
                     _obstacle.style.width = '30%'
                     _obstacle.style.height = '30%'
+                    moveObstacle(105, -25)
                 }, 100)
             }
             else if (randomWay === 1) {
+                _obstacle.style.left = '46.5%'
                 setTimeout(function () {
-                    moveObstacle(105, 35)
                     _obstacle.style.width = '30%'
                     _obstacle.style.height = '30%'
+                    moveObstacle(105, 35)
                 }, 100)
             }
             else {
+                _obstacle.style.left = '48.5%'
                 setTimeout(function () {
-                    moveObstacle(105, 95)
                     _obstacle.style.width = '30%'
                     _obstacle.style.height = '30%'
+                    moveObstacle(105, 95)
                 }, 100)
             }
         }
@@ -211,9 +215,6 @@
 
             _arrayOfObstacles = [].slice.call(obstacles)
 
-            console.log('Score', _score)
-            console.log('Lifes', _lifes)
-
             _arrayOfObstacles.forEach(function (el, i) {
                 if (el.offsetTop + el.offsetWidth >= _player.offsetTop) {
                     checkCollision(el)
@@ -237,22 +238,22 @@
         }
 
         function checkType(el) {
-            console.log("Im in checkType", el.type)
             if (el.type === 0) {
                 el.parentNode.removeChild(el)
-                _lifes--
+                --_lifes
                 if (_lifes === 0) {
-                    console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
                     endGame()
                 }
             } else {
                 el.parentNode.removeChild(el)
-                _score++
+                ++_score
+                if (_score % 10 === 0) {
+                    ++_lifes
+                }
             }
         }
 
         function removeObstacle() {
-            console.log('Remove obstacle')
             _arrayOfObstacles.forEach(function (el) {
                 if (el.offsetTop > _player.offsetTop + _player.offsetWidth) {
                     el.parentNode.removeChild(el)
@@ -270,15 +271,12 @@
 
         function endGame() {
             clearAllIntervals()
-            if (confirm("YOU LOSE! Do you want to play again?")) {
+            if (confirm("You lose :( Your score is " + _score  + "! Do you want to play again?")) {
                 window.location = ''
             } else {
                 clearAllIntervals()
             }
         }
-
         gameInit(document.body)
-
     }
-
 )()
