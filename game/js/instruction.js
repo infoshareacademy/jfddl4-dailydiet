@@ -31,12 +31,12 @@
         titleParagraph.appendChild(hr)
 
         var rules = document.createElement('div')
-        rules.style.display = 'flex'
-        rules.style.margin = 'auto'
-        rules.style.width = '80%'
+        rules.style.display = 'inline-block'
+        rules.style.float = 'right'
+        rules.style.width = '50%'
         container.appendChild(rules)
 
-        var array = [
+        var arrayWithInstructions = [
             'use arrow keys to move left and right',
             'catch healthy products to stay fit',
             'avoid unhealthy food, otherwise your character is going to end miserably'
@@ -45,13 +45,23 @@
         var instructionList = document.createElement('ol')
         rules.appendChild(instructionList)
 
-        array.forEach(function (thingsToDo) {
+        arrayWithInstructions.forEach(function (thingsToDo) {
             var li = document.createElement('li')
             instructionList.appendChild(li)
             li.innerHTML += thingsToDo
         })
         instructionList.style.fontSize = '22px'
-        instructionList.style.marginLeft = '50%'
+
+
+        var arrowContainer = document.createElement('div')
+        arrowContainer.style.float = 'left'
+        arrowContainer.style.display = 'inline-block'
+        arrowContainer.style.marginLeft = "10%"
+        container.appendChild(arrowContainer)
+
+        var arrowsPic = document.createElement('img')
+        arrowsPic.setAttribute('src', 'img/twoArrows.png')
+        arrowContainer.appendChild(arrowsPic)
     }
 
     init(_container)
