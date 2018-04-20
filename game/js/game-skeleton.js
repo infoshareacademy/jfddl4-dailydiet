@@ -5,6 +5,9 @@
 
         var _gameContainer = document.querySelector('body')
 
+        var _lifes = 3
+        var _score = 0
+
         var _gameBoard = null
         var _background = null
         var _floor = null
@@ -20,7 +23,7 @@
         var _player = null
 
         var _gameIntervals = [
-            {name: checkCollision, time: 100},
+            {name: checkPosition, time: 100},
             {name: placeObstacle, time: 3000},
             {name: leveUp, time: 10000}
         ]
@@ -74,8 +77,8 @@
             _floor.style.transformStyle = 'preserve-3d'
             _floor.style.transform = 'rotateX(15deg)'
             _floor.animate([
-                { backgroundPositionY: '0%' },
-                { backgroundPositionY: '100%'}
+                {backgroundPositionY: '0%'},
+                {backgroundPositionY: '100%'}
             ], {
                 duration: 8000,
                 easing: 'linear',
@@ -110,12 +113,14 @@
             obstacle.style.position = 'absolute'
             obstacle.style.width = '7%'
             obstacle.style.height = '7%'
-            obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random() * 3) + ".png')"
             obstacle.style.backgroundSize = 'cover'
             obstacle.style.transition = "all 3s ease-in"
             obstacle.style.top = '0'
             obstacle.style.zIndex = '100'
-
+            obstacle.type = Math.round(Math.random())  //1 - zdrowe  0 - niezdrowe
+            obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random() * 4 - 0.5) + ".png')"
+            /*if (obstacle.type === 1)
+            else  obstacle.style.backgroundImage = "url('js/food/" + Math.round(Math.random() * 4 + 9.5) + ".png')"*/
 
             _gameBoard.appendChild(obstacle)
             _obstacle = obstacle
@@ -201,28 +206,49 @@
             }
         }
 
-        function checkCollision() {
+        function checkPosition() {
             var obstacles = document.getElementsByClassName('obstacle')
 
             _arrayOfObstacles = [].slice.call(obstacles)
 
+            console.log('Score', _score)
+            console.log('Lifes', _lifes)
+
             _arrayOfObstacles.forEach(function (el, i) {
                 if (el.offsetTop + el.offsetWidth >= _player.offsetTop) {
-                    if (
-                        _player.offsetTop < el.offsetTop + el.offsetHeight * 0.9
-                        &&
-                        _player.offsetLeft < el.offsetLeft + el.offsetWidth
-                        &&
-                        el.offsetLeft < _player.offsetLeft + _player.offsetWidth
-                        &&
-                        el.offsetTop <= _player.offsetTop + _player.offsetWidth * 0.8
-                    ) {
-                        console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
-                        endGame()
-                    }
+                    checkCollision(el)
                 }
+                removeObstacle()
             })
-            removeObstacle()
+        }
+
+        function checkCollision(el) {
+            if (
+                _player.offsetTop < el.offsetTop + el.offsetHeight * 0.9
+                &&
+                _player.offsetLeft < el.offsetLeft + el.offsetWidth
+                &&
+                el.offsetLeft < _player.offsetLeft + _player.offsetWidth
+                &&
+                el.offsetTop <= _player.offsetTop + _player.offsetWidth * 0.8
+            ) {
+                checkType(el)
+            }
+        }
+
+        function checkType(el) {
+            console.log("Im in checkType", el.type)
+            if (el.type === 0) {
+                el.parentNode.removeChild(el)
+                _lifes--
+                if (_lifes === 0) {
+                    console.log("YOU LOOSE THE GAME. An ATOMIC BOMB will be sent at your current location OR you can start again. You have 10 seconds since you started reading this message to make your decision...")
+                    endGame()
+                }
+            } else {
+                el.parentNode.removeChild(el)
+                _score++
+            }
         }
 
         function removeObstacle() {
@@ -235,7 +261,8 @@
         }
 
         function clearAllIntervals() {
-            var highestInterval = setInterval(function(){})
+            var highestInterval = setInterval(function () {
+            })
             for (var i = 0; i < highestInterval; i++) {
                 clearInterval(i)
             }
