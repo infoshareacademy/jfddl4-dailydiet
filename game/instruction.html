@@ -5,9 +5,40 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styleOfInstruction.css">
     <title>Instructions</title>
 </head>
 <body>
+<button id="myBtn">Open Modal</button> <!-- zamienić na button z formularza -->
+
+
+<div id="instructions" class="instructions__modal">
+    <div class="instructions__modal__content">
+        <span class="modal__close">&times;</span>
+        <h1>Thank you for your e-mail!</h1>
+        <h3>If you want to be entertained while waiting play our Daily Diet game.</h3>
+        <div class="modal__img-instructions">
+            <div class="modal__div-with-images">
+                <image src="img/twoArrows.png" class="modal__arrows-pic"></image>
+            </div>
+            <div class="modal__div-with-instructions">
+                <ul>
+                    <li>use arrow keys to move right and left</li>
+                    <li>avoit unhealthy food to keep fit</li>
+                    <li>eat healthy product to stay longer in the game</li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal__div-with-buttons">
+            <button type="button" class="btn"><a href="#form">I don't want to play</a></button>
+            <button type="button" class="btn"><a href="#form">Wow! Go to the game</a></button>
+        </div>
+        <!--buttons of I don't want to play, Got it let's play-->
+    </div>
+
+</div>
+
 
 <script src="js/instruction.js"></script>
 </body>
