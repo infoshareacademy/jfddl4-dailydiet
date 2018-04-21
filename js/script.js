@@ -27,6 +27,22 @@ $('#cookies--close').on(
     })
 //--- / TEMPORARY LOCAL STORAGE COOKIE ---
 
+//--- / TEAM MEMBERS ANIMATION ON IN-VIEW
+inView.offset(80)
+
+inView('.team_magda').on('enter', (function () {
+    $('.team__magda').addClass('team__member-picture__animation')
+}))
+
+inView('.team_szymon').on('enter', (function () {
+    $('.team__szymon').addClass('team__member-picture__animation')
+}))
+
+inView('.team_bartek').on('enter', (function () {
+    $('.team__bartek').addClass('team__member-picture__animation')
+}))
+//--- / TEAM MEMBERS ANIMATION ON IN-VIEW
+
 //--- BACK TO TOP BUTTON ---
 $(document).ready(function() {
 
