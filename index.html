@@ -223,7 +223,7 @@
                 <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
                     <p class="form__paragraph">Get notified when Daily Diet is ready for use</p>
                     <input type="text" name="emails[]" placeholder="Enter your e-mail" required
-                           class="form__placeholder">
+                           class="form__placeholder" id="sendBtn" value = >
                     <input type="hidden" name="subject" value="Daily Diet subscription">
                     <input type="hidden" name="message" value="You have subscribed to Daily Diet">
                     <input type="hidden" name="from" value="daily@diet.com">
@@ -318,7 +318,7 @@
                 </div>
                 <hr>
                 <!--fixme redirect the buttons-->
-                <button type="button" class="btn instructions__btn button__close"><a href="#form">I don't want to play</a></button>
+                <button type="button" class="btn instructions__btn button__close">I don't want to play</button>
                 <button type="button" class="btn instructions__btn"><a href="#form">Wow! Go to the game</a></button>
             </div>
         </div>

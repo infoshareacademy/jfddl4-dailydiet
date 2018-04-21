@@ -83,10 +83,6 @@ var span = document.getElementsByClassName("instructions__modal__close")[0]
 
 var button__close = document.getElementsByClassName("button__close")[0]
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
 span.onclick = function() {
     modal.style.display = "none";
 }
@@ -103,3 +99,9 @@ button__close.onclick = function() {
 
 //END FORM MODAL
 
+var sbt = document.getElementById("sendBtn")
+if (value !== null){
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+}
