@@ -7,8 +7,8 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .instructions__modal__content {
@@ -19,8 +19,7 @@
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-
-.modal__close {
+.instructions__modal__close {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -33,6 +32,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+
 /*end of the same class as in the main css */
 .btn {
     background-color: darkgreen;
@@ -43,8 +43,8 @@
     text-decoration: none;
     font-size: 1.5rem;
     border-radius: 3px;
-    margin: 0.5rem;/*this line is not the same*/
-    width: 40%;  /*this line is not the same*/
+    margin: 0.5rem; /*this line is not the same*/
+    width: 40%; /*this line is not the same*/
 }
 
 .btn:hover {
@@ -58,21 +58,42 @@ a {
 }
 
 /*end of the same class as in the main css */
-.modal__img-instructions{
+.instructions__modal__img-instructions {
     width: 100%;
+    text-align: center;
     display: flex;
-}
-.modal__div-with-images{
-    max-width: 30%;
-    display:flex;
-    justify-content: center;
-}
-.modal__arrows-pic{
-    width: 100%;
-    align-self: center;
+    align-items: baseline;
 }
 
-.modal__div-with-instructions{
-    max-width: 45%;
-    display: flex;
+.instructions__modal__div {
+    width: 100%;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 0.5em;
+}
+.instructions__modal__middle-div{
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+}
+.instructions__modal__pic {
+    width: 80px;
+}
+
+.instructions__modal__div-with-buttons {
+    margin: auto;
+    text-align: center;
+}
+
+.instructions__modal__paragraph {
+    font-size: 24px;
+}
+
+@media only screen and (max-width: 850px){
+    .instructions__modal__img-instructions{
+        display: block;
+    }
+    .instructions__modal__middle-div{
+        border-left: 0;
+        border-right: 0;
 }
