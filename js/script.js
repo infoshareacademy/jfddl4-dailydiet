@@ -64,7 +64,6 @@ $(document).ready(function() {
 })
 
 // Adjust srollToTop button bottom position depending on 'cookies' display 'felx' or 'none'
-
 function changeButtonPosition() {
     var cookiesHeight = document.getElementById('cookies').offsetHeight || 0
     document.getElementById('scrollToTop').style.bottom = cookiesHeight + 35 + 'px'
