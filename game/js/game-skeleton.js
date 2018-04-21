@@ -1,5 +1,91 @@
+// Game is a self-invoking function
+(function () {
+
+    // VARIABLES
+
+    var _gameAreaX = 100 %
+    var _gameAreaY = 100 %
+
+    var _gameContainer = null
+    var _scoreContainer = null
+    var _lifesContainer = null
+    //var _timeContainer = null
+
+    var _initialPlayerPositon = {
+        x: 1
+    }
+
+    var _playerPosition = _initialPlayerPosition
+
+
+    var _foodPosition
+
+    var _customerPosition
+
+    var _
+
+    // FUNCTIONS
+
+    // game initial
+
+    function gameInit(container) {
+        gameInstruction(container)
+        preprareLayout(container)
+        drawTime()
+        drawScore()
+        drawLifes()
+        placeNewFood()
+
+
+    }
+
+/*    plansza - wymiary
+    stałe elementy planszy:
+        tory
+        regały
+
+    ruchome elementy planszy
+        ruch gracza
+        ruch jedzenia
+        staruszka
+        dzieciak
+    gracz - co ma gracz?
+        pozycja startowa
+        pozycja zmienna
+        funkcje ruchu - lewo, prawo
+    punkty - dodatnie, ujemne, limit ujemnych (ew. limit dodatnich i wywołanie przyśpieszenia)
+    czas
+    wydarzenia - np zebranie przedmiotu
+    animacje
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
 // This is the self-invoking function expression
-// it is here to provide scope for our variables 
+// it is here to provide scope for our variables
 // and functions inside game, ant to not pollute
 // global scope
 (function () {
@@ -19,11 +105,11 @@
     }
 
     function render() {
-        // this function will be responsible of rendering new content 
+        // this function will be responsible of rendering new content
         // in the container when game ticks or player interacts
     }
 
-    // here you can put some functions taht renders only parts of the game 
+    // here you can put some functions taht renders only parts of the game
     // and will be used in render function
 
     // here you will attach all events listeners like oncliks or keydowns
