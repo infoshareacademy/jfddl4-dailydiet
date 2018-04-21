@@ -72,14 +72,15 @@ a {
     text-align: center;
     padding: 0.5em;
 }
-.instructions__modal__middle-div{
+
+.instructions__modal__li {
+    list-style-type: none;
+}
+
+.instructions__modal__middle-div {
     border-left: 1px solid grey;
     border-right: 1px solid grey;
 }
-.instructions__modal__pic {
-    width: 80px;
-}
-
 
 .instructions__modal__div-with-buttons {
     margin: auto;
@@ -90,11 +91,17 @@ a {
     font-size: 24px;
 }
 
-@media only screen and (max-width: 850px){
-    .instructions__modal__img-instructions{
+.instructions__modal__last-paragraph{
+    text-align: justify;
+}
+@media only screen and (max-width: 850px) {
+    .instructions__modal__img-instructions {
         display: block;
     }
-    .instructions__modal__middle-div{
+
+    .instructions__modal__middle-div {
         border-left: 0;
         border-right: 0;
+    }
 }
+
