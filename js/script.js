@@ -9,23 +9,23 @@ $(document).ready(function () {
 $('a.smooth-scroll').on('click', function(event){
     event.preventDefault()
     $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top - 30
+        scrollTop: $($.attr(this, 'href')).offset().top - 80
     }, 800);
 })
 
 //--- HIGHLIGHT IN-VIEW SECTION IN MENU ---
-
 $(window).scroll(function() {
     var scrollDistance = $(window).scrollTop()
 
     // Assign active class to nav links while scolling
     $('.main-section').each(function(i) {
-        if ($(this).position().top <= scrollDistance + 50) {
+        if ($(this).position().top - $(window).height() / 3 <= scrollDistance) {
             $('.nav a.active').removeClass('active')
             $('.nav a').eq(i).addClass('active')
         }
     })
 }).scroll()
+//--- / HIGHLIGHT IN-VIEW SECTION IN MENU ---
 
 //--- TEMPORARY LOCAL STORAGE COOKIE ---
 

@@ -51,11 +51,10 @@ nav {
 }
 
 .nav-list {
-
     display: flex;
     align-items: center;
     align-content: center;
-    flex-grow: 2;
+    /*flex-grow: 2;*/ /* To żeby nie rozszerzało menu */
     list-style-type: none;
     height: 100%;
     padding: 0;
@@ -65,7 +64,7 @@ nav {
 .nav-list__item {
     text-align: center;
     display: flex;
-    transition: background-color 1s;
+    transition: background-color 0.3s ease-in-out; /* 1s; - zmiana na szybszą i płynną animacjęc */
     flex: 1 1 0;
     height: 60px;
     align-items: center;
@@ -75,16 +74,16 @@ nav {
     text-align: center;
     text-decoration: none;
     color: #fff1fd;
-    text-shadow: 2px 2px 2px #087528;
+    /*text-shadow: 2px 2px 2px #087528; - Mateusz mówił żeby tego cienia nie było:) */
     padding: 0 20px;
 }
 
 .nav-list__item a.active {
-    background-color: red;
+    font-weight: bold;
 }
 
 .nav-list__item:hover {
-    transition: 1s background-color;
+    /*transition: 1s background-color; - niepotrzebne bo jest już wyżej w nav-list__item */
     background-color: #ff6f1e;
 }
 
@@ -95,9 +94,25 @@ nav {
     height: auto;
 }
 
-.nav-list__item:nth-of-type(6), .nav-list__item:nth-of-type(7) {
-    font-weight: bold;
+/* Odtąd jest dopisany nowy kod na podkreślanie aktywnej sekcji */
+.nav-list__item a::after {
+    content: '';
+    display: block;
+    background-color: #fff1fd;
+    width: 0;
+    height: 2px;
+    transition: all .3s ease-in-out;
 }
+
+.nav-list__item a.active::after {
+    width: 100%;
+}
+/* Dotąd */
+
+/*  */
+/*.nav-list__item:nth-of-type(6), .nav-list__item:nth-of-type(7) {*/
+    /*font-weight: bold;*/
+/*}*/
 
 .toggle {
     display: none;
