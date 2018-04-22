@@ -373,6 +373,106 @@ nav {
     cursor: pointer;
 }
 
+/*!*FORM MODAL*!*/
+.instructions {
+    background-color: rgba(224, 223, 222, 0.4);
+}
+
+.instructions__content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.instructions__close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.instructions__h1{
+    text-align: center;
+    font-size: 2em;
+    color: darkgreen;
+}
+
+.instructions__h3{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.instructions__btn {
+    margin: 0.5rem;
+}
+
+.instructions__img-instructions {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: baseline;
+}
+
+.instructions__div {
+    width: 100%;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 0.5em;
+}
+.instructions__ul{
+    padding: 0;
+}
+.instructions__li {
+    list-style-type: none;
+    padding-bottom: 0.5em;
+}
+
+.arrows-pic{
+    max-width: 100%;
+}
+
+.instructions__middle-div {
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+}
+
+.instructions__div-with-buttons {
+    margin: auto;
+    text-align: center;
+}
+
+.instructions__paragraph {
+    font-size: 24px;
+}
+
+.instructions__last-paragraph {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 850px) {
+    .instructions__img-instructions {
+        display: block;
+    }
+
+    .instructions__middle-div {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 1px solid lightgrey;
+        border-top: 1px solid lightgrey;
+    }
+}
+
 /* FEATURES */
 
 .features__section {

@@ -85,3 +85,11 @@ function changeButtonPosition() {
 
 changeButtonPosition()
 //--- / BACK TO TOP BUTTON ---
+
+
+//END FORM MODAL
+
+$("form").on('submit', function(){
+    window.location.href("instructions.html")
+})
+
