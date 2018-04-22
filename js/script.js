@@ -99,9 +99,6 @@ button__close.onclick = function() {
 
 //END FORM MODAL
 
-var sbt = document.getElementById("sendBtn")
-if (value !== null){
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-}
+$("form").on('submit', function(){
+    $('.instructions__modal').show();
+})
