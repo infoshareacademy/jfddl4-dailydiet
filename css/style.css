@@ -1,5 +1,6 @@
 html, body {
     width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -27,12 +28,13 @@ nav {
     z-index: 100000;
     width: 100%;
     max-height: 100%;
-    position: sticky;
     top: 0;
     background: rgb(255, 141, 42);
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .nav {
@@ -48,18 +50,15 @@ nav {
 
 .nav-logo {
     box-sizing: border-box;
-    /*padding-top: 1%;*/
     flex-grow: 1;
     color: aliceblue;
     text-align: start;
 }
 
 .nav-list {
-
     display: flex;
     align-items: center;
     align-content: center;
-    flex-grow: 2;
     list-style-type: none;
     height: 100%;
     padding: 0;
@@ -69,7 +68,7 @@ nav {
 .nav-list__item {
     text-align: center;
     display: flex;
-    transition: background-color 1s;
+    transition: background-color 0.3s ease-in-out;
     flex: 1 1 0;
     height: 60px;
     align-items: center;
@@ -79,12 +78,14 @@ nav {
     text-align: center;
     text-decoration: none;
     color: #fff1fd;
-    text-shadow: 2px 2px 2px #087528;
     padding: 0 20px;
 }
 
+.nav-list__item a.active {
+    font-weight: bold;
+}
+
 .nav-list__item:hover {
-    transition: 1s background-color;
     background-color: #ff6f1e;
 }
 
@@ -95,8 +96,17 @@ nav {
     height: auto;
 }
 
-.nav-list__item:nth-of-type(6), .nav-list__item:nth-of-type(7) {
-    font-weight: bold;
+.nav-list__item a::after {
+    content: '';
+    display: block;
+    background-color: #fff1fd;
+    width: 0;
+    height: 2px;
+    transition: all .3s ease-in-out;
+}
+
+.nav-list__item a.active::after {
+    width: 100%;
 }
 
 .toggle {
@@ -117,38 +127,31 @@ nav {
         max-height: 100%;
         position: fixed;
     }
-
     .toggle {
         display: block;
         cursor: pointer;
     }
-
     .nav {
         flex-direction: column;
     }
-
     .nav-logo__pic {
         display: none;
     }
-
     .nav-logo {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
     .nav-list {
         display: none;
         width: 100%;
         height: 100%;
     }
-
     .nav-list__item {
         display: block;
         font-size: 30px;
     }
-
     .active {
         display: block;
     }
@@ -277,7 +280,6 @@ nav {
         justify-content: space-between;
         bottom: 16px;
     }
-
     .social-media__title {
         display: none;
     }
@@ -371,6 +373,106 @@ nav {
     cursor: pointer;
 }
 
+/*!*FORM MODAL*!*/
+.instructions {
+    background-color: rgba(224, 223, 222, 0.4);
+}
+
+.instructions__content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.instructions__close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.instructions__h1{
+    text-align: center;
+    font-size: 2em;
+    color: darkgreen;
+}
+
+.instructions__h3{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.instructions__btn {
+    margin: 0.5rem;
+}
+
+.instructions__img-instructions {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: baseline;
+}
+
+.instructions__div {
+    width: 100%;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 0.5em;
+}
+.instructions__ul{
+    padding: 0;
+}
+.instructions__li {
+    list-style-type: none;
+    padding-bottom: 0.5em;
+}
+
+.arrows-pic{
+    max-width: 100%;
+}
+
+.instructions__middle-div {
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+}
+
+.instructions__div-with-buttons {
+    margin: auto;
+    text-align: center;
+}
+
+.instructions__paragraph {
+    font-size: 24px;
+}
+
+.instructions__last-paragraph {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 850px) {
+    .instructions__img-instructions {
+        display: block;
+    }
+
+    .instructions__middle-div {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 1px solid lightgrey;
+        border-top: 1px solid lightgrey;
+    }
+}
+
 /* FEATURES */
 
 .features__section {
@@ -442,7 +544,6 @@ nav {
     .features__list-element {
         max-width: 100%;
     }
-
     .feature__list-logo {
         width: 150px;
     }
@@ -485,7 +586,6 @@ nav {
     .quotation {
         padding: 2em 0;
     }
-
     .quotation__container {
         min-width: 0;
         width: 100%;
@@ -572,35 +672,28 @@ nav {
     .descriptions {
         padding: 0;
     }
-
     .image-order-right {
         order: -1;
     }
-
     .descriptions__content {
         position: relative;
         flex-flow: row wrap;
     }
-
     .descriptions__text, .descriptions__text--reversed {
         background-color: rgba(255, 255, 255, 0.8);
         position: absolute;
         bottom: 0;
         z-index: 1;
     }
-
     .descriptions__header {
         font-size: 1.5rem;
     }
-
     .description {
         font-size: 0.9em;
     }
-
     .descriptions__image {
         width: 100%;
     }
-
     .image {
         width: 100%;
     }
@@ -702,7 +795,7 @@ nav {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.95);
     border-top: #000 3px solid;
-    z-index: 100;
+    z-index: 1020;
 }
 
 .cookies__wrapper {
@@ -741,7 +834,7 @@ nav {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 102;
+    z-index: 1022;
     font-size: 1rem;
     width: 100%;
     cursor: pointer;
@@ -753,7 +846,8 @@ nav {
     left: 50%;
     transform: translate(-50%, -100%);
     max-width: 120px;
-    z-index: 101;
+    z-index: 1021;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 635px) {
@@ -761,15 +855,12 @@ nav {
         margin-left: 1rem;
         width: calc(100% - 170px - 3rem);
     }
-
     .cookies__button {
         margin: 0 1rem;
     }
-
     .cookie--close {
         top: 65%;
     }
-
     .cookie__img {
         top: 71%;
     }
@@ -779,7 +870,6 @@ nav {
     .cookies__paragraph {
         font-size: 0.8rem;
     }
-
     .cookies__header {
         font-size: 1rem;
     }
@@ -789,15 +879,12 @@ nav {
     .cookies__description {
         width: calc(100% - 150px - 3rem);
     }
-
     .cookie--close {
         top: 74%;
     }
-
     .cookies__button {
         width: 150px;
     }
-
     .cookie__img {
         max-width: 100px;
         top: 80%;
@@ -809,7 +896,6 @@ nav {
 .scrollToTop {
     display: none;
     position: fixed;
-    bottom: 35px;
     right: 35px;
     cursor: pointer;
     text-align: center;
@@ -828,7 +914,6 @@ nav {
         bottom: 20px;
         right: 25px;
     }
-
     .to-top__image {
         width: 50px;
         height: 50px;
