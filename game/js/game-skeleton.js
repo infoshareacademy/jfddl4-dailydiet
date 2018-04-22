@@ -38,8 +38,8 @@
         // FUNCTIONS
 
         // game initial
-        function gameInit(container) {
-            gameBoard(container)
+        function gameInit() {
+            gameBoard()
             createPlayer()
             attachEventListeners()
             gameTicker()
@@ -47,13 +47,22 @@
         }
 
         function gameBoard() {
+            document.body.style.margin = '0'
             var board = document.createElement('div')
             board.style.position = 'relative'
             board.style.overflow = 'hidden'
-            board.style.width = '50vw'
-            board.style.height = '50vw'
             board.style.margin = '0 auto'
             board.style.perspective = '0.65vw'
+
+            if (document.body.offsetWidth > document.body.offsetHeight) {
+                document.body.style.padding = '1vh'
+                board.style.width = '98vh'
+                board.style.height = '98vh'
+            } else {
+                document.body.style.padding = '1vw'
+                board.style.width = '98vw'
+                board.style.height = '98vw'
+            }
 
             _gameContainer.appendChild(board)
 
