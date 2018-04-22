@@ -1,5 +1,6 @@
 html, body {
     width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -27,12 +28,13 @@ nav {
     z-index: 100000;
     width: 100%;
     max-height: 100%;
-    position: sticky;
     top: 0;
     background: rgb(255, 141, 42);
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .nav {
@@ -48,18 +50,15 @@ nav {
 
 .nav-logo {
     box-sizing: border-box;
-    /*padding-top: 1%;*/
     flex-grow: 1;
     color: aliceblue;
     text-align: start;
 }
 
 .nav-list {
-
     display: flex;
     align-items: center;
     align-content: center;
-    flex-grow: 2;
     list-style-type: none;
     height: 100%;
     padding: 0;
@@ -69,7 +68,7 @@ nav {
 .nav-list__item {
     text-align: center;
     display: flex;
-    transition: background-color 1s;
+    transition: background-color 0.3s ease-in-out;
     flex: 1 1 0;
     height: 60px;
     align-items: center;
@@ -79,12 +78,14 @@ nav {
     text-align: center;
     text-decoration: none;
     color: #fff1fd;
-    text-shadow: 2px 2px 2px #087528;
     padding: 0 20px;
 }
 
+.nav-list__item a.active {
+    font-weight: bold;
+}
+
 .nav-list__item:hover {
-    transition: 1s background-color;
     background-color: #ff6f1e;
 }
 
@@ -95,8 +96,17 @@ nav {
     height: auto;
 }
 
-.nav-list__item:nth-of-type(6), .nav-list__item:nth-of-type(7) {
-    font-weight: bold;
+.nav-list__item a::after {
+    content: '';
+    display: block;
+    background-color: #fff1fd;
+    width: 0;
+    height: 2px;
+    transition: all .3s ease-in-out;
+}
+
+.nav-list__item a.active::after {
+    width: 100%;
 }
 
 .toggle {
@@ -117,38 +127,31 @@ nav {
         max-height: 100%;
         position: fixed;
     }
-
     .toggle {
         display: block;
         cursor: pointer;
     }
-
     .nav {
         flex-direction: column;
     }
-
     .nav-logo__pic {
         display: none;
     }
-
     .nav-logo {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
     .nav-list {
         display: none;
         width: 100%;
         height: 100%;
     }
-
     .nav-list__item {
         display: block;
         font-size: 30px;
     }
-
     .active {
         display: block;
     }
@@ -277,7 +280,6 @@ nav {
         justify-content: space-between;
         bottom: 16px;
     }
-
     .social-media__title {
         display: none;
     }
@@ -442,7 +444,6 @@ nav {
     .features__list-element {
         max-width: 100%;
     }
-
     .feature__list-logo {
         width: 150px;
     }
@@ -485,7 +486,6 @@ nav {
     .quotation {
         padding: 2em 0;
     }
-
     .quotation__container {
         min-width: 0;
         width: 100%;
@@ -572,35 +572,28 @@ nav {
     .descriptions {
         padding: 0;
     }
-
     .image-order-right {
         order: -1;
     }
-
     .descriptions__content {
         position: relative;
         flex-flow: row wrap;
     }
-
     .descriptions__text, .descriptions__text--reversed {
         background-color: rgba(255, 255, 255, 0.8);
         position: absolute;
         bottom: 0;
         z-index: 1;
     }
-
     .descriptions__header {
         font-size: 1.5rem;
     }
-
     .description {
         font-size: 0.9em;
     }
-
     .descriptions__image {
         width: 100%;
     }
-
     .image {
         width: 100%;
     }
@@ -762,15 +755,12 @@ nav {
         margin-left: 1rem;
         width: calc(100% - 170px - 3rem);
     }
-
     .cookies__button {
         margin: 0 1rem;
     }
-
     .cookie--close {
         top: 65%;
     }
-
     .cookie__img {
         top: 71%;
     }
@@ -780,7 +770,6 @@ nav {
     .cookies__paragraph {
         font-size: 0.8rem;
     }
-
     .cookies__header {
         font-size: 1rem;
     }
@@ -790,15 +779,12 @@ nav {
     .cookies__description {
         width: calc(100% - 150px - 3rem);
     }
-
     .cookie--close {
         top: 74%;
     }
-
     .cookies__button {
         width: 150px;
     }
-
     .cookie__img {
         max-width: 100px;
         top: 80%;
@@ -828,7 +814,6 @@ nav {
         bottom: 20px;
         right: 25px;
     }
-
     .to-top__image {
         width: 50px;
         height: 50px;

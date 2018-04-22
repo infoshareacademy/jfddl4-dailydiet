@@ -18,27 +18,27 @@
 <body>
 
 <!-- NAV -->
-<nav>
+<nav class="position-fixed">
     <div class="nav">
         <div class="nav-logo">
             <img class="nav-logo__pic" src="img/DD-logo-noimage.png" alt="LOGO">
             <span class="toggle menu">&#9776;</span>
         </div>
         <ul class="nav-list">
-            <li class="nav-list__item flag"><a class="smooth-scroll" href="#hero">Home</a></li>
-            <li class="nav-list__item flag"><a class="smooth-scroll" href="#features">Features</a></li>
-            <li class="nav-list__item flag"><a class="smooth-scroll" href="#descriptions">More</a></li>
-            <li class="nav-list__item flag"><a class="smooth-scroll" href="#team">Team</a></li>
+            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#hero">Home</a></li>
+            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#features">Features</a></li>
+            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#descriptions">More</a></li>
             <!--<li class="nav-list__item"><a class="smooth-scroll" href="#">Contact</a></li>-->
             <!--<li class="nav-list__item"><a class="smooth-scroll" href="#">App</a></li>-->
-            <li class="nav-list__item flag"><a class="smooth-scroll" href="#form">Sign</a></li>
+            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#form">Subscribe</a></li>
+            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#team">Team</a></li>
         </ul>
     </div>
 </nav>
 <!-- /NAV -->
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero" class="main-section">
     <div class="container-fluid hero__carousel__container">
         <div class="hero__carousel-content hidden-xs overlay">
             <div class="col-md-12">
@@ -92,7 +92,7 @@
 <main>
 
     <!-- FEATURES -->
-    <section id="features" class="features__section">
+    <section id="features" class="main-section features__section">
         <section class="features__container">
             <div class="features__header-div">
                 <h2 class="features__header">FEATURES</h2>
@@ -148,7 +148,7 @@
     <!-- QUOTATION -->
 
     <!-- DESCRIPTIONS -->
-    <section id="descriptions" class="descriptions">
+    <section id="descriptions" class="main-section descriptions">
 
         <!-- Desription feature one -->
         <section id="feature-one" class="descriptions__container">
@@ -217,7 +217,7 @@
     <!-- /DESCRIPTIONS -->
 
     <!-- FORM -->
-    <section id="form" class="form__container col-12">
+    <section id="form" class="main-section form__container col-12">
         <div class="row justify-content-center form__conainer__row">
             <div>
                 <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
@@ -327,7 +327,7 @@
     <!-- SOCIAL MEDIA -->
 
     <!-- TEAM -->
-    <section id="team" class="team__container">
+    <section id="team" class="main-section team__container">
         <div class="team__wrapper">
             <h2 class="team__header-h2">meet <strong>Daily Diet</strong> team</h2>
             <ul class="team__list">
