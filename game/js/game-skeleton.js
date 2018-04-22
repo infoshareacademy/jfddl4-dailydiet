@@ -39,6 +39,7 @@
 
         // game initial
         function gameInit() {
+            setBodyStyle()
             gameBoard()
             createPlayer()
             attachEventListeners()
@@ -46,8 +47,15 @@
 
         }
 
-        function gameBoard() {
+        function setBodyStyle () {
+            document.body.style.boxSizing = 'border-box'
             document.body.style.margin = '0'
+            document.body.style.padding = '1vw'
+            document.body.style.height = '100vh'
+            document.body.style.width = '100vw'
+        }
+
+        function gameBoard() {
             var board = document.createElement('div')
             board.style.position = 'relative'
             board.style.overflow = 'hidden'
@@ -55,11 +63,9 @@
             board.style.perspective = '0.65vw'
 
             if (document.body.offsetWidth > document.body.offsetHeight) {
-                document.body.style.padding = '1vh'
                 board.style.width = '98vh'
                 board.style.height = '98vh'
             } else {
-                document.body.style.padding = '1vw'
                 board.style.width = '98vw'
                 board.style.height = '98vw'
             }
@@ -188,10 +194,20 @@
             _player.style.left = _initialPlayerPositon + '%'
             _player.style.top = (100 - _initialPlayerHeight) + '%'
             _player.style.transition = "0.1s linear"
-            _player.style.backgroundColor = 'blue'
+            _player.style.boxSizing= "border-box"
+            _player.style.backgroundColor = 'gold'
+            _player.style.border = '0.5rem solid black'
+            _player.style.borderRadius = '1rem'
             _player.style.width = _initialPlayerHeight + '%'
             _player.style.height = _initialPlayerHeight + '%'
             _player.style.zIndex = '200'
+
+            var playerFace = document.createElement('img')
+            playerFace.style.width = '100%'
+            playerFace.style.height = '100%'
+            playerFace.setAttribute('src', 'js/food/smiley-face.png')
+
+            _player.appendChild(playerFace)
 
             _gameBoard.appendChild(_player)
         }
@@ -287,5 +303,8 @@
             }
         }
         gameInit(document.body)
+
     }
+
+
 )()
