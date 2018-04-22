@@ -372,8 +372,10 @@ nav {
 .form__link-for-more:hover {
     cursor: pointer;
 }
+.modal__paragraph{
+    text-align: justify;
+}
 
-/*!*FORM MODAL*!*/
 .instructions {
     background-color: rgba(224, 223, 222, 0.4);
 }
