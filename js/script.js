@@ -73,32 +73,9 @@ changeButtonPosition()
 //--- / BACK TO TOP BUTTON ---
 
 
-//FORM MODAL
-
-var modal = document.getElementById('instructions')
-
-var btn = document.getElementById("myBtn")
-
-var span = document.getElementsByClassName("instructions__modal__close")[0]
-
-var button__close = document.getElementsByClassName("button__close")[0]
-
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-button__close.onclick = function() {
-    modal.style.display = "none";
-}
-
 //END FORM MODAL
 
 $("form").on('submit', function(){
-    $('.instructions__modal').show();
+    window.location.href("instructions.html")
 })
+
