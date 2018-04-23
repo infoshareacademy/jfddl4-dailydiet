@@ -226,6 +226,7 @@
 
     // }
 
+        
     function setHighScore() {
         if (localStorage.getItem('highscore') < _score) {
             localStorage.removeItem('highscore')
