@@ -117,6 +117,28 @@
             })
         }
 
+         
+        function makeMainRankingButton(){
+ 
+            var mainRankingButton = document.createElement('button')
+            mainRankingButton.textContent = 'Return'
+            mainRankingButton.style.position = 'absolute'
+            mainRankingButton.style.fontWeight = 'bold'
+            mainRankingButton.style.color = 'green'
+            mainRankingButton.style.border = 'solid 2px green'
+            mainRankingButton.style.borderRadius = '8px'
+            mainRankingButton.style.left = '35%'
+            mainRankingButton.style.fontSize = '200%'
+            mainRankingButton.style.top = '85.5%'
+            mainRankingButton.style.zIndex = '100000'
+            _mainRankingButton = mainRankingButton
+            _mainRankingButton.addEventListener('click',function(){
+                _mainRankingTable.style.display = 'none'
+            })
+            _mainRankingTable.appendChild(_mainRankingButton)
+
+
+        }
 
 
          
