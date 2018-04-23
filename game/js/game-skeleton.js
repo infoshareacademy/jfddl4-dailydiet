@@ -12,6 +12,8 @@
         var _background = null
         var _floor = null
 
+        var _audio= null
+
         // Create obstacle
         var _obstacle = null
         var _arrayOfObstacles = []
@@ -42,15 +44,14 @@
             setBodyStyle()
             gameBoard()
             createPlayer()
+            setMusic()
             attachEventListeners()
             gameTicker()
-
         }
 
         function setBodyStyle () {
             document.body.style.boxSizing = 'border-box'
             document.body.style.margin = '0'
-            document.body.style.padding = '1vw'
             document.body.style.height = '100vh'
             document.body.style.width = '100vw'
         }
@@ -63,9 +64,11 @@
             board.style.perspective = '0.65vw'
 
             if (document.body.offsetWidth > document.body.offsetHeight) {
+                document.body.style.padding = '1vh'
                 board.style.width = '98vh'
                 board.style.height = '98vh'
             } else {
+                document.body.style.padding = '1vw'
                 board.style.width = '98vw'
                 board.style.height = '98vw'
             }
@@ -188,6 +191,16 @@
             }
         }
 
+        function setMusic() {
+            _audio = document.createElement('audio')
+            _audio.setAttribute('src', 'aud/bgm.mp3')
+            _audio.setAttribute('type', 'audio/mpeg')
+
+            document.body.appendChild(_audio)
+
+            _audio.play()
+        }
+
         function createPlayer() {
             _player = document.createElement('div')
             _player.style.position = 'absolute'
@@ -226,6 +239,12 @@
                 }
                 event.preventDefault()
             })
+
+            _audio.addEventListener('ended', function() {
+                _audio.currentTime = 0
+                _audio.play()
+            }, false)
+
         }
 
         function move(deltaX) {
@@ -297,8 +316,11 @@
         function endGame() {
             clearAllIntervals()
             if (confirm("You lose :( Your score is " + _score  + "! Do you want to play again?")) {
+                _audio.pause()
+                _audio.currentTime = 0
                 window.location = ''
             } else {
+                _audio.pause()
                 clearAllIntervals()
             }
         }
