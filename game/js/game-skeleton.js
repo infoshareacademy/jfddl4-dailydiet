@@ -18,6 +18,7 @@
     var _savingTable = null
     var _scorePlace = null
     var _nickInput = null
+    var _nick = null
     var _highScoreTable = null
     var _highScoreLine = null
 
@@ -63,7 +64,6 @@
         function setBodyStyle () {
             document.body.style.boxSizing = 'border-box'
             document.body.style.margin = '0'
-            document.body.style.padding = '1vw'
             document.body.style.height = '100vh'
             document.body.style.width = '100vw'
         }
@@ -76,9 +76,11 @@
             board.style.perspective = '0.65vw'
 
             if (document.body.offsetWidth > document.body.offsetHeight) {
+                document.body.style.padding = '1vh'
                 board.style.width = '98vh'
                 board.style.height = '98vh'
             } else {
+                document.body.style.padding = '1vw'
                 board.style.width = '98vw'
                 board.style.height = '98vw'
             }
