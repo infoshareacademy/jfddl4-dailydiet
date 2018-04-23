@@ -18,7 +18,7 @@
     var _savingTable = null
     var _scorePlace = null
     var _nickInput = null
-
+    var _highScoreTable = null
 
     // Create obstacle
     var _obstacle = null
@@ -68,6 +68,7 @@
         _gameBoard = board
         makeSavingTable()
         makeScoreTable()
+        makeHighScoreTable()
         makeMainRankingTable()
         drawFloor()
         drawBackground()
@@ -158,6 +159,7 @@
         mainRankingTable.style.borderRadius = '1%'
         mainRankingTable.style.display = 'none'
         _mainRankingTable = mainRankingTable
+        makeHighScoreLine()
         makeMainRankingButton()
         _gameBoard.appendChild(mainRankingTable)
 
@@ -173,7 +175,7 @@
         savingTable.style.left = '5vw'
         savingTable.style.width = '40vw'
         savingTable.style.height = '30vh'
-        savingTable.style.background = 'orange'
+        savingTable.style.background = 'rgba(200,100,50,0.9)'
         savingTable.style.borderRadius = '5%'
         savingTable.style.zIndex = '10000000'
         savingTable.style.display = 'none'
@@ -212,6 +214,7 @@
             localStorage.setItem(_nickInput.value, _score);
             savingTable.style.display = 'none'
             setHighScore()
+            renderHighScoreTable()
             clearScoreTable()
         })
 
@@ -252,57 +255,92 @@
     }
 
 
- 
-    function showSavingTable(){
+
+    function showSavingTable() {
         _scorePlace.innerText += _score
         _savingTable.style.display = 'block'
 
     }
 
 
-    function makeNextRankingLine(){
+    function makeNextRankingLine() {
 
         var mainRankingLine = document.createElement('div')
         mainRankingLine.innerText = _score
 
     }
-    function deleteLastRankingLine(){
+    function makeHighScoreLine(){
+
+        var highScoreLine = document.createElement('div')
+        highScoreLine.style.position = 'absolute'
+        highScoreLine.innerText = localStorage.getItem('highscore')
+        _mainRankingTable.appendChild(highScoreLine)
+
+    }
+
+    
+    function deleteLastRankingLine() {
 
 
 
     }
 
-  
 
 
-    function renderScore(){
+
+    function renderScore() {
 
         _scoreTable.innerText = " "
-        _scoreTable.innerText ="score: " +  _score + '\nlifes: ' + _lifes
+        _scoreTable.innerText = "score: " + _score + '\nlives: ' + _lifes
 
     }
+    function renderHighScoreTable() {
 
-    function renderLifes(){
+        if (localStorage.getItem('highscore') === null) _highScoreTable.innerText = 'high score: ' + _highScore
+        else _highScoreTable.innerText = 'high score: ' + localStorage.getItem('highscore')
+    }
+
+    function renderLifes() {
         _scoreTable
 
     }
-    function clearScoreTable(){
+    function clearScoreTable() {
 
         _score = 0
         renderScore()
     }
 
-    function setFistHighScore(){
+    function setFistHighScore() {
 
         localStorage.setItem('highscore', 0)
 
     }
 
-    function setHighScore(){
 
 
 
-        if(localStorage.getItem('highscore') < _score){
+    function makeHighScoreTable() {
+
+        var highScore = document.createElement('div')
+        highScore.innerText = localStorage.getItem('highscore')
+        highScore.style.fontFamily = 'sans-serif'
+        highScore.style.fontSize = '18px'
+        highScore.style.color = 'green'
+        highScore.style.position = 'absolute'
+        highScore.style.left = '40vw'
+        highScore.style.top = '3vh'
+        highScore.style.zIndex = '1000000'
+        highScore.innerText = localStorage.getItem('highscore')
+        _highScoreTable = highScore
+        renderHighScoreTable()
+        _gameBoard.appendChild(highScore)
+    }
+
+    function setHighScore() {
+
+
+
+        if (localStorage.getItem('highscore') < _score) {
 
 
             localStorage.removeItem('highscore')
