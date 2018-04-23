@@ -21,9 +21,11 @@
     var _highScoreTable = null
     var _highScoreLine = null
 
-    // Create obstacle
-    var _obstacle = null
-    var _arrayOfObstacles = []
+        var _audio= null
+
+        // Create obstacle
+        var _obstacle = null
+        var _arrayOfObstacles = []
 
     // Create player
     var _initialPlayerHeight = 12
@@ -44,26 +46,44 @@
         gameTicker()
     }
 
-    // FUNCTIONS
+        // FUNCTIONS
 
-    // game initial
-    function gameInit(container) {
-        gameBoard(container)
-        createPlayer()
-        attachEventListeners()
-        gameTicker()
-    }
+        // game initial
+        function gameInit() {
+            setBodyStyle()
+            gameBoard()
+            createPlayer()
+            setMusic()
+            attachEventListeners()
+            gameTicker()
 
-    function gameBoard() {
-        var board = document.createElement('div')
-        board.style.position = 'relative'
-        board.style.overflow = 'hidden'
-        board.style.width = '50vw'
-        board.style.height = '50vw'
-        board.style.margin = '0 auto'
-        board.style.perspective = '0.65vw'
+        }
 
-        _gameContainer.appendChild(board)
+
+        function setBodyStyle () {
+            document.body.style.boxSizing = 'border-box'
+            document.body.style.margin = '0'
+            document.body.style.padding = '1vw'
+            document.body.style.height = '100vh'
+            document.body.style.width = '100vw'
+        }
+
+        function gameBoard() {
+            var board = document.createElement('div')
+            board.style.position = 'relative'
+            board.style.overflow = 'hidden'
+            board.style.margin = '0 auto'
+            board.style.perspective = '0.65vw'
+
+            if (document.body.offsetWidth > document.body.offsetHeight) {
+                board.style.width = '98vh'
+                board.style.height = '98vh'
+            } else {
+                board.style.width = '98vw'
+                board.style.height = '98vw'
+            }
+
+            _gameContainer.appendChild(board)
 
         _gameBoard = board
         makeSavingTable()
@@ -253,10 +273,10 @@
         _background.style.height = '100%'
         _background.style.zIndex = '10'
 
-        _gameBoard.appendChild(_background)
-    }
+            _gameBoard.appendChild(_background)
+        }
 
-    function makeObstacle() {
+        function makeObstacle() {
 
         var obstacle = document.createElement('div')
         obstacle.classList.add('obstacle')
@@ -278,44 +298,44 @@
         _obstacle = obstacle
     }
 
-    function choseRandomWay() {
-        return Math.round(Math.random() * 3 - 0.5)
-    }
+        function choseRandomWay() {
+            return Math.round(Math.random() * 3 - 0.5)
+        }
 
-    function moveObstacle(top, left) {
-        _obstacle.style.top = top + '%'
-        _obstacle.style.left = left + '%'
-    }
+        function moveObstacle(top, left) {
+            _obstacle.style.top = top + '%'
+            _obstacle.style.left = left + '%'
+        }
 
-    function placeObstacle() {
-        var randomWay = choseRandomWay()
-        makeObstacle()
-        _obstacle.style.top = '40%'
-        if (randomWay === 0) {
-            _obstacle.style.left = '44.5%'
-            setTimeout(function () {
-                _obstacle.style.width = '30%'
-                _obstacle.style.height = '30%'
-                moveObstacle(105, -25)
-            }, 100)
+        function placeObstacle() {
+            var randomWay = choseRandomWay()
+            makeObstacle()
+            _obstacle.style.top = '40%'
+            if (randomWay === 0) {
+                _obstacle.style.left = '44.5%'
+                setTimeout(function () {
+                    _obstacle.style.width = '30%'
+                    _obstacle.style.height = '30%'
+                    moveObstacle(105, -25)
+                }, 100)
+            }
+            else if (randomWay === 1) {
+                _obstacle.style.left = '46.5%'
+                setTimeout(function () {
+                    _obstacle.style.width = '30%'
+                    _obstacle.style.height = '30%'
+                    moveObstacle(105, 35)
+                }, 100)
+            }
+            else {
+                _obstacle.style.left = '48.5%'
+                setTimeout(function () {
+                    _obstacle.style.width = '30%'
+                    _obstacle.style.height = '30%'
+                    moveObstacle(105, 95)
+                }, 100)
+            }
         }
-        else if (randomWay === 1) {
-            _obstacle.style.left = '46.5%'
-            setTimeout(function () {
-                _obstacle.style.width = '30%'
-                _obstacle.style.height = '30%'
-                moveObstacle(105, 35)
-            }, 100)
-        }
-        else {
-            _obstacle.style.left = '48.5%'
-            setTimeout(function () {
-                _obstacle.style.width = '30%'
-                _obstacle.style.height = '30%'
-                moveObstacle(105, 95)
-            }, 100)
-        }
-    }
 
     function gameTicker() {
         for (var i = 0; i < _gameIntervals.length; i++) {
@@ -323,69 +343,95 @@
         }
     }
 
-    function createPlayer() {
-        _player = document.createElement('div')
-        _player.style.position = 'absolute'
-        _player.style.left = _initialPlayerPositon + '%'
-        _player.style.top = (100 - _initialPlayerHeight) + '%'
-        _player.style.transition = "0.1s linear"
-        _player.style.backgroundColor = 'blue'
-        _player.style.width = _initialPlayerHeight + '%'
-        _player.style.height = _initialPlayerHeight + '%'
-        _player.style.zIndex = '200'
+        function setMusic() {
+            _audio = document.createElement('audio')
+            _audio.setAttribute('src', 'aud/bgm.mp3')
+            _audio.setAttribute('type', 'audio/mpeg')
 
-        _gameBoard.appendChild(_player)
-    }
+            document.body.appendChild(_audio)
 
-    function attachEventListeners() {
-        document.addEventListener('keydown', function (event) {
-            switch (event.key) {
-                case 'ArrowLeft':
-                    move(-1)
-                    break
-                case 'ArrowRight':
-                    move(1)
-                    break
-                default:
-                    return
-            }
-            event.preventDefault()
-        })
-    }
-
-    function move(deltaX) {
-        var newPlayerPosition = parseInt(_player.style.left.slice(0, -1)) + deltaX * _playerMoveStep
-        if ((newPlayerPosition >= 0) && (newPlayerPosition <= 100 - _initialPlayerHeight)) {
-            _player.style.left = newPlayerPosition + '%'
+            _audio.play()
         }
-    }
 
-    function checkPosition() {
-        var obstacles = document.getElementsByClassName('obstacle')
+        function createPlayer() {
+            _player = document.createElement('div')
+            _player.style.position = 'absolute'
+            _player.style.left = _initialPlayerPositon + '%'
+            _player.style.top = (100 - _initialPlayerHeight) + '%'
+            _player.style.transition = "0.1s linear"
+            _player.style.boxSizing= "border-box"
+            _player.style.backgroundColor = 'gold'
+            _player.style.border = '0.5rem solid black'
+            _player.style.borderRadius = '1rem'
+            _player.style.width = _initialPlayerHeight + '%'
+            _player.style.height = _initialPlayerHeight + '%'
+            _player.style.zIndex = '200'
 
-        _arrayOfObstacles = [].slice.call(obstacles)
+            var playerFace = document.createElement('img')
+            playerFace.style.width = '100%'
+            playerFace.style.height = '100%'
+            playerFace.setAttribute('src', 'js/food/smiley-face.png')
 
-        _arrayOfObstacles.forEach(function (el, i) {
-            if (el.offsetTop + el.offsetWidth >= _player.offsetTop) {
-                checkCollision(el)
-            }
-            removeObstacle()
-        })
-    }
+            _player.appendChild(playerFace)
 
-    function checkCollision(el) {
-        if (
-            _player.offsetTop < el.offsetTop + el.offsetHeight * 0.9
-            &&
-            _player.offsetLeft < el.offsetLeft + el.offsetWidth
-            &&
-            el.offsetLeft < _player.offsetLeft + _player.offsetWidth
-            &&
-            el.offsetTop <= _player.offsetTop + _player.offsetWidth * 0.8
-        ) {
-            checkType(el)
+            _gameBoard.appendChild(_player)
         }
-    }
+
+        function attachEventListeners() {
+            document.addEventListener('keydown', function (event) {
+                switch (event.key) {
+                    case 'ArrowLeft':
+                        move(-1)
+                        break
+                    case 'ArrowRight':
+                        move(1)
+                        break
+                    default:
+                        return
+                }
+                event.preventDefault()
+            })
+
+            _audio.addEventListener('ended', function() {
+                _audio.currentTime = 0
+                _audio.play()
+            }, false)
+
+        }
+
+        function move(deltaX) {
+            var newPlayerPosition = parseInt(_player.style.left.slice(0, -1)) + deltaX * _playerMoveStep
+            if ((newPlayerPosition >= 0) && (newPlayerPosition <= 100 - _initialPlayerHeight)) {
+                _player.style.left = newPlayerPosition + '%'
+            }
+        }
+
+        function checkPosition() {
+            var obstacles = document.getElementsByClassName('obstacle')
+
+            _arrayOfObstacles = [].slice.call(obstacles)
+
+            _arrayOfObstacles.forEach(function (el, i) {
+                if (el.offsetTop + el.offsetWidth >= _player.offsetTop) {
+                    checkCollision(el)
+                }
+                removeObstacle()
+            })
+        }
+
+        function checkCollision(el) {
+            if (
+                _player.offsetTop < el.offsetTop + el.offsetHeight * 0.9
+                &&
+                _player.offsetLeft < el.offsetLeft + el.offsetWidth
+                &&
+                el.offsetLeft < _player.offsetLeft + _player.offsetWidth
+                &&
+                el.offsetTop <= _player.offsetTop + _player.offsetWidth * 0.8
+            ) {
+                checkType(el)
+            }
+        }
 
     function checkType(el) {
         if (el.type === 0) {
@@ -405,32 +451,28 @@
         }
     }
 
-    function removeObstacle() {
-        _arrayOfObstacles.forEach(function (el) {
-            if (el.offsetTop > _player.offsetTop + _player.offsetWidth) {
-                el.parentNode.removeChild(el)
-            }
-        })
-    }
-
-    function clearAllIntervals() {
-        var highestInterval = setInterval(function () {
-        })
-        for (var i = 0; i < highestInterval; i++) {
-            clearInterval(i)
+        function removeObstacle() {
+            _arrayOfObstacles.forEach(function (el) {
+                if (el.offsetTop > _player.offsetTop + _player.offsetWidth) {
+                    el.parentNode.removeChild(el)
+                }
+            })
         }
-    }
 
-    function endGame() {
-        showSavingTable()
-        // Szymon byłem tu
-        clearAllIntervals()
-        // if (confirm("You lose :( Your score is " + _score  + "! Do you want to play again?")) {
-        //     
-        // } else {
-        //     clearAllIntervals()
-        // }
+        function clearAllIntervals() {
+            var highestInterval = setInterval(function () {
+            })
+            for (var i = 0; i < highestInterval; i++) {
+                clearInterval(i)
+            }
+        }
+
+        function endGame() {
+            clearAllIntervals()
+            _audio.pause()
+            _audio.currentTime = 0
+            showSavingTable()
+        }
+        gameInit(document.body)
     }
-    gameInit(document.body)
-}
 )()
