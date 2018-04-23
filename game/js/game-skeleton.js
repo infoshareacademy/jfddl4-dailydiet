@@ -94,6 +94,30 @@
          }
 
 
+         function makeRankingButton(){
+ 
+            var rankingButton = document.createElement('button')
+            rankingButton.textContent = 'Ranking'
+            rankingButton.style.fontWeight = 'bold'
+            rankingButton.style.fontSize = _gameBoard.offsetWidth * 0.01
+            rankingButton.style.width = _gameBoard.offsetWidth * 0.03
+            rankingButton.style.color = 'green'
+            rankingButton.style.border = 'solid 2px green'
+            rankingButton.style.borderRadius = '8px'
+            rankingButton.style.position = 'absolute'
+            rankingButton.style.top = '18.5%'
+            rankingButton.style.left = '3.2%'
+            rankingButton.style.zIndex = '100'
+            _gameBoard.appendChild(rankingButton)
+
+            rankingButton.addEventListener('click',function(){
+                if(_mainRankingTable.style.display === 'none') _mainRankingTable.style.display = 'block'
+                else _mainRankingTable.style.display = 'none'
+                
+            })
+        }
+
+
 
 
 
