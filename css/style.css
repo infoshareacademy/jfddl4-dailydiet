@@ -79,7 +79,6 @@ nav {
     display: flex;
     transition: all 0.3s ease-in-out;
     flex: 1 1 0;
-    padding: 10px;
     align-items: center;
 }
 
