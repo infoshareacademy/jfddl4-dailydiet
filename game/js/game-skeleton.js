@@ -127,8 +127,7 @@
             renderHighScoreTable()
             _gameBoard.appendChild(highScore)
         }
-
-
+        
         function renderHighScoreTable() {
 
             if (localStorage.getItem('highscore') === null) _highScoreTable.innerText = 'HIGH\n' + 'SCORE:\n' + _highScore
