@@ -496,14 +496,14 @@
         if (el.type === 0) {
             el.parentNode.removeChild(el)
             --_lifes
-
+            renderScore() // Szymon byłem tu
             if (_lifes === 0) {
                 endGame()
             }
         } else {
             el.parentNode.removeChild(el)
             ++_score
-
+            renderScore() // Szymon byłem tu
             if (_score % 10 === 0) {
                 ++_lifes
             }
