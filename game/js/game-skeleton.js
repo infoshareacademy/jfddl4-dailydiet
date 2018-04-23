@@ -527,7 +527,7 @@
     }
 
     function endGame() {
-
+        showSavingTable()
         // Szymon byłem tu
         clearAllIntervals()
         // if (confirm("You lose :( Your score is " + _score  + "! Do you want to play again?")) {
