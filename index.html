@@ -18,20 +18,21 @@
 <body>
 
 <!-- NAV -->
-<nav class="position-fixed">
+<nav id="nav" class="position-fixed">
     <div class="nav">
         <div class="nav-logo">
-            <img class="nav-logo__pic" src="img/DD-logo-noimage.png" alt="LOGO">
+            <a class="smooth-scroll" href="#hero">
+                <img class="nav-logo__pic nav--narrowing" src="img/DD-logo-noimage.png" alt="LOGO">
+            </a>
             <span class="toggle menu">&#9776;</span>
         </div>
         <ul class="nav-list">
-            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#hero">Home</a></li>
-            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#features">Features</a></li>
-            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#descriptions">More</a></li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#features">Features</a></li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#descriptions">More</a></li>
             <!--<li class="nav-list__item"><a class="smooth-scroll" href="#">Contact</a></li>-->
             <!--<li class="nav-list__item"><a class="smooth-scroll" href="#">App</a></li>-->
-            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#form">Subscribe</a></li>
-            <li class="nav-list__item border--draw flag"><a class="smooth-scroll" href="#team">Team</a></li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#form">Subscribe</a></li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#team">Team</a></li>
             <li class="nav-list__item border--draw flag"><a href="indexPl.html">Pl</a></li>
         </ul>
     </div>
@@ -224,25 +225,24 @@
         </section>
         <!-- /DESCRIPTIONS -->
 
-        <!-- FORM -->
-        <section id="form" class="main-section form__container col-12">
-            <div class="row justify-content-center form__conainer__row">
-                <div>
-                    <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
-                        <p class="form__paragraph">Get notified when Daily Diet is ready for use</p>
-                        <input type="text" name="emails[]" placeholder="Enter your e-mail" required
-                               class="form__placeholder">
-                        <input type="hidden" name="subject" value="Daily Diet subscription">
-                        <input type="hidden" name="message" value="You have subscribed to Daily Diet">
-                        <input type="hidden" name="from" value="daily@diet.com">
-                        <input type="hidden" name="fromName" value="Daily Diet">
-                        <input type="hidden" name="redirect"
-                               value="http://www.dailydiet.jfddl4.is-academy.pl/instructions.html">
-                        <input class="btn form__btn" type="submit" value="Send!">
-                        <div class="row justify-content-center">
-                            <label><input class="form__checkbox-style" type="checkbox" required>I agree to receive a
-                                message
-                                about Daily Diet app release.</label>&nbsp &nbsp
+    <!-- FORM -->
+    <section id="form" class="main-section form__container col-12">
+        <div class="row justify-content-center form__conainer__row">
+            <div>
+                <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
+                    <p class="form__paragraph">Get notified when Daily Diet is ready for use</p>
+                    <input type="text" name="emails[]" placeholder="Enter your e-mail" required
+                           class="form__placeholder">
+                    <input type="hidden" name="subject" value="Daily Diet subscription">
+                    <input type="hidden" name="message"
+                           value="You have subscribed to Daily Diet. While waiting play our game at http://www.dailydiet.jfddl4.is-academy.pl/game/game.html">
+                    <input type="hidden" name="from" value="daily@diet.com">
+                    <input type="hidden" name="fromName" value="Daily Diet">
+                    <input type="hidden" name="redirect" value="http://www.dailydiet.jfddl4.is-academy.pl/instructions.html">
+                    <input class="btn form__btn" type="submit" value="Send!">
+                    <div class="row justify-content-center">
+                        <label><input class="form__checkbox-style" type="checkbox" required>I agree to receive a message
+                            about Daily Diet app release.</label>&nbsp &nbsp
 
                             <a class="form__link-for-more" data-toggle="modal" data-target="#form__Modal">Click for
                                 more.</a>

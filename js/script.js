@@ -23,9 +23,23 @@ $(window).scroll(function() {
             $('.nav a.active').removeClass('active')
             $('.nav a').eq(i).addClass('active')
         }
+
     })
+
 }).scroll()
 //--- / HIGHLIGHT IN-VIEW SECTION IN MENU ---
+
+//--- NARROWING DOWN MENU ---
+$(document).ready (function () {
+    $(window).scroll (function () {
+        if ($(this).scrollTop() >= 100) {
+            $('.nav--narrowing').addClass('overlay')
+        }else {
+            $('.nav--narrowing').removeClass('overlay')
+        }
+    })
+})
+//--- / NARROWING DOWN MENU ---
 
 //--- TEMPORARY LOCAL STORAGE COOKIE ---
 if (!localStorage.getItem('cookie',)) {
