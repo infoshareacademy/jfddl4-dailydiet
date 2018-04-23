@@ -7,10 +7,18 @@
 
         var _lifes = 3
         var _score = 0
+        var _highScore = 0
 
         var _gameBoard = null
         var _background = null
         var _floor = null
+        var _scoreTable = null
+        var _mainRankingTable = null
+        var _mainRankingButton = null
+        var _savingTable = null
+        var _scorePlace = null
+        var _nickInput = null
+
 
         // Create obstacle
         var _obstacle = null
@@ -58,10 +66,251 @@
             _gameContainer.appendChild(board)
 
             _gameBoard = board
-
+            makeSavingTable()
+            makeScoreTable()
+            makeMainRankingTable()
             drawFloor()
             drawBackground()
         }
+
+
+
+        function makeScoreTable(){
+
+           var scoreTable =  document.createElement('div')
+           scoreTable.style.position = 'absolute'
+           scoreTable.style.left = '2.5%'
+           scoreTable.style.top = '11%' 
+           scoreTable.style.color = 'green'
+           scoreTable.style.zIndex = '10000'
+           scoreTable.style.fontSize = _gameBoard.offsetWidth * 0.01
+           scoreTable.style.fontFamily = 'sans-serif'
+           scoreTable.style.fontWeight = 'bold'
+
+           makeRankingButton()
+
+            _scoreTable = scoreTable
+
+            _gameBoard.appendChild(scoreTable)
+            renderScore()
+
+        }
+
+        function makeRankingButton(){
+
+            var rankingButton = document.createElement('button')
+            rankingButton.textContent = 'Ranking'
+            rankingButton.style.fontWeight = 'bold'
+            rankingButton.style.fontSize = _gameBoard.offsetWidth * 0.01
+            rankingButton.style.width = _gameBoard.offsetWidth * 0.03
+            rankingButton.style.color = 'green'
+            rankingButton.style.border = 'solid 2px green'
+            rankingButton.style.borderRadius = '8px'
+            rankingButton.style.position = 'absolute'
+            rankingButton.style.top = '18.5%'
+            rankingButton.style.left = '3.2%'
+            rankingButton.style.zIndex = '100'
+            _gameBoard.appendChild(rankingButton)
+
+            rankingButton.addEventListener('click',function(){
+                if(_mainRankingTable.style.display === 'none') _mainRankingTable.style.display = 'block'
+                else _mainRankingTable.style.display = 'none'
+                
+            })
+        }
+
+        function makeMainRankingButton(){
+
+            var mainRankingButton = document.createElement('button')
+            mainRankingButton.textContent = 'Return'
+            mainRankingButton.style.position = 'absolute'
+            mainRankingButton.style.fontWeight = 'bold'
+            mainRankingButton.style.color = 'green'
+            mainRankingButton.style.border = 'solid 2px green'
+            mainRankingButton.style.borderRadius = '8px'
+            mainRankingButton.style.left = '35%'
+            mainRankingButton.style.fontSize = '200%'
+            mainRankingButton.style.top = '85.5%'
+            mainRankingButton.style.zIndex = '100000'
+            _mainRankingButton = mainRankingButton
+            _mainRankingButton.addEventListener('click',function(){
+                _mainRankingTable.style.display = 'none'
+            })
+            _mainRankingTable.appendChild(_mainRankingButton)
+
+
+        }
+
+        function makeMainRankingTable(){
+
+            var mainRankingTable = document.createElement('div')
+            mainRankingTable.style.position = 'absolute'
+            mainRankingTable.style.top = '20.5vh'
+            mainRankingTable.style.left = '12.5vw'  
+            mainRankingTable.style.height = '45vh'
+            mainRankingTable.style.width = '25vw'
+            mainRankingTable.style.background = 'rgba(255,255,255,0.8)'
+            mainRankingTable.style.zIndex = '100000'
+            mainRankingTable.style.border = '3px gray solid'
+            mainRankingTable.style.borderRadius = '1%'
+            mainRankingTable.style.display = 'none'
+            _mainRankingTable = mainRankingTable
+            makeMainRankingButton()
+            _gameBoard.appendChild(mainRankingTable)
+           
+           
+
+        }
+
+        function makeSavingTable(){
+
+            var savingTable = document.createElement('div')
+            savingTable.style.position = 'absolute'
+            savingTable.style.top = '20vh'
+            savingTable.style.left = '5vw'
+            savingTable.style.width = '40vw'
+            savingTable.style.height = '30vh'
+            savingTable.style.background = 'orange'
+            savingTable.style.borderRadius = '5%'
+            savingTable.style.zIndex = '10000000'
+            savingTable.style.display = 'none'
+            var nickInput = document.createElement('input')
+            nickInput.setAttribute('type', 'text')
+            nickInput.setAttribute('placeholder', 'type your nick')
+            nickInput.style.fontSize = '4.5vh'
+            nickInput.style.color = 'green'
+            nickInput.style.width = '30vw'
+            nickInput.style.position = 'absolute'
+            nickInput.style.top = '45%'
+            nickInput.style.left = '5vw'
+            _nickInput = nickInput
+            var scorePlace = document.createElement('p')
+            scorePlace.innerText = 'Your score: ' 
+            scorePlace.style.position = 'absolute'
+            scorePlace.style.top = '5%'
+            scorePlace.style.left = '5vw'
+            scorePlace.style.fontSize = '4.5vh'
+            scorePlace.style.fontWeight = 'bold'
+            scorePlace.style.color = 'green'
+            scorePlace.style.fontFamily = 'sans-serif'
+            var saveButton = document.createElement('button')
+            // to pack in other function double code
+            saveButton.innerText = 'Save'
+            saveButton.style.position = 'absolute'
+            saveButton.style.top = '75%'
+            saveButton.style.left = '5vw'
+            saveButton.style.border = '2px solid green'
+            saveButton.style.borderRadius = '5px'
+            saveButton.style.fontSize = '4.5vh'
+            saveButton.style.color = 'green'
+            saveButton.style.fontWeight = 'bold'
+            saveButton.addEventListener('click', function(){
+                _nick = _nickInput.value
+                localStorage.setItem(_nickInput.value, _score);
+                savingTable.style.display = 'none'
+                setHighScore()
+                clearScoreTable()
+            })
+
+            var cancelButton = document.createElement('button')
+
+            cancelButton.innerText = 'Cancel'
+            cancelButton.style.position = 'absolute'
+            cancelButton.style.top = '75%'
+            cancelButton.style.left = '15vw'
+            cancelButton.style.border = '2px solid green'
+            cancelButton.style.borderRadius = '5px'
+            cancelButton.style.fontSize = '4.5vh'
+            cancelButton.style.color = 'green'
+            cancelButton.style.fontWeight = 'bold'
+            cancelButton.addEventListener('click', function(){
+
+                savingTable.style.display = 'none'  
+
+            })
+           
+            // saveButton.classList.add('savingTable-button')
+            // cancelButton.classList.add('savingTable-button')
+            // savingTableButton.forEach(function(el){
+
+            //     el.style.position = 'absolute'
+            //     el.style.border = '2px solid green'
+            //     el.style.borderRadius = '8px'
+            //     el.style.top = '50%'
+            // })
+
+            savingTable.appendChild(cancelButton)
+            savingTable.appendChild(saveButton)
+            savingTable.appendChild(scorePlace)
+            savingTable.appendChild(nickInput)
+            _scorePlace = scorePlace
+            _savingTable = savingTable
+            _gameBoard.appendChild(savingTable)
+        }
+
+
+        function showSavingTable(){
+            _scorePlace.innerText += _score
+            _savingTable.style.display = 'block'
+
+        }
+
+
+        function makeNextRankingLine(){
+
+            var mainRankingLine = document.createElement('div')
+            mainRankingLine.innerText = _score
+
+        }
+        function deleteLastRankingLine(){
+
+
+
+        }
+
+      
+
+
+        function renderScore(){
+
+            _scoreTable.innerText = " "
+            _scoreTable.innerText ="score: " +  _score + '\nlifes: ' + _lifes
+
+        }
+
+        function renderLifes(){
+            _scoreTable
+
+        }
+        function clearScoreTable(){
+
+            _score = 0
+            renderScore()
+        }
+
+        function setFistHighScore(){
+
+            localStorage.setItem('highscore', 0)
+
+        }
+
+        function setHighScore(){
+
+
+
+            if(localStorage.getItem('highscore') < _score){
+
+
+                localStorage.removeItem('highscore')
+                localStorage.setItem('highscore', _score)
+
+            }
+
+
+        }
+
+
+
 
         function drawFloor() {
             _floor = document.createElement('div')
@@ -241,12 +490,14 @@
             if (el.type === 0) {
                 el.parentNode.removeChild(el)
                 --_lifes
+                renderScore() // Szymon byłem tu
                 if (_lifes === 0) {
                     endGame()
                 }
             } else {
                 el.parentNode.removeChild(el)
                 ++_score
+                renderScore() // Szymon byłem tu
                 if (_score % 10 === 0) {
                     ++_lifes
                 }
@@ -270,12 +521,14 @@
         }
 
         function endGame() {
+            showSavingTable()
+             // Szymon byłem tu
             clearAllIntervals()
-            if (confirm("You lose :( Your score is " + _score  + "! Do you want to play again?")) {
-                window.location = ''
-            } else {
-                clearAllIntervals()
-            }
+            // if (confirm("You lose :( Your score is " + _score  + "! Do you want to play again?")) {
+            //     window.location = ''
+            // } else {
+            //     clearAllIntervals()
+            // }
         }
         gameInit(document.body)
     }
