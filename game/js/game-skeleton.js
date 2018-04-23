@@ -57,7 +57,6 @@
             setMusic()
             attachEventListeners()
             gameTicker()
-
         }
 
 
