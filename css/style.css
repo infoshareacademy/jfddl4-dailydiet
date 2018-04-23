@@ -8,6 +8,15 @@ body {
     margin: 0 auto;
 }
 
+.main-wrapper{
+    position: relative;
+    z-index: 0;
+    background-color: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 102px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -25,7 +34,7 @@ a, a:hover {
 /* NAVIGATION */
 
 nav {
-    z-index: 100000;
+    z-index: 1020;
     width: 100%;
     max-height: 100%;
     top: 0;
@@ -164,6 +173,7 @@ nav {
 /* HERO */
 
 .hero__carousel__container {
+    position: relative;
     padding: 0 0 3% 0;
     margin: 0;
 }
@@ -222,7 +232,7 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 20;
+    z-index: 120;
     color: white;
     text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
     background-color: rgba(255, 255, 255, 0.7);
@@ -685,7 +695,7 @@ nav {
         background-color: rgba(255, 255, 255, 0.8);
         position: absolute;
         bottom: 0;
-        z-index: 1;
+        z-index: 120;
     }
     .descriptions__header {
         font-size: 1.5rem;
@@ -705,7 +715,7 @@ nav {
     .descriptions__text, .descriptions__text--reversed {
         background-color: transparent;
         position: relative;
-        z-index: 0;
+        z-index: 120;
     }
 }
 
@@ -785,6 +795,27 @@ nav {
 
 .fa {
     font-size: 26px;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    bottom: 0;
+    background-color: rgb(255, 141, 42);
+    margin: 0 auto;
+    width: 100%;
+    z-index: -1;
+}
+
+.footer__wrapper {
+    display: flex;
+    padding: 3vh;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 /* COOKIES */
@@ -898,7 +929,7 @@ nav {
 .scrollToTop {
     display: none;
     position: fixed;
-    right: 35px;
+    right: 25px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
