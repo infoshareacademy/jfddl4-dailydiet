@@ -163,6 +163,92 @@
 
         }
 
+        function makeSavingTable(){
+ 
+            var savingTable = document.createElement('div')
+            savingTable.style.position = 'absolute'
+            savingTable.style.top = '20vh'
+            savingTable.style.left = '5vw'
+            savingTable.style.width = '40vw'
+            savingTable.style.height = '30vh'
+            savingTable.style.background = 'orange'
+            savingTable.style.borderRadius = '5%'
+            savingTable.style.zIndex = '10000000'
+            savingTable.style.display = 'none'
+            var nickInput = document.createElement('input')
+            nickInput.setAttribute('type', 'text')
+            nickInput.setAttribute('placeholder', 'type your nick')
+            nickInput.style.fontSize = '4.5vh'
+            nickInput.style.color = 'green'
+            nickInput.style.width = '30vw'
+            nickInput.style.position = 'absolute'
+            nickInput.style.top = '45%'
+            nickInput.style.left = '5vw'
+            _nickInput = nickInput
+            var scorePlace = document.createElement('p')
+            scorePlace.innerText = 'Your score: ' 
+            scorePlace.style.position = 'absolute'
+            scorePlace.style.top = '5%'
+            scorePlace.style.left = '5vw'
+            scorePlace.style.fontSize = '4.5vh'
+            scorePlace.style.fontWeight = 'bold'
+            scorePlace.style.color = 'green'
+            scorePlace.style.fontFamily = 'sans-serif'
+            var saveButton = document.createElement('button')
+            // to pack in other function double code
+            saveButton.innerText = 'Save'
+            saveButton.style.position = 'absolute'
+            saveButton.style.top = '75%'
+            saveButton.style.left = '5vw'
+            saveButton.style.border = '2px solid green'
+            saveButton.style.borderRadius = '5px'
+            saveButton.style.fontSize = '4.5vh'
+            saveButton.style.color = 'green'
+            saveButton.style.fontWeight = 'bold'
+            saveButton.addEventListener('click', function(){
+                _nick = _nickInput.value
+                localStorage.setItem(_nickInput.value, _score);
+                savingTable.style.display = 'none'
+                setHighScore()
+                clearScoreTable()
+            })
+
+            var cancelButton = document.createElement('button')
+
+            cancelButton.innerText = 'Cancel'
+            cancelButton.style.position = 'absolute'
+            cancelButton.style.top = '75%'
+            cancelButton.style.left = '15vw'
+            cancelButton.style.border = '2px solid green'
+            cancelButton.style.borderRadius = '5px'
+            cancelButton.style.fontSize = '4.5vh'
+            cancelButton.style.color = 'green'
+            cancelButton.style.fontWeight = 'bold'
+            cancelButton.addEventListener('click', function(){
+
+                savingTable.style.display = 'none'  
+
+            })
+           
+            // saveButton.classList.add('savingTable-button')
+            // cancelButton.classList.add('savingTable-button')
+            // savingTableButton.forEach(function(el){
+
+            //     el.style.position = 'absolute'
+            //     el.style.border = '2px solid green'
+            //     el.style.borderRadius = '8px'
+            //     el.style.top = '50%'
+            // })
+
+            savingTable.appendChild(cancelButton)
+            savingTable.appendChild(saveButton)
+            savingTable.appendChild(scorePlace)
+            savingTable.appendChild(nickInput)
+            _scorePlace = scorePlace
+            _savingTable = savingTable
+            _gameBoard.appendChild(savingTable)
+        }
+
 
 
 
