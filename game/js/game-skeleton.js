@@ -119,6 +119,29 @@
 
 
 
+         
+        function makeMainRankingTable(){
+ 
+            var mainRankingTable = document.createElement('div')
+            mainRankingTable.style.position = 'absolute'
+            mainRankingTable.style.top = '20.5vh'
+            mainRankingTable.style.left = '12.5vw'  
+            mainRankingTable.style.height = '45vh'
+            mainRankingTable.style.width = '25vw'
+            mainRankingTable.style.background = 'rgba(255,255,255,0.8)'
+            mainRankingTable.style.zIndex = '100000'
+            mainRankingTable.style.border = '3px gray solid'
+            mainRankingTable.style.borderRadius = '1%'
+            mainRankingTable.style.display = 'none'
+            _mainRankingTable = mainRankingTable
+            makeMainRankingButton()
+            _gameBoard.appendChild(mainRankingTable)
+           
+           
+
+        }
+
+
 
 
 
