@@ -131,7 +131,7 @@
 
         function renderHighScoreTable() {
 
-            if (localStorage.getItem('highscore') === null) _highScoreTable.innerText = 'high score: ' + _highScore
+            if (localStorage.getItem('highscore') === null) _highScoreTable.innerText = 'HIGH\n' + 'SCORE:\n' + _highScore
             else _highScoreTable.innerText = 'HIGH\n' + 'SCORE:\n' + localStorage.getItem('highscore')
         }
 
