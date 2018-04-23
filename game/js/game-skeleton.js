@@ -19,6 +19,7 @@
     var _scorePlace = null
     var _nickInput = null
     var _highScoreTable = null
+    var _highScoreLine = null
 
     // Create obstacle
     var _obstacle = null
@@ -69,7 +70,7 @@
         makeSavingTable()
         makeScoreTable()
         makeHighScoreTable()
-        makeMainRankingTable()
+        // makeMainRankingTable()
         drawFloor()
         drawBackground()
     }
@@ -87,7 +88,7 @@
         scoreTable.style.fontFamily = 'sans-serif'
         scoreTable.style.fontWeight = 'bold'
 
-        makeRankingButton()
+        // makeRankingButton()
 
         _scoreTable = scoreTable
 
@@ -97,75 +98,75 @@
     }
 
 
-    function makeRankingButton() {
+    // function makeRankingButton() {
 
-        var rankingButton = document.createElement('button')
-        rankingButton.textContent = 'Ranking'
-        rankingButton.style.fontWeight = 'bold'
-        rankingButton.style.fontSize = _gameBoard.offsetWidth * 0.01
-        rankingButton.style.width = _gameBoard.offsetWidth * 0.03
-        rankingButton.style.color = 'green'
-        rankingButton.style.border = 'solid 2px green'
-        rankingButton.style.borderRadius = '8px'
-        rankingButton.style.position = 'absolute'
-        rankingButton.style.top = '18.5%'
-        rankingButton.style.left = '3.2%'
-        rankingButton.style.zIndex = '100'
-        _gameBoard.appendChild(rankingButton)
+    //     var rankingButton = document.createElement('button')
+    //     rankingButton.textContent = 'Ranking'
+    //     rankingButton.style.fontWeight = 'bold'
+    //     rankingButton.style.fontSize = _gameBoard.offsetWidth * 0.01
+    //     rankingButton.style.width = _gameBoard.offsetWidth * 0.03
+    //     rankingButton.style.color = 'green'
+    //     rankingButton.style.border = 'solid 2px green'
+    //     rankingButton.style.borderRadius = '8px'
+    //     rankingButton.style.position = 'absolute'
+    //     rankingButton.style.top = '18.5%'
+    //     rankingButton.style.left = '3.2%'
+    //     rankingButton.style.zIndex = '100'
+    //     _gameBoard.appendChild(rankingButton)
 
-        rankingButton.addEventListener('click', function () {
-            if (_mainRankingTable.style.display === 'none') _mainRankingTable.style.display = 'block'
-            else _mainRankingTable.style.display = 'none'
+    //     rankingButton.addEventListener('click', function () {
+    //         if (_mainRankingTable.style.display === 'none') _mainRankingTable.style.display = 'block'
+    //         else _mainRankingTable.style.display = 'none'
 
-        })
-    }
-
-
-    function makeMainRankingButton() {
-
-        var mainRankingButton = document.createElement('button')
-        mainRankingButton.textContent = 'Return'
-        mainRankingButton.style.position = 'absolute'
-        mainRankingButton.style.fontWeight = 'bold'
-        mainRankingButton.style.color = 'green'
-        mainRankingButton.style.border = 'solid 2px green'
-        mainRankingButton.style.borderRadius = '8px'
-        mainRankingButton.style.left = '35%'
-        mainRankingButton.style.fontSize = '200%'
-        mainRankingButton.style.top = '85.5%'
-        mainRankingButton.style.zIndex = '100000'
-        _mainRankingButton = mainRankingButton
-        _mainRankingButton.addEventListener('click', function () {
-            _mainRankingTable.style.display = 'none'
-        })
-        _mainRankingTable.appendChild(_mainRankingButton)
+    //     })
+    // }
 
 
-    }
+    // function makeMainRankingButton() {
+
+    //     var mainRankingButton = document.createElement('button')
+    //     mainRankingButton.textContent = 'Return'
+    //     mainRankingButton.style.position = 'absolute'
+    //     mainRankingButton.style.fontWeight = 'bold'
+    //     mainRankingButton.style.color = 'green'
+    //     mainRankingButton.style.border = 'solid 2px green'
+    //     mainRankingButton.style.borderRadius = '8px'
+    //     mainRankingButton.style.left = '35%'
+    //     mainRankingButton.style.fontSize = '200%'
+    //     mainRankingButton.style.top = '85.5%'
+    //     mainRankingButton.style.zIndex = '100000'
+    //     _mainRankingButton = mainRankingButton
+    //     _mainRankingButton.addEventListener('click', function () {
+    //         _mainRankingTable.style.display = 'none'
+    //     })
+    //     _mainRankingTable.appendChild(_mainRankingButton)
 
 
-
-    function makeMainRankingTable() {
-
-        var mainRankingTable = document.createElement('div')
-        mainRankingTable.style.position = 'absolute'
-        mainRankingTable.style.top = '20.5vh'
-        mainRankingTable.style.left = '12.5vw'
-        mainRankingTable.style.height = '45vh'
-        mainRankingTable.style.width = '25vw'
-        mainRankingTable.style.background = 'rgba(255,255,255,0.8)'
-        mainRankingTable.style.zIndex = '100000'
-        mainRankingTable.style.border = '3px gray solid'
-        mainRankingTable.style.borderRadius = '1%'
-        mainRankingTable.style.display = 'none'
-        _mainRankingTable = mainRankingTable
-        makeHighScoreLine()
-        makeMainRankingButton()
-        _gameBoard.appendChild(mainRankingTable)
+    // }
 
 
 
-    }
+    // function makeMainRankingTable() {
+
+    //     var mainRankingTable = document.createElement('div')
+    //     mainRankingTable.style.position = 'absolute'
+    //     mainRankingTable.style.top = '25.5vh'
+    //     mainRankingTable.style.left = '12.5vw'
+    //     mainRankingTable.style.height = '35vh'
+    //     mainRankingTable.style.width = '25vw'
+    //     mainRankingTable.style.background = 'rgba(255,255,255,0.8)'
+    //     mainRankingTable.style.zIndex = '100000'
+    //     mainRankingTable.style.border = '3px gray solid'
+    //     mainRankingTable.style.borderRadius = '1%'
+    //     mainRankingTable.style.display = 'none'
+    //     _mainRankingTable = mainRankingTable
+    //     makeHighScoreLine()
+    //     makeMainRankingButton()
+    //     _gameBoard.appendChild(mainRankingTable)
+
+
+
+    // }
 
     function makeSavingTable() {
 
@@ -215,7 +216,9 @@
             savingTable.style.display = 'none'
             setHighScore()
             renderHighScoreTable()
+            renderHighScoreLine()
             clearScoreTable()
+            window.location = ''
         })
 
         var cancelButton = document.createElement('button')
@@ -230,9 +233,9 @@
         cancelButton.style.color = 'green'
         cancelButton.style.fontWeight = 'bold'
         cancelButton.addEventListener('click', function () {
-
+            
             savingTable.style.display = 'none'
-
+            window.location = ''
         })
 
         // saveButton.classList.add('savingTable-button')
@@ -267,23 +270,27 @@
 
         var mainRankingLine = document.createElement('div')
         mainRankingLine.innerText = _score
-
+        mainRankingLine.style.color = 'green'
+        mainRankingLine.style.fontSize = '2vw'
+        
     }
+
     function makeHighScoreLine(){
 
         var highScoreLine = document.createElement('div')
         highScoreLine.style.position = 'absolute'
         highScoreLine.innerText = localStorage.getItem('highscore')
+        highScoreLine.style.top = 
+        _highScoreLine = highScoreLine
         _mainRankingTable.appendChild(highScoreLine)
 
     }
+    function renderHighScoreLine(){
 
-    
-    function deleteLastRankingLine() {
-
-
+        _highScoreLine.innerText = localStorage.getItem('highscore')
 
     }
+
 
 
 
@@ -294,27 +301,19 @@
         _scoreTable.innerText = "score: " + _score + '\nlives: ' + _lifes
 
     }
-    function renderHighScoreTable() {
+   
 
-        if (localStorage.getItem('highscore') === null) _highScoreTable.innerText = 'high score: ' + _highScore
-        else _highScoreTable.innerText = 'high score: ' + localStorage.getItem('highscore')
-    }
-
-    function renderLifes() {
-        _scoreTable
-
-    }
     function clearScoreTable() {
 
         _score = 0
         renderScore()
     }
 
-    function setFistHighScore() {
+    // function setFistHighScore() {
 
-        localStorage.setItem('highscore', 0)
+    //     localStorage.setItem('highscore', 0)
 
-    }
+    // }
 
 
 
@@ -324,17 +323,26 @@
         var highScore = document.createElement('div')
         highScore.innerText = localStorage.getItem('highscore')
         highScore.style.fontFamily = 'sans-serif'
-        highScore.style.fontSize = '18px'
+        highScore.style.fontSize = '1.2vw'
         highScore.style.color = 'green'
         highScore.style.position = 'absolute'
-        highScore.style.left = '40vw'
-        highScore.style.top = '3vh'
+        highScore.style.left = '41.5vw'
+        highScore.style.fontWeight = 'bold'
+        highScore.style.textAlign = 'center'
+        highScore.style.top = '3.5vw'
         highScore.style.zIndex = '1000000'
-        highScore.innerText = localStorage.getItem('highscore')
         _highScoreTable = highScore
         renderHighScoreTable()
         _gameBoard.appendChild(highScore)
     }
+
+
+    function renderHighScoreTable() {
+
+        if (localStorage.getItem('highscore') === null) _highScoreTable.innerText = 'high score: ' + _highScore
+        else _highScoreTable.innerText = 'high score\n' + localStorage.getItem('highscore')
+    }
+
 
     function setHighScore() {
 
@@ -569,7 +577,7 @@
         // Szymon byłem tu
         clearAllIntervals()
         // if (confirm("You lose :( Your score is " + _score  + "! Do you want to play again?")) {
-        //     window.location = ''
+        //     
         // } else {
         //     clearAllIntervals()
         // }
