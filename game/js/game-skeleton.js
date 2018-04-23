@@ -252,6 +252,68 @@
     }
 
 
+ 
+    function showSavingTable(){
+        _scorePlace.innerText += _score
+        _savingTable.style.display = 'block'
+
+    }
+
+
+    function makeNextRankingLine(){
+
+        var mainRankingLine = document.createElement('div')
+        mainRankingLine.innerText = _score
+
+    }
+    function deleteLastRankingLine(){
+
+
+
+    }
+
+  
+
+
+    function renderScore(){
+
+        _scoreTable.innerText = " "
+        _scoreTable.innerText ="score: " +  _score + '\nlifes: ' + _lifes
+
+    }
+
+    function renderLifes(){
+        _scoreTable
+
+    }
+    function clearScoreTable(){
+
+        _score = 0
+        renderScore()
+    }
+
+    function setFistHighScore(){
+
+        localStorage.setItem('highscore', 0)
+
+    }
+
+    function setHighScore(){
+
+
+
+        if(localStorage.getItem('highscore') < _score){
+
+
+            localStorage.removeItem('highscore')
+            localStorage.setItem('highscore', _score)
+
+        }
+
+
+    }
+
+
 
 
 
