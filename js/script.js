@@ -101,9 +101,24 @@ changeButtonPosition()
 //--- / BACK TO TOP BUTTON ---
 
 
-//END FORM MODAL
+//FORM MODAL
 
-$("form").on('submit', function(){
-    window.location.href("instructions.html")
-})
+var modal = document.querySelector(".form__modal");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".form__close-button");
+
+function toggleModal() {
+    modal.classList.toggle("form__show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
 
