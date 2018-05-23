@@ -25,7 +25,7 @@ p {
     margin: 16px 0 16px 0;
 }
 
-a, a:hover {
+a, a:hover, a:visited {
     text-decoration: none;
     color: inherit;
     text-underline: none;
@@ -382,8 +382,8 @@ nav {
     font-size: 1em;
 }
 
-a:not([href]):not([tabindex]) {
-     color: white;
+a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]) {
+    color: white;
     text-decoration: none;
 }
 
