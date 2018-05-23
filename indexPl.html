@@ -224,53 +224,32 @@
         <div class="row justify-content-center form__conainer__row">
             <div>
                 <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
-                    <p class="form__paragraph">Dowiedz się gdy aplikacja Daily Diet będzie gotowa.</p>
-                    <input type="text" name="emails[]" placeholder="Wpisz swój e-mail" required
+                    <p class="form__paragraph">Dowiedz się gdy aplikacja będzie gotowa</p>
+                    <input type="text" name="emails[]" placeholder="wpisz adres email" required
                            class="form__placeholder">
                     <input type="hidden" name="subject" value="Daily Diet subscription">
-                    <input type="hidden" name="message" value="Zapipsałeś się do Daily Diet. W oczekiwaniu na aplikację zagraj w grę: http://www.dailydiet.jfddl4.is-academy.pl/game/game.html">
+                    <input type="hidden" name="message"
+                           value="You have subscribed to Daily Diet. While waiting play our game at http://www.dailydiet.jfddl4.is-academy.pl/game/game.html">
                     <input type="hidden" name="from" value="daily@diet.com">
                     <input type="hidden" name="fromName" value="Daily Diet">
                     <input type="hidden" name="redirect"
-                           value="http://www.dailydiet.jfddl4.is-academy.pl/instructionsPl.html">
+                           value="http://www.dailydiet.jfddl4.is-academy.pl/instructions.html">
                     <input class="btn form__btn" type="submit" value="Zapisz!">
                     <div class="row justify-content-center">
-                        <label><input class="form__checkbox-style" type="checkbox" required>Zgadzam się na otrzymanie
-                            informacji o uruchomieniu aplikacji Daily Diet.</label>&nbsp &nbsp
+                        <label><input class="form__checkbox-style" type="checkbox" required>
+                            zgadzam się na otrzymanie informacji o uruchomieniu aplikacji DailyDiet.</label>
+                    </div>
 
-                        <a class="form__link-for-more" data-toggle="modal" data-target="#form__Modal">Kliknij po
-                            więcej.</a>
-
-                        <!--Modal with info for user-->
-                        <div class="modal fade" id="form__Modal" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title form__modal__title" id="form__modal__header">
-                                            Security</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Otrzymasz jedną wiadomość informującą o uruchomieniu aplikacji Daily Diet.
-                                    </div>
-                                    <div class="modal-footer">
-                                        <p class="modal__paragraph">Zapewniamy, że serwis Daily Diet jest chroniony
-                                            przez najbardziej
-                                            zaawansowane struktury zapewniające bezpieczeństwo danych.</p>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    <a class="trigger btn form__btn">Kliknij po więcej info</a>
+                    <div class="form__modal">
+                        <div class="form__modal-content">
+                            <span class="form__close-button">&times;</span>
+                            <h3>Otrzymasz wiadmość gdy aplikacja będzie gotowa</h3>
+                            <p>Bezpieczeństwo użytkowników DailyDiet jest zapewnione za światowej klasy systemy.</p>
                         </div>
-                        <!---->
-
                     </div>
                 </form>
             </div>
-
         </div>
     </section>
     <!-- /FORM -->
@@ -337,8 +316,8 @@
             <ul class="team__list">
                 <li class="team__list-member team_szymon">
                     <img src="img/Szymon_Oleszek.jpg"
-                         alt="zdjęcie Szymona"
-                         title="Designed_by_javi_indi at freepik.com"
+                         alt="Szymon"
+                         title="Szymon"
                          class="team__member-picture team__szymon"><br><br>
                     <h3 class="team__member__name">Szymon Oleszek</h3>
                     <a target='_blank' href="https://www.facebook.com/piotr.kowalski.79656"><i
@@ -349,8 +328,8 @@
                 </li>
                 <li class="team__list-member team_magda">
                     <img src="img/Wojcicka_Magda.jpg"
-                         alt="zdjęcie Magdy"
-                         title="Designed_by_nensuria at freepik.com"
+                         alt="Magda"
+                         title="Magda"
                          class="team__member-picture team__magda"><br><br>
                     <h3 class="team__member__name">Magda Wójcicka</h3>
                     <a target='_blank' href="https://www.facebook.com/magda.wojcicka1"><i
@@ -362,7 +341,7 @@
                 </li>
                 <li class="team__list-member team_bartek">
                     <img src="img/Bartosz_Wojtaleiwcz.jpg"
-                         alt="zdjęcie Bartka"
+                         alt="Bartek"
                          title="Bartek"
                          class="team__member-picture team__bartek"><br><br>
                     <h3 class="team__member__name">Bartosz Wojtalewicz</h3>

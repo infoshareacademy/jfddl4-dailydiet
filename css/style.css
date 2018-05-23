@@ -382,7 +382,7 @@ nav {
     font-size: 1em;
 }
 
-a:not([href]):not([tabindex]) {
+a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):hover {
      color: white;
     text-decoration: none;
 }
