@@ -8,7 +8,7 @@ body {
     margin: 0 auto;
 }
 
-.main-wrapper {
+.main-wrapper{
     position: relative;
     z-index: 0;
     background-color: #fff;
@@ -382,8 +382,8 @@ nav {
     font-size: 1em;
 }
 
-a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]) {
-    color: white;
+a:not([href]):not([tabindex]) {
+     color: white;
     text-decoration: none;
 }
 
