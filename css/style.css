@@ -8,7 +8,7 @@ body {
     margin: 0 auto;
 }
 
-.main-wrapper {
+.main-wrapper{
     position: relative;
     z-index: 0;
     background-color: #fff;
@@ -56,6 +56,8 @@ nav {
     display: flex;
     align-items: center;
 }
+
+
 
 .nav-logo {
     box-sizing: border-box;
@@ -141,38 +143,31 @@ nav {
         max-height: 100%;
         position: fixed;
     }
-
     .toggle {
         display: block;
         cursor: pointer;
     }
-
     .nav {
         flex-direction: column;
     }
-
     .nav-logo__pic {
         display: none;
     }
-
     .nav-logo {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
     .nav-list {
         display: none;
         width: 100%;
         height: 100%;
     }
-
     .nav-list__item {
         display: block;
         font-size: 30px;
     }
-
     .active {
         display: block;
     }
@@ -302,7 +297,6 @@ nav {
         justify-content: space-between;
         bottom: 16px;
     }
-
     .social-media__title {
         display: none;
     }
@@ -382,59 +376,21 @@ nav {
     font-size: 1em;
 }
 
-a:not([href]):not([tabindex]) {
-     color: white;
-    text-decoration: none;
-}
-
 .form__checkbox-style {
     width: 30px;
     padding-top: 2em;
 }
 
-.form__modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    z-index: 200;
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+.form__link-for-more {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
-.form__modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 1rem 1.5rem;
-    width: 90%;
-    border-radius: 0.5rem;
-}
-
-.form__close-button {
-    float: right;
-    width: 1.5rem;
-    text-align: center;
+.form__link-for-more:hover {
     cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
 }
-
-.form__close-button:hover {
-    background-color: darkgray;
-}
-
-.form__show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+.modal__paragraph{
+    text-align: justify;
 }
 
 .instructions {
@@ -464,13 +420,13 @@ a:not([href]):not([tabindex]) {
     cursor: pointer;
 }
 
-.instructions__h1 {
+.instructions__h1{
     text-align: center;
     font-size: 2em;
     color: darkgreen;
 }
 
-.instructions__h3 {
+.instructions__h3{
     text-align: center;
     font-size: 1.5em;
 }
@@ -493,17 +449,15 @@ a:not([href]):not([tabindex]) {
     text-align: center;
     padding: 0.5em;
 }
-
-.instructions__ul {
+.instructions__ul{
     padding: 0;
 }
-
 .instructions__li {
     list-style-type: none;
     padding-bottom: 0.5em;
 }
 
-.arrows-pic {
+.arrows-pic{
     max-width: 100%;
 }
 
@@ -609,7 +563,6 @@ a:not([href]):not([tabindex]) {
     .features__list-element {
         max-width: 100%;
     }
-
     .feature__list-logo {
         width: 150px;
     }
@@ -652,7 +605,6 @@ a:not([href]):not([tabindex]) {
     .quotation {
         padding: 2em 0;
     }
-
     .quotation__container {
         min-width: 0;
         width: 100%;
@@ -739,35 +691,28 @@ a:not([href]):not([tabindex]) {
     .descriptions {
         padding: 0;
     }
-
     .image-order-right {
         order: -1;
     }
-
     .descriptions__content {
         position: relative;
         flex-flow: row wrap;
     }
-
     .descriptions__text, .descriptions__text--reversed {
         background-color: rgba(255, 255, 255, 0.8);
         position: absolute;
         bottom: 0;
         z-index: 120;
     }
-
     .descriptions__header {
         font-size: 1.5rem;
     }
-
     .description {
         font-size: 0.9em;
     }
-
     .descriptions__image {
         width: 100%;
     }
-
     .image {
         width: 100%;
     }
@@ -950,15 +895,12 @@ footer {
         margin-left: 1rem;
         width: calc(100% - 170px - 3rem);
     }
-
     .cookies__button {
         margin: 0 1rem;
     }
-
     .cookie--close {
         top: 65%;
     }
-
     .cookie__img {
         top: 71%;
     }
@@ -968,7 +910,6 @@ footer {
     .cookies__paragraph {
         font-size: 0.8rem;
     }
-
     .cookies__header {
         font-size: 1rem;
     }
@@ -978,15 +919,12 @@ footer {
     .cookies__description {
         width: calc(100% - 150px - 3rem);
     }
-
     .cookie--close {
         top: 74%;
     }
-
     .cookies__button {
         width: 150px;
     }
-
     .cookie__img {
         max-width: 100px;
         top: 80%;
@@ -1016,7 +954,6 @@ footer {
         bottom: 20px;
         right: 25px;
     }
-
     .to-top__image {
         width: 50px;
         height: 50px;

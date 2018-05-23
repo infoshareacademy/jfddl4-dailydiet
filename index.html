@@ -27,16 +27,12 @@
             <span class="toggle menu">&#9776;</span>
         </div>
         <ul class="nav-list">
-            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#features">Features</a>
-            </li>
-            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#descriptions">More</a>
-            </li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#features">Features</a></li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#descriptions">More</a></li>
             <!--<li class="nav-list__item"><a class="smooth-scroll" href="#">Contact</a></li>-->
             <!--<li class="nav-list__item"><a class="smooth-scroll" href="#">App</a></li>-->
-            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll"
-                                                                           href="#form">Subscribe</a></li>
-            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#team">Team</a>
-            </li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#form">Subscribe</a></li>
+            <li class="nav-list__item border--draw flag nav--narrowing"><a class="smooth-scroll" href="#team">Team</a></li>
             <li class="nav-list__item border--draw flag nav--narrowing"><a href="indexPl.html">Pl</a></li>
         </ul>
     </div>
@@ -229,40 +225,58 @@
         </section>
         <!-- /DESCRIPTIONS -->
 
-        <!-- FORM -->
-        <section id="form" class="main-section form__container col-12">
-            <div class="row justify-content-center form__conainer__row">
-                <div>
-                    <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
-                        <p class="form__paragraph">Get notified when Daily Diet is ready for use</p>
-                        <input type="text" name="emails[]" placeholder="Enter your e-mail" required
-                               class="form__placeholder">
-                        <input type="hidden" name="subject" value="Daily Diet subscription">
-                        <input type="hidden" name="message"
-                               value="You have subscribed to Daily Diet. While waiting play our game at http://www.dailydiet.jfddl4.is-academy.pl/game/game.html">
-                        <input type="hidden" name="from" value="daily@diet.com">
-                        <input type="hidden" name="fromName" value="Daily Diet">
-                        <input type="hidden" name="redirect"
-                               value="http://www.dailydiet.jfddl4.is-academy.pl/instructions.html">
-                        <input class="btn form__btn" type="submit" value="Send!">
-                        <div class="row justify-content-center">
-                            <label><input class="form__checkbox-style" type="checkbox" required>I agree to receive a
-                                message
-                                about Daily Diet app release.</label>&nbsp &nbsp
-                        </div>
+    <!-- FORM -->
+    <section id="form" class="main-section form__container col-12">
+        <div class="row justify-content-center form__conainer__row">
+            <div>
+                <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
+                    <p class="form__paragraph">Get notified when Daily Diet is ready for use</p>
+                    <input type="text" name="emails[]" placeholder="Enter your e-mail" required
+                           class="form__placeholder">
+                    <input type="hidden" name="subject" value="Daily Diet subscription">
+                    <input type="hidden" name="message"
+                           value="You have subscribed to Daily Diet. While waiting play our game at http://www.dailydiet.jfddl4.is-academy.pl/game/game.html">
+                    <input type="hidden" name="from" value="daily@diet.com">
+                    <input type="hidden" name="fromName" value="Daily Diet">
+                    <input type="hidden" name="redirect" value="http://www.dailydiet.jfddl4.is-academy.pl/instructions.html">
+                    <input class="btn form__btn" type="submit" value="Send!">
+                    <div class="row justify-content-center">
+                        <label><input class="form__checkbox-style" type="checkbox" required>I agree to receive a message
+                            about Daily Diet app release.</label>&nbsp &nbsp
 
-                        <a class="trigger btn form__btn">Click here for more info!</a>
-                        <div class="form__modal">
-                            <div class="form__modal-content">
-                                <span class="form__close-button">&times;</span>
-                                <h3>You will be notified when our app is ready for use!</h3>
-                                <p>We make sure that Daily Diet services are protected by one of the world’s
-                                    most advanced security
-                                    infrastructures.</p>
+                            <a class="form__link-for-more" data-toggle="modal" data-target="#form__Modal">Click for
+                                more.</a>
+
+                            <!--Modal with info for user-->
+                            <div class="modal fade" id="form__Modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title form__modal__title" id="form__modal__header">
+                                                Security</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            You will be notified when our app is ready for use.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <p>We make sure that Daily Diet services are protected by one of the world’s
+                                                most advanced security
+                                                infrastructures.</p>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <!---->
+
                         </div>
                     </form>
                 </div>
+
             </div>
         </section>
         <!-- /FORM -->
